@@ -1,6 +1,6 @@
 import { GAME_DATA } from './game_data.js';
 
-const STORAGE_KEY = 'meridiano_borrado_state_v1';
+const STORAGE_KEY = 'agencia_x_praga_cero_v1';
 
 // ============================================================================
 // UTILIDADES: NORMALIZACIÓN, BASE64 UTF-8 Y SHA-256 PURO (HTTP / FILE / HTTPS)
@@ -365,10 +365,10 @@ function switchTab(tab) {
 
 function renderActsRail() {
   const acts = [
-    { num: 1, label: 'Acto I · Sobre 1', sub: 'Precinto', ids: ['e1', 'e2', 'e3'] },
-    { num: 2, label: 'Acto II · Sobre 2', sub: 'Tormenta (A∥B)', ids: ['e4', 'e5', 'e6'] },
-    { num: 3, label: 'Acto III · Sobre 3', sub: 'Mareas (A∥B)', ids: ['e7', 'e8', 'e9'] },
-    { num: 4, label: 'Acto IV · Sobre 4', sub: 'Exp. Negro', ids: ['e10', 'e11'] },
+    { num: 1, label: 'Acto I · Sobre 1', sub: 'Estación PRG', ids: ['e1', 'e2', 'e3'] },
+    { num: 2, label: 'Acto II · Sobre 2', sub: 'Moldava (A∥B)', ids: ['e4', 'e5', 'e6'] },
+    { num: 3, label: 'Acto III · Sobre 3', sub: 'Praga (A∥B)', ids: ['e7', 'e8', 'e9'] },
+    { num: 4, label: 'Acto IV · Sobre 4', sub: 'Bóveda Cero', ids: ['e10', 'e11'] },
     { num: 5, label: 'Meta-Puzle Final', sub: '4 Sobres', ids: ['e12'] },
   ];
 
@@ -442,14 +442,14 @@ function buildPuzzleCard(p) {
   card.appendChild(feedback);
 
   const jumpMap = {
-    e2: ['archive', 'Abrir Terminal de Archivo'],
-    e3: ['archive', 'Abrir Terminal de Archivo'],
+    e2: ['archive', 'Abrir Terminal Seguro'],
+    e3: ['archive', 'Abrir Terminal Seguro'],
     e5: ['radio', 'Abrir Receptor de Radiobaliza'],
-    e6: ['archive', 'Abrir Terminal de Archivo'],
-    e7: ['archive', 'Abrir Terminal de Archivo'],
-    e8: ['archive', 'Abrir Terminal de Archivo'],
-    e9: ['nautical', 'Abrir Carta Náutica'],
-    e10: ['archive', 'Abrir Terminal de Archivo'],
+    e6: ['archive', 'Abrir Terminal Seguro'],
+    e7: ['archive', 'Abrir Terminal Seguro'],
+    e8: ['archive', 'Abrir Terminal Seguro'],
+    e9: ['nautical', 'Abrir Mapa Táctico Praga'],
+    e10: ['archive', 'Abrir Terminal Seguro'],
     e11: ['relays', 'Abrir Consola de Relés'],
   };
   if (jumpMap[p.id] && !solved) {
@@ -860,10 +860,10 @@ function drawScopeFrame() {
   const ctx = canvas.getContext('2d');
   const w = canvas.width;
   const h = canvas.height;
-  ctx.fillStyle = '#081116';
+  ctx.fillStyle = '#050607';
   ctx.fillRect(0, 0, w, h);
 
-  ctx.strokeStyle = '#18323e';
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.14)';
   ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.moveTo(0, h / 2);
@@ -872,7 +872,7 @@ function drawScopeFrame() {
 
   const locked = isTargetFreq(currentRadioFreq());
   const now = performance.now() / 1000;
-  ctx.strokeStyle = locked && pulseLit ? '#5cc4b3' : locked ? '#d8a354' : '#536e82';
+  ctx.strokeStyle = locked && pulseLit ? '#ffb020' : locked ? '#ff2b3d' : '#8a9296';
   ctx.lineWidth = 2;
   ctx.beginPath();
   for (let x = 0; x < w; x++) {
@@ -959,19 +959,24 @@ function renderNauticalChart() {
   const selectedCell = state.nautical.cell;
 
   let html = `
-    <rect x="0" y="0" width="480" height="420" fill="#091521"/>
-    <path d="M 40 28 L 438 28 L 438 118 C 392 110, 355 96, 304 96 C 248 96, 206 132, 160 176 C 118 214, 72 238, 40 282 Z" fill="#172836" stroke="#36536a" stroke-width="1.2"/>
-    <text x="115" y="72" font-family="Georgia, serif" font-size="13" fill="#7d9ab1" font-style="italic">Costa de Cabo Valdeira</text>
+    <rect x="0" y="0" width="480" height="420" fill="#050607"/>
+    <!-- Río Moldava atravesando Praga -->
+    <path d="M 162 412 C 165 340, 175 270, 210 218 C 248 162, 260 105, 290 36 L 342 36 C 312 108, 294 166, 256 225 C 222 278, 214 345, 212 412 Z" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+    <text x="275" y="138" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#8a9296" transform="rotate(-55 275 138)">RÍO MOLDAVA</text>
+    <!-- Puente de Carlos -->
+    <line x1="176" y1="204" x2="268" y2="210" stroke="#ffb020" stroke-opacity="0.55" stroke-width="3" stroke-dasharray="4 2"/>
+    <text x="148" y="198" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#ffb020" fill-opacity="0.8">Puente de Carlos</text>
+    <text x="72" y="72" font-family="'JetBrains Mono', monospace" font-size="11" fill="#8a9296">PRAGA · SECTOR CENTRO</text>
   `;
 
   // Cabeceras A–F y 1–6
   cols.forEach((c, ci) => {
     const cx = originX + ci * cellSize + cellSize / 2;
-    html += `<text x="${cx}" y="26" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="#d8a354">${c}</text>`;
+    html += `<text x="${cx}" y="26" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" fill="#ffb020">${c}</text>`;
   });
   rows.forEach((r, ri) => {
     const cy = originY + ri * cellSize + cellSize / 2 + 4;
-    html += `<text x="38" y="${cy}" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="#d8a354">${r}</text>`;
+    html += `<text x="38" y="${cy}" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" fill="#ffb020">${r}</text>`;
   });
 
   // Cuadrícula clicable
@@ -982,8 +987,8 @@ function renderNauticalChart() {
       const y = originY + ri * cellSize;
       const isSel = selectedCell === id;
       html += `
-        <rect class="nautical-cell ${isSel ? 'selected' : ''}" data-cell="${id}" x="${x}" y="${y}" width="${cellSize}" height="${cellSize}" fill="${isSel ? 'rgba(92,196,179,0.28)' : 'rgba(255,255,255,0.01)'}" stroke="#264056" stroke-width="1"/>
-        <text x="${x + 6}" y="${y + 15}" font-family="monospace" font-size="10" fill="#6f8da4" pointer-events="none">${id}</text>
+        <rect class="nautical-cell ${isSel ? 'selected' : ''}" data-cell="${id}" x="${x}" y="${y}" width="${cellSize}" height="${cellSize}" fill="${isSel ? 'rgba(255,176,32,0.22)' : 'rgba(255,255,255,0.01)'}" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        <text x="${x + 6}" y="${y + 15}" font-family="'JetBrains Mono', monospace" font-size="10" fill="#8a9296" pointer-events="none">${id}</text>
       `;
     });
   });
@@ -997,8 +1002,8 @@ function renderNauticalChart() {
   const bEndY = boya.y - Math.cos(bRad) * 520;
 
   html += `<g pointer-events="none">
-    <line x1="${faro.x}" y1="${faro.y}" x2="${fEndX.toFixed(1)}" y2="${fEndY.toFixed(1)}" stroke="#d8a354" stroke-width="2" stroke-dasharray="6 4"/>
-    <line x1="${boya.x}" y1="${boya.y}" x2="${bEndX.toFixed(1)}" y2="${bEndY.toFixed(1)}" stroke="#5cc4b3" stroke-width="2" stroke-dasharray="6 4"/>
+    <line x1="${faro.x}" y1="${faro.y}" x2="${fEndX.toFixed(1)}" y2="${fEndY.toFixed(1)}" stroke="#ffb020" stroke-width="2" stroke-dasharray="6 4"/>
+    <line x1="${boya.x}" y1="${boya.y}" x2="${bEndX.toFixed(1)}" y2="${bEndY.toFixed(1)}" stroke="#ff2b3d" stroke-width="2" stroke-dasharray="6 4"/>
   `;
 
   const cross = rayIntersection(faro, faroDeg, boya, boyaDeg);
@@ -1009,12 +1014,12 @@ function renderNauticalChart() {
     `;
   }
 
-  // Marcadores de Faro Norte y Boya Este
+  // Marcadores de Foco de Petřín y Baliza Orloj
   html += `
-    <circle cx="${faro.x}" cy="${faro.y}" r="6" fill="#d8a354" stroke="#091521" stroke-width="2"/>
-    <text x="${faro.x + 10}" y="${faro.y - 6}" font-family="monospace" font-size="11" font-weight="bold" fill="#f7d59c">F (Faro Norte)</text>
-    <polygon points="${boya.x},${boya.y - 7} ${boya.x + 7},${boya.y + 5} ${boya.x - 7},${boya.y + 5}" fill="#5cc4b3" stroke="#091521" stroke-width="1.5"/>
-    <text x="${boya.x - 10}" y="${boya.y + 18}" text-anchor="end" font-family="monospace" font-size="11" font-weight="bold" fill="#99e2d5">B (Boya Este)</text>
+    <circle cx="${faro.x}" cy="${faro.y}" r="6" fill="#ffb020" stroke="#090c10" stroke-width="2"/>
+    <text x="${faro.x + 10}" y="${faro.y - 6}" font-family="monospace" font-size="11" font-weight="bold" fill="#ffd480">F (Foco Petřín)</text>
+    <polygon points="${boya.x},${boya.y - 7} ${boya.x + 7},${boya.y + 5} ${boya.x - 7},${boya.y + 5}" fill="#ff2b3d" stroke="#090c10" stroke-width="1.5"/>
+    <text x="${boya.x - 10}" y="${boya.y + 18}" text-anchor="end" font-family="monospace" font-size="11" font-weight="bold" fill="#ff8e98">B (Baliza Orloj)</text>
   </g>`;
 
   svg.innerHTML = html;
@@ -1172,11 +1177,16 @@ function resetGame() {
 
 function wireEvents() {
   $('#btn-start').addEventListener('click', () => {
+    const flash = $('#flash');
+    if (flash) {
+      flash.classList.add('active');
+      setTimeout(() => flash.classList.remove('active'), 750);
+    }
     state.started = true;
     state.paused = false;
     state.elapsedBeforePauseMs = 0;
     state.lastResumeAt = Date.now();
-    appendJournal('Sesión iniciada', `Fer y Lucía abren el Sobre 1 (${GAME_DATA.meta.title}).`);
+    appendJournal('Protocolo activado', `Agentes F y L activan el protocolo (${GAME_DATA.meta.title}).`);
     saveState();
     renderAll();
   });
@@ -1260,7 +1270,7 @@ function wireEvents() {
     const ok = attemptSolvePuzzle('e9', candidate);
     if (ok) {
       fb.className = 'feedback-line ok';
-      fb.textContent = 'Triangulación verificada. Volved a la pestaña Expediente y Retos.';
+      fb.textContent = 'Triangulación verificada. Volved a la pestaña Misión y Retos.';
     } else {
       fb.className = 'feedback-line err';
       fb.textContent = 'Los rumbos o el cuadrante seleccionado no coinciden con la señal óptica.';
@@ -1282,7 +1292,7 @@ function wireEvents() {
     const ok = attemptSolvePuzzle('e11', code);
     if (ok) {
       fb.className = 'feedback-line ok';
-      fb.textContent = 'Bóveda Cero energizada. Meta-Puzle Final desbloqueado en Expediente y Retos.';
+      fb.textContent = 'Bóveda Cero energizada. Meta-Puzle Final desbloqueado en Misión y Retos.';
     } else {
       fb.className = 'feedback-line err';
       fb.textContent = 'Enclavamiento rechazado. Revisa las cuatro reglas de la Hoja 4B y la fase útil (Hoja 4C).';

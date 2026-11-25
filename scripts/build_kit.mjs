@@ -71,31 +71,31 @@ function renderPlateSealSvg(seal) {
   let shapeEl = '';
   if (seal.shape === '◎') {
     shapeEl = `
-      <circle cx="24" cy="24" r="14" fill="none" stroke="#8b261d" stroke-width="2.2"/>
-      <circle cx="24" cy="24" r="7.5" fill="none" stroke="#8b261d" stroke-width="2"/>
-      <circle cx="24" cy="24" r="2" fill="#8b261d"/>`;
+      <circle cx="24" cy="24" r="14" fill="none" stroke="#c81e2b" stroke-width="2.2"/>
+      <circle cx="24" cy="24" r="7.5" fill="none" stroke="#c81e2b" stroke-width="2"/>
+      <circle cx="24" cy="24" r="2" fill="#c81e2b"/>`;
   } else if (seal.shape === '◇') {
     shapeEl = `
-      <polygon points="24,8 40,24 24,40 8,24" fill="none" stroke="#184e77" stroke-width="2.2" stroke-dasharray="3.5 1.8"/>
-      <polygon points="24,14 34,24 24,34 14,24" fill="none" stroke="#184e77" stroke-width="1.3"/>`;
+      <polygon points="24,8 40,24 24,40 8,24" fill="none" stroke="#111317" stroke-width="2.2" stroke-dasharray="3.5 1.8"/>
+      <polygon points="24,14 34,24 24,34 14,24" fill="none" stroke="#111317" stroke-width="1.3"/>`;
   } else if (seal.shape === '△') {
     shapeEl = `
-      <polygon points="24,8 40,38 8,38" fill="none" stroke="#2d6a4f" stroke-width="2.2" stroke-dasharray="2.5 1.6"/>
-      <circle cx="24" cy="28" r="2.2" fill="#2d6a4f"/>`;
+      <polygon points="24,8 40,38 8,38" fill="none" stroke="#9a5b00" stroke-width="2.2" stroke-dasharray="2.5 1.6"/>
+      <circle cx="24" cy="28" r="2.2" fill="#9a5b00"/>`;
   } else if (seal.shape === '□') {
     shapeEl = `
-      <rect x="9" y="9" width="30" height="30" fill="none" stroke="#5a3921" stroke-width="2.2"/>
-      <rect x="14" y="14" width="20" height="20" fill="none" stroke="#5a3921" stroke-width="1.2"/>`;
+      <rect x="9" y="9" width="30" height="30" fill="none" stroke="#5a131a" stroke-width="2.2"/>
+      <rect x="14" y="14" width="20" height="20" fill="none" stroke="#5a131a" stroke-width="1.2"/>`;
   }
 
   return `
   <div class="plate-seal" data-seal-id="${seal.id}" data-seal-code="${seal.code}" data-seal-shape="${seal.shape}">
-    <svg width="64mm" height="19mm" viewBox="0 0 176 52" aria-label="Sello de Plancha ${seal.id}">
-      <rect x="1.5" y="1.5" width="173" height="49" rx="3" fill="#fcfaf4" stroke="#334155" stroke-width="1.2" stroke-dasharray="3 1.5"/>
+    <svg width="68mm" height="19.5mm" viewBox="0 0 188 52" aria-label="Sello de Plancha ${seal.id}">
+      <rect x="1.5" y="1.5" width="185" height="49" rx="2" fill="#fffdf9" stroke="#111317" stroke-width="1.1" stroke-dasharray="3 1.5"/>
       ${shapeEl}
-      <text x="48" y="18" font-family="'Courier New', monospace" font-size="8.4" font-weight="bold" fill="#1e293b">PLANCHA ${seal.id} · ${seal.meridian}</text>
-      <text x="48" y="30.5" font-family="'Courier New', monospace" font-size="9.6" font-weight="bold" fill="#8b261d">COD. ${seal.code}</text>
-      <text x="48" y="42.5" font-family="Georgia, serif" font-size="7" fill="#475569">Marca: ${seal.shape} (${seal.shapeName})</text>
+      <text x="48" y="18" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="8" font-weight="bold" fill="#111317">PLANCHA ${seal.id} · ${seal.meridian}</text>
+      <text x="48" y="30.5" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="9.5" font-weight="bold" fill="#c81e2b">COD. ${seal.code}</text>
+      <text x="48" y="42.5" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="6.6" fill="#5a626a">Marca: ${seal.shape} (${seal.shapeName})</text>
     </svg>
   </div>`;
 }
@@ -138,7 +138,7 @@ function renderCardanoBaseSvg() {
   return `
   <svg id="cardano-base-svg" width="${widthMm}mm" height="${heightMm}mm" viewBox="0 0 ${widthMm} ${heightMm}" xmlns="http://www.w3.org/2000/svg">
     <rect x="1" y="1" width="${widthMm - 2}" height="${heightMm - 2}" fill="#ffffff" stroke="#1e293b" stroke-width="0.7"/>
-    <text x="${widthMm / 2}" y="9" text-anchor="middle" font-family="'Courier New', monospace" font-size="4.2" font-weight="bold" fill="#334155">MATRIZ TELEGRÁFICA CVL-1989 (12×9)</text>
+    <text x="${widthMm / 2}" y="9" text-anchor="middle" font-family="'Courier New', monospace" font-size="4.2" font-weight="bold" fill="#334155">MATRIZ TELEGRÁFICA PRG-1989 (12×9)</text>
     ${regMarks.map(renderRegMark).join('')}
     <rect x="${originX}" y="${originY}" width="${cols * cellSize}" height="${rows * cellSize}" fill="none" stroke="#0f172a" stroke-width="0.9"/>
     ${cells.join('')}
@@ -195,64 +195,58 @@ function renderFoldInSvg() {
     .join('');
 
   const centerDistractors = [
-    { x: 76, y: 26, t: '18m' },
-    { x: 96, y: 38, t: '24m' },
-    { x: 74, y: 62, t: '31m' },
-    { x: 98, y: 78, t: '46m' },
-    { x: 78, y: 98, t: '52m' },
-    { x: 96, y: 124, t: '68m' },
-    { x: 75, y: 142, t: '89m' },
-    { x: 95, y: 164, t: '112m' },
+    { x: 76, y: 26, t: '186m' },
+    { x: 96, y: 38, t: '192m' },
+    { x: 74, y: 62, t: '204m' },
+    { x: 98, y: 78, t: '215m' },
+    { x: 78, y: 98, t: '228m' },
+    { x: 96, y: 124, t: '241m' },
+    { x: 75, y: 142, t: '264m' },
+    { x: 95, y: 164, t: '280m' },
   ]
     .map((d) => `<text x="${d.x}" y="${d.y}" font-family="'Courier New', monospace" font-size="3.8" fill="#64748b">${d.t}</text>`)
     .join('');
 
   const glyphPaths = [];
   for (const g of glyphs) {
-    for (const poly of g.left) {
+    const polyPathsLeft = g.left.map((poly) => {
       const pts = poly.map(([u, v]) => `${(foldAX + u).toFixed(2)},${(g.yOffset + v).toFixed(2)}`).join(' ');
-      glyphPaths.push(
-        `<polyline data-fold="left" data-char="${g.char}" points="${pts}" fill="none" stroke="#0f2942" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>`
-      );
-    }
-    for (const poly of g.right) {
+      return `<polyline data-fold="left" data-char="${g.char}" points="${pts}" fill="none" stroke="#111317" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>`;
+    });
+    const polyPathsRight = g.right.map((poly) => {
       const pts = poly.map(([u, v]) => `${(foldBX + u).toFixed(2)},${(g.yOffset + v).toFixed(2)}`).join(' ');
-      glyphPaths.push(
-        `<polyline data-fold="right" data-char="${g.char}" points="${pts}" fill="none" stroke="#0f2942" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>`
-      );
-    }
+      return `<polyline data-fold="right" data-char="${g.char}" points="${pts}" fill="none" stroke="#111317" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>`;
+    });
+    glyphPaths.push(...polyPathsLeft, ...polyPathsRight);
   }
 
-  // Trazos batimétricos decorativos en los bordes exteriores para camuflar visualmente antes del pliegue
   const outerCamo = `
-    <path d="M 12 25 L 36 25 M 12 55 L 38 55 M 12 85 L 34 85 M 12 115 L 36 115 M 12 145 L 35 145" stroke="#cbd5e1" stroke-width="0.6"/>
-    <path d="M 140 25 L 164 25 M 140 55 L 164 55 M 140 85 L 164 85 M 140 115 L 164 115 M 140 145 L 164 145" stroke="#cbd5e1" stroke-width="0.6"/>
-    <text x="10" y="15" font-family="'Courier New', monospace" font-size="3.6" fill="#475569">SECTOR NW-4</text>
-    <text x="166" y="15" text-anchor="end" font-family="'Courier New', monospace" font-size="3.6" fill="#475569">VERIL 120m</text>
-    <text x="10" y="178.5" font-family="'Courier New', monospace" font-size="3.4" fill="#475569">BATIMETRÍA VALDEIRA</text>
-    <text x="166" y="178.5" text-anchor="end" font-family="'Courier New', monospace" font-size="3.4" fill="#475569">ESC. 1:25.000</text>
+    <path d="M 12 25 L 36 25 M 12 55 L 38 55 M 12 85 L 34 85 M 12 115 L 36 115 M 12 145 L 35 145" stroke="#d1d5db" stroke-width="0.6"/>
+    <path d="M 140 25 L 164 25 M 140 55 L 164 55 M 140 85 L 164 85 M 140 115 L 164 115 M 140 145 L 164 145" stroke="#d1d5db" stroke-width="0.6"/>
+    <text x="10" y="15" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="3.5" fill="#5a626a">RÍO MOLDAVA</text>
+    <text x="166" y="15" text-anchor="end" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="3.5" fill="#5a626a">COTA 186m</text>
+    <text x="10" y="178.5" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="3.3" fill="#5a626a">PLANO TÁCTICO PRAGA</text>
+    <text x="166" y="178.5" text-anchor="end" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="3.3" fill="#5a626a">ESC. 1:10.000</text>
   `;
 
   return `
   <svg id="fold-in-svg" width="${widthMm}mm" height="${heightMm}mm" viewBox="0 0 ${widthMm} ${heightMm}" xmlns="http://www.w3.org/2000/svg">
-    <rect x="1" y="1" width="${widthMm - 2}" height="${heightMm - 2}" fill="#fcfbf7" stroke="#1e293b" stroke-width="0.8"/>
-    <rect x="6" y="10" width="${widthMm - 12}" height="${heightMm - 20}" fill="#f5f8fb" stroke="#64748b" stroke-width="0.5"/>
+    <rect x="1" y="1" width="${widthMm - 2}" height="${heightMm - 2}" fill="#ffffff" stroke="#111317" stroke-width="0.8"/>
+    <rect x="6" y="10" width="${widthMm - 12}" height="${heightMm - 20}" fill="#faf9f6" stroke="#8a9296" stroke-width="0.5"/>
     ${isobaths}
     ${outerCamo}
     ${centerDistractors}
     ${glyphPaths.join('\n    ')}
-    <!-- Línea Pliegue A -->
-    <line data-fold-line="A" x1="${foldAX}" y1="4" x2="${foldAX}" y2="${heightMm - 4}" stroke="#1d4ed8" stroke-width="0.8" stroke-dasharray="3.5 2"/>
-    <polygon points="${foldAX},8 ${foldAX - 3},3 ${foldAX + 3},3" fill="#1d4ed8"/>
-    <polygon points="${foldAX},${heightMm - 8} ${foldAX - 3},${heightMm - 3} ${foldAX + 3},${heightMm - 3}" fill="#1d4ed8"/>
-    <text x="${foldAX - 3}" y="8.5" text-anchor="end" font-family="'Courier New', monospace" font-size="4.4" font-weight="bold" fill="#1e3a8a">PLIEGUE A ▲</text>
-    <text x="${foldAX - 3}" y="${heightMm - 4}" text-anchor="end" font-family="'Courier New', monospace" font-size="4.4" font-weight="bold" fill="#1e3a8a">PLIEGUE A ▼</text>
-    <!-- Línea Pliegue B -->
-    <line data-fold-line="B" x1="${foldBX}" y1="4" x2="${foldBX}" y2="${heightMm - 4}" stroke="#1d4ed8" stroke-width="0.8" stroke-dasharray="3.5 2"/>
-    <polygon points="${foldBX},8 ${foldBX - 3},3 ${foldBX + 3},3" fill="#1d4ed8"/>
-    <polygon points="${foldBX},${heightMm - 8} ${foldBX - 3},${heightMm - 3} ${foldBX + 3},${heightMm - 3}" fill="#1d4ed8"/>
-    <text x="${foldBX + 3}" y="8.5" text-anchor="start" font-family="'Courier New', monospace" font-size="4.4" font-weight="bold" fill="#1e3a8a">▲ PLIEGUE B</text>
-    <text x="${foldBX + 3}" y="${heightMm - 4}" text-anchor="start" font-family="'Courier New', monospace" font-size="4.4" font-weight="bold" fill="#1e3a8a">▼ PLIEGUE B</text>
+    <line data-fold-line="A" x1="${foldAX}" y1="4" x2="${foldAX}" y2="${heightMm - 4}" stroke="#c81e2b" stroke-width="0.85" stroke-dasharray="3.5 2"/>
+    <polygon points="${foldAX},8 ${foldAX - 3},3 ${foldAX + 3},3" fill="#c81e2b"/>
+    <polygon points="${foldAX},${heightMm - 8} ${foldAX - 3},${heightMm - 3} ${foldAX + 3},${heightMm - 3}" fill="#c81e2b"/>
+    <text x="${foldAX - 3}" y="8.5" text-anchor="end" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="4.2" font-weight="bold" fill="#991b1b">PLIEGUE A ▲</text>
+    <text x="${foldAX - 3}" y="${heightMm - 4}" text-anchor="end" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="4.2" font-weight="bold" fill="#991b1b">PLIEGUE A ▼</text>
+    <line data-fold-line="B" x1="${foldBX}" y1="4" x2="${foldBX}" y2="${heightMm - 4}" stroke="#c81e2b" stroke-width="0.85" stroke-dasharray="3.5 2"/>
+    <polygon points="${foldBX},8 ${foldBX - 3},3 ${foldBX + 3},3" fill="#c81e2b"/>
+    <polygon points="${foldBX},${heightMm - 8} ${foldBX - 3},${heightMm - 3} ${foldBX + 3},${heightMm - 3}" fill="#c81e2b"/>
+    <text x="${foldBX + 3}" y="8.5" text-anchor="start" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="4.2" font-weight="bold" fill="#991b1b">▲ PLIEGUE B</text>
+    <text x="${foldBX + 3}" y="${heightMm - 4}" text-anchor="start" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="4.2" font-weight="bold" fill="#991b1b">▼ PLIEGUE B</text>
   </svg>`;
 }
 
@@ -299,7 +293,7 @@ function renderAstrolabeOuterSvg() {
     <line x1="-6" y1="0" x2="6" y2="0" stroke="#991b1b" stroke-width="0.8"/>
     <line x1="0" y1="-6" x2="0" y2="6" stroke="#991b1b" stroke-width="0.8"/>
     <circle cx="0" cy="0" r="1.4" fill="#991b1b"/>
-    <text x="0" y="22" text-anchor="middle" font-family="'Courier New', monospace" font-size="4.4" font-weight="bold" fill="#334155">ANILLO EXTERIOR (BASE)</text>
+    <text x="0" y="22" text-anchor="middle" font-family="'Courier New', monospace" font-size="4.4" font-weight="bold" fill="#334155">ANILLO EXTERIOR · ORLOJ (BASE)</text>
     <text x="0" y="28" text-anchor="middle" font-family="Georgia, serif" font-size="3.8" fill="#475569">NO RECORTAR ESTA HOJA</text>
     <text x="0" y="34" text-anchor="middle" font-family="'Courier New', monospace" font-size="3.4" fill="#64748b">Asiento Ø 124 mm · Eje central (+)</text>
   </svg>`;
@@ -359,15 +353,14 @@ function renderAstrolabeInnerSvg() {
     <line x1="-5" y1="0" x2="5" y2="0" stroke="#991b1b" stroke-width="0.8"/>
     <line x1="0" y1="-5" x2="0" y2="5" stroke="#991b1b" stroke-width="0.8"/>
     <circle cx="0" cy="0" r="1.4" fill="#991b1b"/>
-    <text x="0" y="-22" text-anchor="middle" font-family="'Courier New', monospace" font-size="4" font-weight="bold" fill="#991b1b">▲ ÍNDICE EN SECTOR V</text>
-    <text x="0" y="19" text-anchor="middle" font-family="'Courier New', monospace" font-size="4.2" font-weight="bold" fill="#0f172a">DISCO INTERIOR VALDEIRA</text>
+    <text x="0" y="-22" text-anchor="middle" font-family="'Courier New', monospace" font-size="4" font-weight="bold" fill="#991b1b">▲ ÍNDICE EN SECTOR P</text>
+    <text x="0" y="19" text-anchor="middle" font-family="'Courier New', monospace" font-size="4.2" font-weight="bold" fill="#0f172a">DISCO INTERIOR ORLOJ</text>
     <text x="0" y="25" text-anchor="middle" font-family="Georgia, serif" font-size="3.6" fill="#475569">Recortar por el borde discontinuo ✂</text>
     <text x="-47" y="-44" font-family="sans-serif" font-size="5" fill="#991b1b">✂</text>
     <text x="43" y="47" font-family="sans-serif" font-size="5" fill="#991b1b">✂</text>
   </svg>`;
 }
 
-// Geometría de 7 segmentos para las Láminas Ópticas A y B (Contraluz E9)
 function getSevenSegCoords(x, y, w = 16, h = 30) {
   const m = y + h / 2;
   const b = y + h;
@@ -389,7 +382,6 @@ function renderContraluzSvg(layerKey) {
   const segmentsHtml = [];
 
   for (const row of rows) {
-    // Letra guía de fila ('F' o 'B') también partida entre A y B en 7 segmentos
     const labelBox = getSevenSegCoords(22, row.y, 13, 26);
     const labelSegs = layerKey === 'A' ? row.labelSplit.layerA : row.labelSplit.layerB;
     for (const seg of labelSegs) {
@@ -398,7 +390,6 @@ function renderContraluzSvg(layerKey) {
         `<line data-row="${row.id}" data-is-label="true" data-seg="${seg}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${strokeColor}" stroke-width="3.2" stroke-linecap="round"/>`
       );
     }
-    // Dos puntos ":" en ambos o alternados: ponemos punto sup en A y punto inf en B
     const dotY = layerKey === 'A' ? row.y + 8 : row.y + 18;
     segmentsHtml.push(`<circle cx="42" cy="${dotY}" r="1.8" fill="${strokeColor}"/>`);
 
@@ -430,74 +421,85 @@ function renderContraluzSvg(layerKey) {
 // CONSTRUCCIÓN DE LAS 28 PÁGINAS A4 DEL PDF
 // ============================================================================
 
-function coverPageHtml(envNum, pageStart, pageEnd, totalSheets) {
+function coverPageHtml(envNum, pageStart, pageEnd, totalSheets, assets) {
   const globalPage = pageStart;
   return `
   <section class="sheet cover-sheet" data-page="${globalPage}" data-envelope="${envNum}">
     <div class="cover-frame">
-      <div class="cover-top-tag">ARCHIVO HIDROGRÁFICO DE CABO VALDEIRA · EXPEDIENTE 1989</div>
-      <div class="cover-stamp-box">DOCUMENTO CLAUSURADO</div>
-      <h1 class="cover-title">SOBRE ${envNum}</h1>
-      <div class="cover-recipient">PARA FER Y LUCÍA</div>
+      <div class="corner tl"></div><div class="corner tr"></div>
+      <div class="corner bl"></div><div class="corner br"></div>
+      <div class="cover-top-tag">AGENCIA X · CANAL SEGURO · NIVEL 5 · ESTACIÓN PRG-89</div>
+      <img class="cover-logo" src="${assets.logoDataUri}" alt="Agencia X" />
+      <div class="cover-stamp-box">EXPEDIENTE CLASIFICADO</div>
+      <div class="cover-title-row">
+        <img class="cover-title-icon" src="${assets.iconDataUri}" alt="" />
+        <h1 class="cover-title">SOBRE ${envNum}</h1>
+        <img class="cover-title-icon" src="${assets.iconDataUri}" alt="" />
+      </div>
+      <div class="cover-recipient">PARA AGENTES F Y L (FER Y LUCÍA)</div>
       <div class="cover-rule"></div>
       <p class="cover-warning">NO ABRIR HASTA QUE EL SISTEMA LO INDIQUE</p>
       <p class="cover-meta">Contiene ${totalSheets} páginas impresas (Págs. ${pageStart} a ${pageEnd} del dosier)</p>
       <div class="cover-footer">
-        <span>Montaje a ciegas · No leer ni recortar antes de iniciar la sesión</span>
+        <span>Montaje a ciegas · No leer ni recortar antes de iniciar la misión</span>
+        <div class="cover-sign">-- AGENCIA X CENTRAL --</div>
       </div>
     </div>
   </section>`;
 }
 
-function sheetHeader(folioCode, envNum, pageNum, docTitle) {
+function renderSheetHeader(folioCode, envNum, pageNum, docTitle, logoDataUri) {
   return `
   <header class="doc-header">
     <div class="doc-header-left">
+      <img class="header-mini-logo" src="${logoDataUri}" alt="Agencia X" />
       <span class="badge-folio">${folioCode}</span>
-      <span class="doc-header-org">OBSERVATORIO HIDROGRÁFICO CABO VALDEIRA · A CORUÑA</span>
+      <span class="doc-header-org">CANAL SEGURO · ESTACIÓN PRG-89 · PRAGA</span>
     </div>
     <div class="doc-header-right">Sobre ${envNum} · Pág. ${pageNum}/28</div>
   </header>
   <h2 class="doc-title">${escapeHtml(docTitle)}</h2>`;
 }
 
-function buildAllPagesHtml() {
+function buildAllPagesHtml(assets) {
+  const sheetHeader = (folioCode, envNum, pageNum, docTitle) =>
+    renderSheetHeader(folioCode, envNum, pageNum, docTitle, assets.logoDataUri);
   const pages = [];
 
   // --------------------------------------------------------------------------
   // SOBRE 1 (Págs. 1–6)
   // --------------------------------------------------------------------------
-  pages.push(coverPageHtml(1, 1, 6, 6)); // Pág. 1
+  pages.push(coverPageHtml(1, 1, 6, 6, assets)); // Pág. 1
 
   // Pág. 2 — Hoja 1A
   pages.push(`
   <section class="sheet" data-page="2" data-envelope="1">
-    ${sheetHeader('HOJA 1A', 1, 2, 'Carta de encargo y Ficha de Ópticas Fresnel')}
+    ${sheetHeader('HOJA 1A', 1, 2, 'Orden de Misión Pre-Despliegue y Enlaces Ópticos')}
     <div class="membrete-box">
       <div>
-        <strong>ESTACIÓN HIDROGRÁFICA Y FARO DE CABO VALDEIRA</strong><br/>
-        <span>Ministerio de Obras Públicas y Marina Mercante · Archivo Reservado</span>
+        <strong>AGENCIA X · ESTACIÓN REGIONAL CENTROEUROPEA (PRAGA)</strong><br/>
+        <span>Archivo Histórico de Contrainteligencia · División Marea Roja</span>
       </div>
       <div class="station-stamp">
-        <div class="stamp-mini-title">CÓDIGO ESTACIÓN</div>
-        <div class="stamp-mini-code">CVL</div>
+        <div class="stamp-mini-title">SIGLA ESTACIÓN</div>
+        <div class="stamp-mini-code">PRG</div>
       </div>
     </div>
 
     <div class="letter-box">
-      <div class="letter-meta">Santiago / Cabo Valdeira · Viernes, 21:45 h · Confidencial en mano</div>
-      <p><strong>Fer y Lucía:</strong></p>
-      <p>Si este paquete ha llegado a vuestras manos sin remitente es porque la copia magnética auxiliar de Cabo Valdeira acaba de reactivarse tras más de tres décadas en silencio. En noviembre de 1989 la comisión oficial cerró el naufragio del mercante <em>MV Arrecife</em> culpando al temporal y dando por muerto en el mar al subdirector, <strong>Mateo Rivas</strong>.</p>
-      <p>Mateo dejó fragmentada la documentación en cuatro sobres sellados para evitar que nadie pudiera manipularla de golpe. Necesitáis un ordenador o tablet conectado a la consola de respaldo, tijeras, bolígrafos y la linterna del móvil. Repartíos el papel cuando la investigación se bifurque y no abráis el siguiente sobre hasta que el terminal os lo autorice.</p>
-      <p class="letter-sign">— Elena Sampedro (Archivera técnica, 1989)</p>
+      <div class="letter-meta">Agencia X Central · Canal Prioritario · Para Agentes F y L</div>
+      <p><strong>Agentes Fer y Lucía:</strong></p>
+      <p>Vuestra actuación en Tarifa (<em>Operación Espejismo</em>) nos permitió rastrear el nodo de <strong>Marea Roja</strong> hasta Praga. Antes de vuestro despliegue el próximo 5 de enero, ha aparecido un archivo físico de la antigua Estación PRG-89 (noviembre de 1989): alguien intentó reactivar desde dentro la red oculta bajo el río Moldava.</p>
+      <p>El enlace histórico Marek Novák dejó el caso fragmentado en cuatro sobres sellados. Tened sobre la mesa la consola web conectada, tijeras, bolígrafos y la linterna del móvil. Repartíos las hojas cuando la investigación se divida en dos hilos y no abráis el siguiente sobre hasta que el sistema os lo ordene.</p>
+      <p class="letter-sign">— Dirección Central, Agencia X (Nota al margen: paraguas obligatorio)</p>
     </div>
 
     <div class="panel-box">
-      <div class="panel-title">Protocolo de Credencial de Operador (Terminal de Respaldo)</div>
-      <p class="small-note">Para autenticar la sesión nocturna del <strong>13 de noviembre de 1989</strong>, el sistema exige la clave compuesta por tres bloques separados por guiones: <strong><code>SIGLA-SERIE-TURNO</code></strong></p>
+      <div class="panel-title">Protocolo de Credencial de Operador (Canal Seguro)</div>
+      <p class="small-note">Para autenticar la sesión de la noche del <strong>17 de noviembre de 1989</strong>, el sistema exige la clave compuesta por tres bloques separados por guiones: <strong><code>SIGLA-SERIE-TURNO</code></strong></p>
       <ul class="clean-list">
         <li><strong>SIGLA:</strong> Código oficial de 3 letras de esta estación (ver sello superior).</li>
-        <li><strong>SERIE:</strong> Número de 3 dígitos de la <em>única lente Fresnel activa en Torre Principal</em> la noche del 13/11/1989.</li>
+        <li><strong>SERIE:</strong> Número de 3 dígitos del <em>único enlace óptico activo en Torre de Petřín</em> la noche del 17/11/1989.</li>
         <li><strong>TURNO:</strong> Código del cuadrante de guardia que cubría la <em>hora exacta de la anomalía óptica</em> (Hoja 1B).</li>
       </ul>
     </div>
@@ -505,35 +507,35 @@ function buildAllPagesHtml() {
     <table class="data-table">
       <thead>
         <tr>
-          <th>Óptica</th>
+          <th>Equipo óptico</th>
           <th>Serie</th>
           <th>Emplazamiento asignado</th>
-          <th>Estado a 13/11/1989</th>
+          <th>Estado a 17/11/1989</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Lente Fresnel Tipo II</td>
+          <td>Repetidor Láser Tipo II</td>
           <td><code>204</code></td>
-          <td>Almacén de Reserva (Planta baja)</td>
-          <td>Desmontada y embalada en caja</td>
+          <td>Almacén de Reserva (Malá Strana)</td>
+          <td>Desmontado y embalado en caja</td>
         </tr>
         <tr class="row-highlight">
-          <td>Lente Fresnel Tipo I</td>
+          <td>Repetidor Óptico Tipo I</td>
           <td><code>318</code></td>
-          <td>Torre Principal · Cúpula Norte</td>
-          <td>■ ACTIVA en servicio nocturno</td>
+          <td>Torre de Petřín · Cúpula Norte</td>
+          <td>■ ACTIVO en enlace nocturno</td>
         </tr>
         <tr>
           <td>Óptica Catadióptrica</td>
           <td><code>112</code></td>
-          <td>Baliza Auxiliar del Muelle Viejo</td>
+          <td>Puesto Auxiliar de Vyšehrad</td>
           <td>Desactivada desde mayo de 1987</td>
         </tr>
         <tr>
-          <td>Lente Fresnel Tipo III</td>
+          <td>Repetidor Óptico Tipo III</td>
           <td><code>409</code></td>
-          <td>Torre Sur (Repuesto sin instalar)</td>
+          <td>Castillo de Praga (Repuesto)</td>
           <td>Pendiente de montaje mecánico</td>
         </tr>
       </tbody>
@@ -543,15 +545,15 @@ function buildAllPagesHtml() {
   // Pág. 3 — Hoja 1B
   pages.push(`
   <section class="sheet" data-page="3" data-envelope="1">
-    ${sheetHeader('HOJA 1B', 1, 3, 'Cuadrante de Guardias · 13–14 de Noviembre de 1989')}
-    <p class="lead-note">Registro interno de turnos de vigilancia y mantenimiento durante la alerta naranja en Cabo Valdeira.</p>
+    ${sheetHeader('HOJA 1B', 1, 3, 'Cuadrante de Guardias · 17–18 de Noviembre de 1989')}
+    <p class="lead-note">Registro interno de turnos de vigilancia técnica en la Estación PRG-89 durante la noche de la interceptación.</p>
 
     <table class="data-table">
       <thead>
         <tr>
           <th>Turno</th>
           <th>Franja horaria</th>
-          <th>Responsable principal</th>
+          <th>Agente responsable</th>
           <th>Observaciones de servicio</th>
         </tr>
       </thead>
@@ -559,46 +561,46 @@ function buildAllPagesHtml() {
         <tr>
           <td><code>T12</code></td>
           <td>06:00 – 14:00</td>
-          <td>Ramón Seoane</td>
-          <td>Revisión matinal del grupo electrógeno y purga de filtros. Sin novedades.</td>
+          <td>Jan Dvořák</td>
+          <td>Revisión matinal de generadores en el Castillo y purga de filtros. Sin novedades.</td>
         </tr>
         <tr>
           <td><code>T31</code></td>
           <td>14:00 – 22:00</td>
-          <td>Mateo Rivas</td>
-          <td>Encendido inicial de torre a las 17:45. Cede relevo y llave B-2 antes de descender al muelle.</td>
+          <td>Marek Novák</td>
+          <td>Calibración de enlaces a las 17:45. Cede relevo y llave B-2 antes de bajar al Reloj Astronómico.</td>
         </tr>
         <tr class="row-highlight">
           <td><code>T49</code></td>
           <td>22:00 – 06:00</td>
-          <td>Tomás Quiroga</td>
-          <td>Guardia nocturna en Torre Principal. <em>Incidencia registrada en fotómetro a las 02:15 h.</em></td>
+          <td>Pavel Horák</td>
+          <td>Guardia nocturna en Torre de Petřín. <em>Incidencia registrada en enlace óptico a las 02:15 h.</em></td>
         </tr>
         <tr>
           <td><code>T07</code></td>
           <td>08:00 – 20:00</td>
-          <td>Subcontrata Muelle</td>
-          <td>Trabajos de escollera diurnos. Recinto evacuado antes del anochecer.</td>
+          <td>Equipo de Campo Ext.</td>
+          <td>Mantenimiento diurno en exteriores. Recinto evacuado al anochecer.</td>
         </tr>
       </tbody>
     </table>
 
     <div class="hand-note-box">
       <div class="hand-note-title">Anotación manuscrita en cubierta del parte de incidencias (tinta azul):</div>
-      <p class="handwritten">"La alarma sonora saltó a las <strong>02:15 de la madrugada</strong> en la cúpula de Torre Principal, pero alguien desconectó el zumbador en consola. El registro automático quedó archivado bajo una clave de ocho caracteres que alguien tachó en el libro telegráfico (Hojas 1C y 1D)."</p>
+      <p class="handwritten">"La alarma sonora saltó a las <strong>02:15 de la madrugada</strong> en la cúpula de Petřín, pero alguien silenció el zumbador en consola. El registro automático quedó archivado bajo una clave de ocho caracteres oculta en el bloque telegráfico (Hojas 1C y 1D)."</p>
     </div>
 
     <div class="panel-box">
-      <div class="panel-title">Guía rápida de interfaz para Fer y Lucía</div>
-      <p class="small-note">Una vez introduzcáis la credencial de operador en el sistema digital, quedará habilitado el <strong>Terminal de Archivo Digital</strong> en pantalla. Allí podréis consultar cualquier referencia de expediente oficial que descubráis en las hojas físicas.</p>
+      <div class="panel-title">Acceso al Terminal Seguro de Agencia X</div>
+      <p class="small-note">En cuanto introduzcáis la credencial de operador en el sistema web, quedará habilitado el <strong>Terminal de Archivo</strong> en pantalla. Allí podréis consultar cualquier código de expediente oficial que descubráis sobre el papel.</p>
     </div>
   </section>`);
 
   // Pág. 4 — Hoja 1C
   pages.push(`
   <section class="sheet" data-page="4" data-envelope="1">
-    ${sheetHeader('HOJA 1C', 1, 4, 'Telegrama de Servicio Censurado (Matriz Base)')}
-    <p class="small-note">Copia íntegra del bloque telegráfico enviado por Mateo Rivas el 14/11/1989. Por sí sola contiene decenas de caracteres de relleno para despistar a la censura interna. No recortéis esta hoja.</p>
+    ${sheetHeader('HOJA 1C', 1, 4, 'Cable Telegráfico Censurado (Matriz Base)')}
+    <p class="small-note">Copia íntegra del bloque telegráfico transmitido por Marek Novák el 18/11/1989. Por sí sola contiene decenas de caracteres de relleno. No recortéis esta hoja.</p>
     <div class="svg-center-box">
       ${renderCardanoBaseSvg()}
     </div>
@@ -613,30 +615,30 @@ function buildAllPagesHtml() {
     <div class="svg-center-box">
       ${renderCardanoMaskSvg()}
     </div>
-    <p class="small-note">Leed los caracteres revelados de izquierda a derecha y de arriba a abajo para formar la referencia <code>EXP-__-___</code> e introducidla tanto en el reto 1.2 como en el <strong>Terminal de Archivo Digital</strong>.</p>
+    <p class="small-note">Leed los caracteres revelados de izquierda a derecha y de arriba a abajo para formar la referencia <code>EXP-__-___</code> e introducidla tanto en el reto 1.2 como en el <strong>Terminal de Archivo</strong>.</p>
   </section>`);
 
-  // Pág. 6 — Hoja 1E (incluye Sello de Plancha I)
+  // Pág. 6 — Hoja 1E (Sello de Plancha I)
   pages.push(`
   <section class="sheet" data-page="6" data-envelope="1">
-    ${sheetHeader('HOJA 1E', 1, 6, 'Especificación Técnica de Baliza Norte · Decreto Náutico')}
-    <p class="lead-note">Documento de calibración óptica de la Torre Principal para el cruce con el expediente digital recuperado del fotómetro.</p>
+    ${sheetHeader('HOJA 1E', 1, 6, 'Calibración Nominal del Repetidor Óptico · Torre de Petřín')}
+    <p class="lead-note">Ficha técnica de enlace de la Torre de Petřín para cruzar con el registro de telemetría recuperado del Terminal.</p>
 
     <div class="panel-box">
-      <div class="panel-title">Parámetros Oficiales del Haz Luminoso</div>
+      <div class="panel-title">Parámetros Oficiales del Haz Óptico</div>
       <table class="data-table compact">
         <tbody>
           <tr>
-            <th>Sector vigilado</th>
-            <td>Canal Exterior de Cabo Valdeira (Paso Norte)</td>
+            <th>Corredor vigilado</th>
+            <td>Sector Centro · Puente de Carlos / Ciudad Vieja (Praga)</td>
           </tr>
           <tr>
-            <th>Azimut nominal oficial (Decreto 1984)</th>
-            <td><strong>284°</strong> (referencia fija desde eje de cúpula)</td>
+            <th>Azimut nominal oficial (Protocolo 1984)</th>
+            <td><strong>284°</strong> (referencia fija desde plataforma de torre)</td>
           </tr>
           <tr>
-            <th>Tolerancia operativa por temporal</th>
-            <td>±10° máximo admisible por oscilación de viento</td>
+            <th>Tolerancia operativa por oscilación</th>
+            <td>±10° máximo admisible por viento térmico</td>
           </tr>
           <tr>
             <th>Umbral de anomalía crítica (Sabotaje)</th>
@@ -648,13 +650,13 @@ function buildAllPagesHtml() {
 
     <div class="panel-box">
       <div class="panel-title">Cálculo de la clave del Reto 1.3</div>
-      <p class="small-note">Consultad la referencia extraída de la rejilla de Cardano en el <strong>Terminal de Archivo Digital</strong>. Localizad el instante de anomalía crítica y calculad la diferencia absoluta en grados respecto al azimut nominal oficial (<code>284°</code>).</p>
+      <p class="small-note">Consultad la referencia extraída de la rejilla de Cardano en el <strong>Terminal de Archivo</strong>. Localizad el instante de anomalía crítica y calculad la diferencia absoluta en grados respecto al azimut nominal oficial (<code>284°</code>).</p>
       <p class="small-note">Formato de respuesta requerido: <strong><code>GRADOS-HHMM</code></strong> (ejemplo: si una desviación fuera de 08° a las 01:30, escribiríais <code>08-0130</code>).</p>
     </div>
 
     <div class="hand-note-box">
-      <div class="hand-note-title">Nota de conservación de Mateo Rivas:</div>
-      <p class="handwritten">"Guardad este sello inferior. Cada uno de los cuatro sobres conserva una plancha distinta; al final del caso las necesitaréis todas juntas."</p>
+      <div class="hand-note-title">Nota de conservación de Marek Novák:</div>
+      <p class="handwritten">"Guardad este sello inferior. Cada uno de los cuatro sobres conserva una plancha distinta; al final de la operación las necesitaréis todas juntas."</p>
     </div>
 
     <div class="sheet-bottom-seal">
@@ -665,28 +667,28 @@ function buildAllPagesHtml() {
   // --------------------------------------------------------------------------
   // SOBRE 2 (Págs. 7–14)
   // --------------------------------------------------------------------------
-  pages.push(coverPageHtml(2, 7, 14, 8)); // Pág. 7
+  pages.push(coverPageHtml(2, 7, 14, 8, assets)); // Pág. 7
 
-  // Pág. 8 — Hoja 2A (incluye Sello de Plancha II + Instrucciones Hilo A)
+  // Pág. 8 — Hoja 2A (Sello de Plancha II + Instrucciones Hilo A)
   pages.push(`
   <section class="sheet" data-page="8" data-envelope="2">
-    ${sheetHeader('HOJA 2A', 2, 8, 'HILO A · Carta Batimétrica e Instrucciones de Pliegue')}
+    ${sheetHeader('HOJA 2A', 2, 8, 'HILO A · Plano Táctico del Moldava e Instrucciones de Pliegue')}
     <div class="coop-banner">TRABAJO COOPERATIVO PARALELO: Mientras uno de los dos resuelve este Hilo A (Hojas 2A–2B), el otro puede avanzar el Hilo B con la Hoja 2C y el Receptor de Radiobaliza.</div>
 
     <div class="panel-box">
       <div class="panel-title">Instrucciones de Plegado Oculto (Hoja 2B)</div>
-      <p class="small-note">El plano batimétrico de la Hoja 2B esconde el punto exacto donde yace el casco del <em>MV Arrecife</em>. Para revelarlo sin dañar la lámina:</p>
+      <p class="small-note">El plano de la Hoja 2B esconde el sector exacto del río Moldava donde la célula de Marea Roja escondió su enlace de salida. Para revelarlo sin dañar la lámina:</p>
       <ol class="clean-list">
         <li>Localizad las dos líneas verticales discontinuas marcadas como <strong>PLIEGUE A (▲A)</strong> y <strong>PLIEGUE B (▲B)</strong>.</li>
-        <li>Realizad un pliegue hacia atrás por la línea <strong>PLIEGUE A</strong> y otro por la línea <strong>PLIEGUE B</strong> (doblando en acordeón para ocultar por detrás toda la franja central con las cifras de profundidad en metros).</li>
+        <li>Realizad un pliegue hacia atrás por la línea <strong>PLIEGUE A</strong> y otro por la línea <strong>PLIEGUE B</strong> (doblando en acordeón para ocultar por detrás toda la franja central con las cotas topográficas en metros).</li>
         <li>Unid exactamente borde con borde la línea <strong>PLIEGUE A</strong> y la línea <strong>PLIEGUE B</strong>. Los fragmentos dispersos encajarán formando un código vertical de 6 caracteres.</li>
       </ol>
-      <p class="small-note">Introducid el código revelado en el <strong>Hilo A (2.A)</strong> con formato <code>PALABRA-NUMERO</code> (ej. <code>SECTOR-00</code>).</p>
+      <p class="small-note">Introducid el código revelado en el <strong>Hilo A (2.A)</strong> con formato <code>PALABRA-NUMERO</code> (ej. <code>ZONA-00</code>).</p>
     </div>
 
     <div class="hand-note-box">
-      <div class="hand-note-title">Extracto de la nota de cubierta de Mateo Rivas:</div>
-      <p class="handwritten">"El pecio no embarrancó en los arrecifes someros como escribió la prensa. Quien giró la lente norte buscaba un punto concreto donde el fondo cae a pique y nadie baja a rescatar la carga."</p>
+      <div class="hand-note-title">Extracto de la nota de cubierta de Marek Novák:</div>
+      <p class="handwritten">"No cruzaron por los puentes principales vigilados por la policía. Quien desvió el repetidor cubrió la retirada bajo un punto concreto de la ribera."</p>
     </div>
 
     <div class="sheet-bottom-seal">
@@ -694,17 +696,17 @@ function buildAllPagesHtml() {
     </div>
   </section>`);
 
-  // Pág. 9 — Hoja 2B (Fold-in SVG grande)
+  // Pág. 9 — Hoja 2B (Fold-in SVG grande -> ARCO-42)
   pages.push(`
   <section class="sheet" data-page="9" data-envelope="2">
-    ${sheetHeader('HOJA 2B', 2, 9, 'HILO A · Levantamiento Batimétrico Sector Cabo Valdeira (PLEGAR A ↔ B)')}
+    ${sheetHeader('HOJA 2B', 2, 9, 'HILO A · Levantamiento Táctico Ribera del Moldava (PLEGAR A ↔ B)')}
     <p class="small-note">Doblad esta hoja ocultando la zona central entre <strong>PLIEGUE A</strong> y <strong>PLIEGUE B</strong> hasta tocar ambas líneas.</p>
     <div class="svg-center-box">
       ${renderFoldInSvg()}
     </div>
   </section>`);
 
-  // Pág. 10 — Hoja 2C (Tabla Boyas + Tabla Morse para Hilo B)
+  // Pág. 10 — Hoja 2C (Tabla Balizas + Tabla Morse)
   const buoyRowsHtml = BUOY_ROWS.map(
     (b) => `
     <tr>
@@ -735,15 +737,15 @@ function buildAllPagesHtml() {
     <div class="coop-banner">HILO B (PARALELO): Identifica la frecuencia exacta para sintonizar la señal en el Receptor Web Audio.</div>
 
     <div class="panel-box compact-box">
-      <div class="panel-title">Criterios de Filtrado (Nota técnica del Archivo de Señales)</div>
-      <p class="small-note">La transmisión de emergencia oculta procede únicamente de una baliza que cumpla las <strong>cuatro condiciones simultáneas</strong>: (1) Sector <strong>Cabo Valdeira</strong>, (2) Banda de <strong>400 kHz</strong>, (3) Modulación <strong>CW Morse</strong> y (4) Estado <strong>Activa instalada después de 1988</strong>.</p>
+      <div class="panel-title">Criterios de Filtrado (Nota técnica de Agencia X)</div>
+      <p class="small-note">La transmisión clandestina procede únicamente de una baliza que cumpla las <strong>cuatro condiciones simultáneas</strong>: (1) Sector <strong>Praga (Petřín)</strong>, (2) Banda de <strong>400 kHz</strong>, (3) Modulación <strong>CW Morse</strong> y (4) Estado <strong>Activa instalada después de 1988</strong>.</p>
     </div>
 
     <table class="data-table compact">
       <thead>
         <tr>
           <th>Baliza</th>
-          <th>Sector marítimo</th>
+          <th>Sector</th>
           <th>Frecuencia</th>
           <th>Modulación</th>
           <th>Estado</th>
@@ -764,58 +766,58 @@ function buildAllPagesHtml() {
     </div>
   </section>`);
 
-  // Pág. 11 — Hoja 2D (Manual Astrolabio)
+  // Pág. 11 — Hoja 2D (Manual Disco del Orloj)
   pages.push(`
   <section class="sheet" data-page="11" data-envelope="2">
-    ${sheetHeader('HOJA 2D', 2, 11, 'CONVERGENCIA A+B · Manual del Astrolabio Cifrador de Valdeira')}
+    ${sheetHeader('HOJA 2D', 2, 11, 'CONVERGENCIA A+B · Manual del Disco Astronómico del Orloj')}
     <p class="lead-note">Cuando hayáis completado tanto el <strong>Hilo A (2.A)</strong> como el <strong>Hilo B (2.B)</strong>, reunid sus resultados para operar este instrumento.</p>
 
     <div class="panel-box">
-      <div class="panel-title">Montaje y Uso del Astrolabio</div>
+      <div class="panel-title">Montaje y Uso del Disco del Orloj</div>
       <ol class="clean-list">
         <li>Tomad la <strong>Hoja 2F</strong> y recortad cuidadosamente con tijeras el <strong>Disco Interior</strong> por su borde circular discontinuo rojo (✂). <strong>No recortéis la Hoja 2E</strong>.</li>
         <li>Apoyad el Disco Interior recortado sobre el círculo central de la <strong>Hoja 2E (Anillo Exterior)</strong> haciendo coincidir ambos centros marcados con una cruz roja (<code>+</code>). Podéis sujetar el centro con la punta de un bolígrafo mientras lo giráis.</li>
-        <li>Girad el Disco Interior hasta que la flecha prominente <strong><code>▲ ÍNDICE</code></strong> (situada en el sector rayado de la letra <code>V</code>) apunte exactamente a la letra o número de sector indicado en el despacho digital <strong><code>DESPACHO-042</code></strong>.</li>
+        <li>Girad el Disco Interior hasta que la flecha prominente <strong><code>▲ ÍNDICE</code></strong> (situada en el sector rayado de la letra <code>P</code>) apunte exactamente a la letra o número de sector indicado en el despacho digital <strong><code>DESPACHO-042</code></strong>.</li>
         <li>Para <strong>DESCIFRAR</strong> un criptograma: localizad cada letra del mensaje cifrado en el <strong>Disco Interior</strong> y leed la letra correspondiente alineada justo enfrente en el <strong>Anillo Exterior</strong>.</li>
       </ol>
     </div>
 
     <div class="hand-note-box">
       <div class="hand-note-title">Nota sobre la conservación del instrumento:</div>
-      <p class="handwritten">"No tiréis el Astrolabio al concluir el Sobre 2. Su escala numérica 01–26 del Anillo Exterior volverá a ser imprescindible cuando reunáis los cuatro sellos de plancha al cierre del caso."</p>
+      <p class="handwritten">"No guardéis aún el Disco del Orloj al concluir el Sobre 2. Su escala numérica 01–26 del Anillo Exterior volverá a ser imprescindible cuando reunáis los cuatro sellos de plancha al final de la misión."</p>
     </div>
   </section>`);
 
-  // Pág. 12 — Hoja 2E (Astrolabio Anillo Exterior Base)
+  // Pág. 12 — Hoja 2E (Orloj Anillo Exterior Base)
   pages.push(`
   <section class="sheet" data-page="12" data-envelope="2">
-    ${sheetHeader('HOJA 2E', 2, 12, 'Astrolabio de Valdeira · Anillo Exterior Base (NO RECORTAR)')}
+    ${sheetHeader('HOJA 2E', 2, 12, 'Disco del Orloj · Anillo Exterior Base (NO RECORTAR)')}
     <p class="small-note">Colocad aquí encima el Disco Interior recortado de la Hoja 2F haciendo coincidir la cruz central (<code>+</code>).</p>
     <div class="svg-center-box">
       ${renderAstrolabeOuterSvg()}
     </div>
   </section>`);
 
-  // Pág. 13 — Hoja 2F (Astrolabio Disco Interior Recortable)
+  // Pág. 13 — Hoja 2F (Orloj Disco Interior Recortable)
   pages.push(`
   <section class="sheet" data-page="13" data-envelope="2">
-    ${sheetHeader('HOJA 2F', 2, 13, 'Astrolabio de Valdeira · Disco Interior Cifrador (RECORTAR ✂)')}
+    ${sheetHeader('HOJA 2F', 2, 13, 'Disco del Orloj · Disco Interior Cifrador (RECORTAR ✂)')}
     <p class="small-note">Recortad el círculo completo por la línea discontinua roja exterior (Ø 124 mm). El sector rayado con <strong>▲ ÍNDICE</strong> marca el punto de alineación.</p>
     <div class="svg-center-box">
       ${renderAstrolabeInnerSvg()}
     </div>
   </section>`);
 
-  // Pág. 14 — Hoja 2G (Hoja de trabajo Convergencia)
+  // Pág. 14 — Hoja 2G (Hoja de trabajo Convergencia -> 7 letras DEMINKA)
   pages.push(`
   <section class="sheet" data-page="14" data-envelope="2">
     ${sheetHeader('HOJA 2G', 2, 14, 'Cuaderno de Convergencia A+B · Registro de Descifrado')}
-    <p class="lead-note">Usad esta hoja para anotar y cruzar la información que ha reunido cada investigador durante el Acto II.</p>
+    <p class="lead-note">Usad esta hoja para anotar y cruzar la información que ha reunido cada agente durante el Acto II.</p>
 
     <div class="panel-box">
       <div class="panel-title">Casillas de Trabajo</div>
       <div class="work-grid">
-        <div class="work-row"><span>1. Coordenada de la Carta Plegada (Hilo A):</span><div class="blank-line"></div></div>
+        <div class="work-row"><span>1. Sector del Plano Plegado (Hilo A):</span><div class="blank-line"></div></div>
         <div class="work-row"><span>2. Palabra recibida en Radiobaliza Morse (Hilo B):</span><div class="blank-line"></div></div>
         <div class="work-row"><span>3. Letra de alineación para ▲ ÍNDICE (según DESPACHO-042):</span><div class="blank-line"></div></div>
         <div class="work-row"><span>4. Criptograma recuperado en DESPACHO-042:</span><div class="blank-line"></div></div>
@@ -826,11 +828,11 @@ function buildAllPagesHtml() {
       <div class="panel-title">Tabla de Traducción Letra a Letra (Disco Interior → Anillo Exterior)</div>
       <table class="data-table">
         <thead>
-          <tr><th>Posición</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+          <tr><th>Posición</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
         </thead>
         <tbody>
-          <tr><th>Letra Interior (Cifrada)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr><th>Letra Exterior (Clara)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><th>Letra Interior (Cifrada)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><th>Letra Exterior (Clara)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
         </tbody>
       </table>
     </div>
@@ -839,44 +841,44 @@ function buildAllPagesHtml() {
   // --------------------------------------------------------------------------
   // SOBRE 3 (Págs. 15–22)
   // --------------------------------------------------------------------------
-  pages.push(coverPageHtml(3, 15, 22, 8)); // Pág. 15
+  pages.push(coverPageHtml(3, 15, 22, 8, assets)); // Pág. 15
 
   // Pág. 16 — Hoja 3A
   pages.push(`
   <section class="sheet" data-page="16" data-envelope="3">
-    ${sheetHeader('HOJA 3A', 3, 16, 'HILO A · Recorte de Prensa, Recibo #19 y Control de Accesos')}
-    <div class="coop-banner">SEGUNDA BIFURCACIÓN COOPERATIVA: Hilo A (Hojas 3A–3C, investigación y reglamento) e Hilo B (Hojas 3D–3G, óptica al contraluz y carta náutica).</div>
+    ${sheetHeader('HOJA 3A', 3, 16, 'HILO A · Boletín Interno, Recibo #19 y Control de Accesos')}
+    <div class="coop-banner">SEGUNDA BIFURCACIÓN COOPERATIVA: Hilo A (Hojas 3A–3C, contrainteligencia y manual) e Hilo B (Hojas 3D–3G, óptica al contraluz y mapa táctico de Praga).</div>
 
     <div class="newspaper-box">
-      <div class="news-head">LA VOZ DE LA COSTA · MIÉRCOLES, 15 DE NOVIEMBRE DE 1989</div>
-      <h3>La Comandancia atribuye el naufragio del <em>MV Arrecife</em> a un fallo mecánico en Cabo Valdeira</h3>
-      <p>El director del observatorio, <strong>Dr. Arturo Méndez-Vidal</strong>, declaró ayer desde la sede provincial de A Coruña que el temporal arrancó parte del cableado exterior poco después de las dos de la madrugada. Sin embargo, fuentes portuarias cuestionan por qué ninguna patrulla halló rastro de Mateo Rivas tras cerrarse la torre.</p>
+      <div class="news-head">BOLETÍN RESERVADO PRAGA · NOVIEMBRE DE 1989</div>
+      <h3>La dirección regional atribuyó el apagón óptico de Petřín a un fallo eléctrico fortuito</h3>
+      <p>El responsable de turno de despacho, <strong>Dr. Viktor Kovář</strong>, sostuvo en su informe desde Brno que una sobrecarga cortó el enlace óptico poco después de las dos de la madrugada. Sin embargo, los archivos internos apuntan a que el enlace fue girado manualmente desde la cúpula mientras Marek Novák ocultaba las pruebas originales.</p>
     </div>
 
     <div class="receipt-box">
       <div class="receipt-title">RESGUARDO DE CUSTODIA DE LLAVES · RECIBO #19</div>
-      <p><strong>Fecha y hora:</strong> 13/11/1989 · 18:05 h</p>
-      <p><strong>Entrega:</strong> Mateo Rivas (Subdirector) hace entrega temporal de la llave de servicio <strong><code>LLAVE B-2</code></strong> (acceso interior a Cúpula del Servo · Torre Principal).</p>
-      <p><strong>Receptor autorizado para guardia nocturna:</strong> <strong>Tomás Quiroga</strong> (Ingeniero técnico de turno).</p>
+      <p><strong>Fecha y hora:</strong> 17/11/1989 · 18:05 h</p>
+      <p><strong>Entrega:</strong> Marek Novák (Agente sénior) hace entrega temporal de la llave de servicio <strong><code>LLAVE B-2</code></strong> (acceso interior a Sala Óptica · Torre de Petřín).</p>
+      <p><strong>Receptor autorizado para guardia nocturna:</strong> <strong>Pavel Horák</strong> (Técnico de guardia de noche).</p>
       <p class="small-note"><em>Firmado por ambos al pie del resguardo antes del relevo vespertino.</em></p>
     </div>
 
     <div class="panel-box">
       <div class="panel-title">Referencia digital asociada</div>
-      <p class="small-note">Consultad en el <strong>Terminal de Archivo Digital</strong> la referencia de auditoría electrónica de cerraduras: <strong><code>EXP-LLAVES-89</code></strong> para verificar qué llave exacta abrió y cerró la Cúpula del Servo durante el sabotaje.</p>
+      <p class="small-note">Consultad en el <strong>Terminal de Archivo</strong> la referencia de auditoría electrónica de cerraduras: <strong><code>EXP-LLAVES-89</code></strong> para verificar qué llave exacta abrió y cerró la Sala Óptica durante el sabotaje.</p>
     </div>
   </section>`);
 
   // Pág. 17 — Hoja 3B
   pages.push(`
   <section class="sheet" data-page="17" data-envelope="3">
-    ${sheetHeader('HOJA 3B', 3, 17, 'HILO A · Registro de Centralita Telefónica y Coartadas Verificadas')}
-    <p class="lead-note">Cruza los movimientos documentados de los cinco miembros de la plantilla entre las 01:45 y las 03:00 de la noche del 13 al 14 de noviembre de 1989.</p>
+    ${sheetHeader('HOJA 3B', 3, 17, 'HILO A · Registro de Centralita y Coartadas Verificadas')}
+    <p class="lead-note">Cruzad los movimientos documentados de los cinco miembros de la Estación PRG-89 entre las 01:45 y las 03:00 de la madrugada del 17 al 18 de noviembre de 1989.</p>
 
     <table class="data-table compact">
       <thead>
         <tr>
-          <th>Integrante</th>
+          <th>Agente / Personal</th>
           <th>Llave asignada</th>
           <th>Coartada / Registro físico (02:00–02:45)</th>
           <th>Centralita telefónica</th>
@@ -884,41 +886,41 @@ function buildAllPagesHtml() {
       </thead>
       <tbody>
         <tr>
-          <td><strong>Dr. Arturo Méndez-Vidal</strong><br/><span>(Director)</span></td>
-          <td><code>B-1</code><br/>(Archivo/Cúpula)</td>
-          <td>Confirmada presencia en Capitanía Marítima de A Coruña (75 km; carretera costera cortada).</td>
-          <td>Llamada entrante verificada desde A Coruña a las <code>02:12</code>.</td>
+          <td><strong>Dr. Viktor Kovář</strong><br/><span>(Jefe Estación)</span></td>
+          <td><code>B-1</code><br/>(Despacho)</td>
+          <td>Confirmada presencia en enlace provincial de Brno (200 km; tren nocturno documentado).</td>
+          <td>Llamada entrante verificada desde Brno a las <code>02:12</code>.</td>
         </tr>
         <tr>
-          <td><strong>Mateo Rivas</strong><br/><span>(Subdirector)</span></td>
+          <td><strong>Marek Novák</strong><br/><span>(Enlace Sénior)</span></td>
           <td><code>B-2</code><br/><em>(Cedida 18:05)</em></td>
-          <td>Acompañado por dos patrulleros de Guardia Costera en el Muelle Sur entre <code>02:05</code> y <code>02:30</code>.</td>
+          <td>Acompañado por dos vigilantes de ronda junto al Reloj Astronómico entre <code>02:05</code> y <code>02:30</code>.</td>
           <td>Sin llamadas en cabina.</td>
         </tr>
         <tr>
-          <td><strong>Elena Sampedro</strong><br/><span>(Archivera)</span></td>
-          <td><code>A-4</code><br/>(Archivo)</td>
-          <td>Ticket oficial de taxi hacia Cee sellado a las <code>21:40</code>; testigo en domicilio familiar.</td>
+          <td><strong>Klára Veselá</strong><br/><span>(Archivera)</span></td>
+          <td><code>A-4</code><br/>(Microfilms)</td>
+          <td>Bono de tranvía hacia Vinohrady sellado a las <code>21:40</code>; testigo en piso familiar.</td>
           <td>Sin actividad nocturna.</td>
         </tr>
         <tr>
-          <td><strong>Ramón Seoane</strong><br/><span>(Maquinista)</span></td>
-          <td><code>C-1</code><br/>(Sótano Motores)</td>
-          <td>Parte de avería firmado con aprendiz en sala de calderas/diésel de <code>02:05</code> a <code>02:40</code>.</td>
+          <td><strong>Jan Dvořák</strong><br/><span>(Maquinista)</span></td>
+          <td><code>C-1</code><br/>(Sótano Castillo)</td>
+          <td>Parte de avería firmado con aprendiz en sala de generadores del Castillo de <code>02:05</code> a <code>02:40</code>.</td>
           <td>Llamada interna sótano <code>02:22</code>.</td>
         </tr>
         <tr>
-          <td><strong>Tomás Quiroga</strong><br/><span>(Ing. Nocturno)</span></td>
+          <td><strong>Pavel Horák</strong><br/><span>(Téc. Nocturno)</span></td>
           <td><code>B-2</code><br/><em>(Recibo #19)</em></td>
           <td><strong>Sin testigo ni registro verificado</strong> entre las <code>02:00</code> y las <code>02:45</code> en su puesto.</td>
-          <td>Llamada saliente a las <code>02:50</code> desde torre a Naviera Atlántica Ibérica (<code>981-44-109</code>).</td>
+          <td>Llamada saliente a las <code>02:50</code> desde cabina hacia buzón de Marea Roja (<code>420-44-109</code>).</td>
         </tr>
       </tbody>
     </table>
 
     <div class="panel-box">
       <div class="panel-title">Objetivo del Reto 3.A</div>
-      <p class="small-note">Una vez verificado <code>EXP-LLAVES-89</code> en el Terminal y contrastadas las coartadas, introducid en el <strong>Reto 3.A</strong> el <strong>nombre y apellido</strong> del autor material del sabotaje en la cúpula.</p>
+      <p class="small-note">Una vez verificado <code>EXP-LLAVES-89</code> en el Terminal y contrastadas las coartadas, introducid en el <strong>Reto 3.A</strong> el <strong>nombre y apellido</strong> del topo que manipuló la torre.</p>
     </div>
   </section>`);
 
@@ -939,17 +941,17 @@ function buildAllPagesHtml() {
 
   pages.push(`
   <section class="sheet" data-page="18" data-envelope="3">
-    ${sheetHeader('HOJA 3C', 3, 18, 'HILO A · Extracto del Reglamento Técnico de Estaciones (Ed. 1979)')}
-    <p class="lead-note">Normativa oficial utilizada como texto base de cifrado. Cuando desbloqueéis el registro <strong><code>BITACORA-MR</code></strong> en el Terminal tras resolver 3.A, aplicad aquí sus pares <code>(Artículo · Palabra)</code>.</p>
+    ${sheetHeader('HOJA 3C', 3, 18, 'HILO A · Extracto del Manual de Operaciones Agencia X (Ed. 1979)')}
+    <p class="lead-note">Texto normativo utilizado como base de cifrado de libro. Cuando desbloqueéis el registro <strong><code>BITACORA-MN</code></strong> en el Terminal tras resolver 3.A, aplicad aquí sus pares <code>(Artículo · Palabra)</code>.</p>
 
     <div class="reglamento-box">
-      <div class="reglamento-head">ORDEN CIRCULAR HIDROGRÁFICA · CAPÍTULO IV (CUSTODIA DE MATERIAL)</div>
+      <div class="reglamento-head">MANUAL DE OPERACIONES PRAGA · CAPÍTULO IV (CUSTODIA DE MATRICES)</div>
       ${articlesHtml}
     </div>
 
     <div class="panel-box">
       <div class="panel-title">Instrucciones de conteo</div>
-      <p class="small-note">Contad cada palabra de izquierda a derecha dentro de cada artículo (los superíndices discretos <code>[5]</code> y <code>[10]</code> sirven de apoyo para agilizar la cuenta). Tomad únicamente la <strong>primera letra</strong> de cada palabra seleccionada (ignorando tildes) para obtener la ubicación de 8 letras donde Mateo ocultó las planchas originales (Reto 3.B).</p>
+      <p class="small-note">Contad cada palabra de izquierda a derecha dentro de cada artículo (los superíndices discretos <code>[5]</code> y <code>[10]</code> agilizan el conteo). Tomad únicamente la <strong>primera letra</strong> de cada palabra señalada (ignorando tildes) para obtener la ubicación de 8 letras donde Novák ocultó las matrices originales (Reto 3.B).</p>
     </div>
   </section>`);
 
@@ -977,23 +979,23 @@ function buildAllPagesHtml() {
     </div>
   </section>`);
 
-  // Pág. 21 — Hoja 3F (Instrucciones Carta Náutica + Sello de Plancha III)
+  // Pág. 21 — Hoja 3F (Instrucciones Mapa Táctico + Sello de Plancha III)
   pages.push(`
   <section class="sheet" data-page="21" data-envelope="3">
-    ${sheetHeader('HOJA 3F', 3, 21, 'HILO B · Procedimiento de Triangulación en Carta Náutica')}
+    ${sheetHeader('HOJA 3F', 3, 21, 'HILO B · Procedimiento de Triangulación en Mapa Táctico de Praga')}
     <div class="panel-box">
       <div class="panel-title">Interpretación de los rumbos revelados al trasluz</div>
       <ul class="clean-list">
-        <li>La cifra superior marcada con <strong><code>F:</code></strong> indica la demora magnética en grados desde el <strong>Faro Norte</strong>.</li>
-        <li>La cifra inferior marcada con <strong><code>B:</code></strong> indica la demora magnética en grados desde la <strong>Boya Este</strong>.</li>
-        <li>Abrid la pestaña <strong>Carta Náutica Interactiva</strong> en la consola web, ajustad ambos diales a los grados obtenidos al trasluz y observad el punto exacto donde se cruzan ambos haces.</li>
+        <li>La cifra superior marcada con <strong><code>F:</code></strong> indica el rumbo magnético en grados desde el <strong>Foco de Petřín</strong>.</li>
+        <li>La cifra inferior marcada con <strong><code>B:</code></strong> indica el rumbo magnético en grados desde la <strong>Baliza Orloj (Reloj Astronómico)</strong>.</li>
+        <li>Abrid la pestaña <strong>Mapa Táctico</strong> en la consola web, ajustad ambos diales a los grados obtenidos al trasluz y observad el punto exacto donde se cruzan ambos haces.</li>
         <li>Haced clic en el cuadrante exacto de intersección (<code>A1–F6</code>) y confirmad el código con el formato <strong><code>RUMBO_F-RUMBO_B-CUADRANTE</code></strong> (ejemplo: <code>180-270-B3</code>).</li>
       </ul>
     </div>
 
     <div class="hand-note-box">
-      <div class="hand-note-title">Nota manuscrita de Mateo Rivas:</div>
-      <p class="handwritten">"Si la marea sube en la cámara antigua, buscad justo donde se cruzan la luz del Faro Norte y la demora de la Boya Este. Allí siguen selladas las matrices de latón."</p>
+      <div class="hand-note-title">Nota manuscrita de Marek Novák:</div>
+      <p class="handwritten">"Si el agua del Moldava sube, buscad justo donde se cruzan la luz de Petřín y la señal del Reloj Astronómico. Allí, bajo la isla, siguen selladas las matrices."</p>
     </div>
 
     <div class="sheet-bottom-seal">
@@ -1001,22 +1003,22 @@ function buildAllPagesHtml() {
     </div>
   </section>`);
 
-  // Pág. 22 — Hoja 3G (Plano referencial cámara de mareas)
+  // Pág. 22 — Hoja 3G (Plano referencial Praga)
   pages.push(`
   <section class="sheet" data-page="22" data-envelope="3">
-    ${sheetHeader('HOJA 3G', 3, 22, 'HILO B · Cuaderno Auxiliar de Mareas y Cuadrícula de Costa')}
-    <p class="lead-note">Croquis de referencia del sector costero donde opera la Carta Náutica Interactiva del Acto III.</p>
+    ${sheetHeader('HOJA 3G', 3, 22, 'HILO B · Cuadrícula de Reconocimiento en Praga')}
+    <p class="lead-note">Referencia de sectores urbanos de Praga sobre la que opera el Mapa Táctico Interactivo del Acto III.</p>
 
     <div class="panel-box">
-      <div class="panel-title">Leyenda de Cuadrantes Costeros (A1 – F6)</div>
+      <div class="panel-title">Leyenda de Cuadrantes de Praga (A1 – F6)</div>
       <table class="data-table compact">
         <thead>
           <tr><th>Franja</th><th>Columna A–B</th><th>Columna C–D</th><th>Columna E–F</th></tr>
         </thead>
         <tbody>
-          <tr><th>Filas 1–2</th><td>Acantilado Oeste / Punta Brava</td><td><strong>Faro Norte (Sector D1/E1)</strong></td><td>Ensenada del Abra</td></tr>
-          <tr><th>Filas 3–4</th><td>Bajos de Laxe</td><td>Zona de Cisternas Subterráneas</td><td>Fondeadero Exterior</td></tr>
-          <tr><th>Filas 5–6</th><td>Canal del Arrecife</td><td>Veril de Fosa Sur</td><td><strong>Boya Este (Sector F5)</strong></td></tr>
+          <tr><th>Filas 1–2</th><td>Hradčany / Castillo de Praga</td><td><strong>Foco de Petřín (D1/E1)</strong></td><td>Barrio Judío (Josefov)</td></tr>
+          <tr><th>Filas 3–4</th><td>Malá Strana Oeste</td><td>Puente de Carlos · Isla Kampa (Cisternas)</td><td>Ciudad Vieja</td></tr>
+          <tr><th>Filas 5–6</th><td>Ribera Smíchov</td><td>Recodo Sur del Moldava</td><td><strong>Baliza Orloj (Sector F5)</strong></td></tr>
         </tbody>
       </table>
     </div>
@@ -1024,9 +1026,9 @@ function buildAllPagesHtml() {
     <div class="panel-box">
       <div class="panel-title">Casillas de convergencia del Acto III</div>
       <div class="work-grid">
-        <div class="work-row"><span>Autor material del sabotaje (Hilo A · 3.A):</span><div class="blank-line"></div></div>
-        <div class="work-row"><span>Lugar oculto en Reglamento (Hilo A · 3.B):</span><div class="blank-line"></div></div>
-        <div class="work-row"><span>Triangulación de demoras (Hilo B · 3.C):</span><div class="blank-line"></div></div>
+        <div class="work-row"><span>Topo infiltrado en Estación PRG-89 (Hilo A · 3.A):</span><div class="blank-line"></div></div>
+        <div class="work-row"><span>Escondite en Manual de 1979 (Hilo A · 3.B):</span><div class="blank-line"></div></div>
+        <div class="work-row"><span>Triangulación sobre el Moldava (Hilo B · 3.C):</span><div class="blank-line"></div></div>
       </div>
     </div>
   </section>`);
@@ -1034,9 +1036,9 @@ function buildAllPagesHtml() {
   // --------------------------------------------------------------------------
   // SOBRE 4 (Págs. 23–28)
   // --------------------------------------------------------------------------
-  pages.push(coverPageHtml(4, 23, 28, 6)); // Pág. 23
+  pages.push(coverPageHtml(4, 23, 28, 6, assets)); // Pág. 23
 
-  // Pág. 24 — Hoja 4A (Télex + Cuentas Bancarias)
+  // Pág. 24 — Hoja 4A (Télex + Cuentas Marea Roja)
   const bankRowsHtml = BANK_ACCOUNTS.map(
     (a) => `
     <tr>
@@ -1050,29 +1052,29 @@ function buildAllPagesHtml() {
 
   pages.push(`
   <section class="sheet" data-page="24" data-envelope="4">
-    ${sheetHeader('HOJA 4A', 4, 24, 'Télex Intervenidos y Extracto de Cuentas Offshore')}
-    <p class="lead-note">Material incautado en la caja de seguridad de la cisterna. Cruzad estos movimientos con el expediente digital <strong><code>EXP-CONSORCIO-89</code></strong> en el Terminal.</p>
+    ${sheetHeader('HOJA 4A', 4, 24, 'Télex Intervenidos y Cuentas de Marea Roja')}
+    <p class="lead-note">Material recuperado de la caja estanca bajo el Moldava. Cruzad estos movimientos con el expediente digital <strong><code>EXP-MAREA-89</code></strong> en el Terminal.</p>
 
     <div class="telex-grid">
       <div class="telex-box">
-        <div class="telex-head">TÉLEX #1 · 09/11/1989 · 11:20 Z</div>
-        <pre>DE: PRESIDENCIA CONSORCIO VALDEIRA
-A: BANCA EXTERIOR / GIBRALTAR
-ASUNTO: POLIZA MV ARRECIFE
+        <div class="telex-head">TÉLEX #1 · 13/11/1989 · 11:20 Z</div>
+        <pre>DE: ENLACE FINANCIERO MAREA ROJA
+A: BANCA EXTERIOR / VIENA
+ASUNTO: FONDO PRG-89
 
 AUTORIZO COMISION PACTADA DEL 15 POR CIENTO
-SOBRE INDEMNIZACION TOTAL ASEGURADA.
+DEL FONDO TOTAL MOVILIZADO.
 EJECUTAR EN DOS TRAMOS IDENTICOS:
-TRAMO A PREVIO AL 13 NOV / TRAMO B TRAS SINIESTRO.
-IMPRESCINDIBLE FIRMA PRESIDENCIA.</pre>
+TRAMO A PREVIO AL 17 NOV / TRAMO B TRAS CORTE.
+IMPRESCINDIBLE FIRMA ENLACE FINANCIERO.</pre>
       </div>
       <div class="telex-box">
-        <div class="telex-head">TÉLEX #2 · 16/11/1989 · 08:45 Z</div>
-        <pre>DE: CONSIGNATARIA ATLANTICA
-A: PRESIDENCIA CONSORCIO VALDEIRA
+        <div class="telex-head">TÉLEX #2 · 20/11/1989 · 08:45 Z</div>
+        <pre>DE: CELULA PRAGA
+A: ENLACE FINANCIERO MAREA ROJA
 ASUNTO: LIQUIDACION TRAMO B
 
-BUQUE EN FOSA. CARGA IRRECUPERABLE.
+ARCHIVO SELLADO. RASTRO DESVIADO.
 SEGUNDO ABONO CONFIRMADO HOY CON IDENTICO
 IMPORTE Y FIRMA QUE EL TRAMO PREVIO.</pre>
       </div>
@@ -1093,14 +1095,14 @@ IMPORTE Y FIRMA QUE EL TRAMO PREVIO.</pre>
       </tbody>
     </table>
 
-    <p class="small-note">Introducid el código de la única cuenta que cumple íntegramente las condiciones de los télex y de <code>EXP-CONSORCIO-89</code> en el <strong>Reto 4.1</strong>.</p>
+    <p class="small-note">Introducid el código de la única cuenta que cumple íntegramente las condiciones de los télex y de <code>EXP-MAREA-89</code> en el <strong>Reto 4.1</strong>.</p>
   </section>`);
 
   // Pág. 25 — Hoja 4B (Consola de Relés - Reglas)
   pages.push(`
   <section class="sheet" data-page="25" data-envelope="4">
     ${sheetHeader('HOJA 4B', 4, 25, 'Esquema de Enclavamiento Eléctrico · Bóveda Cero')}
-    <p class="lead-note">Para abrir el respaldo maestro de Bóveda Cero debéis programar los seis relés numerados del <strong>1 al 6</strong> (<code>R1, R2, R3, R4, R5, R6</code>) y la fase de línea en la Consola de Relés interactiva.</p>
+    <p class="lead-note">Para desbloquear la Bóveda Cero de Agencia X debéis programar los seis relés numerados del <strong>1 al 6</strong> (<code>R1, R2, R3, R4, R5, R6</code>) y la fase de línea en la Consola de Relés interactiva.</p>
 
     <div class="panel-box">
       <div class="panel-title">Reglas de Seguridad de la Placa Lógica (Leyenda B/N: ■ ACTIVO / □ INACTIVO)</div>
@@ -1125,11 +1127,11 @@ IMPORTE Y FIRMA QUE EL TRAMO PREVIO.</pre>
             <text x="${x + 8}" y="29" text-anchor="middle" font-family="'Courier New', monospace" font-size="3.6" fill="#475569">idx ${n}</text>`;
           })
           .join('')}
-        <path d="M 22 33 L 22 38 L 47 38 L 47 33" fill="none" stroke="#b91c1c" stroke-width="0.7"/>
-        <text x="34.5" y="41.5" text-anchor="middle" font-family="'Courier New', monospace" font-size="3.3" fill="#991b1b">R1 ≠ R2</text>
-        <path d="M 72 33 L 72 38 L 97 38 L 97 33" fill="none" stroke="#1d4ed8" stroke-width="0.7"/>
-        <text x="84.5" y="41.5" text-anchor="middle" font-family="'Courier New', monospace" font-size="3.3" fill="#1e3a8a">R3 = R4</text>
-        <text x="134" y="39" text-anchor="middle" font-family="'Courier New', monospace" font-size="3.5" fill="#0f172a">Σ índices activos = V</text>
+        <path d="M 22 33 L 22 38 L 47 38 L 47 33" fill="none" stroke="#c81e2b" stroke-width="0.8"/>
+        <text x="34.5" y="41.5" text-anchor="middle" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="3.3" fill="#c81e2b">R1 ≠ R2</text>
+        <path d="M 72 33 L 72 38 L 97 38 L 97 33" fill="none" stroke="#9a5b00" stroke-width="0.8" stroke-dasharray="1.8 1"/>
+        <text x="84.5" y="41.5" text-anchor="middle" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="3.3" fill="#9a5b00">R3 = R4</text>
+        <text x="134" y="39" text-anchor="middle" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="3.5" fill="#111317">Σ índices activos = V</text>
       </svg>
     </div>
   </section>`);
@@ -1138,7 +1140,7 @@ IMPORTE Y FIRMA QUE EL TRAMO PREVIO.</pre>
   pages.push(`
   <section class="sheet" data-page="26" data-envelope="4">
     ${sheetHeader('HOJA 4C', 4, 26, 'Parte de Tensión Auxiliar y Diagnóstico de Fases')}
-    <p class="lead-note">Lectura de polímetro realizada tras la instalación del tablero de emergencia de Bóveda Cero.</p>
+    <p class="lead-note">Lectura de polímetro realizada tras activar el tablero de emergencia de Bóveda Cero en Praga.</p>
 
     <table class="data-table">
       <thead>
@@ -1152,14 +1154,14 @@ IMPORTE Y FIRMA QUE EL TRAMO PREVIO.</pre>
       <tbody>
         <tr>
           <td><code>FASE I</code></td>
-          <td>Plancha I-A (Faro antiguo)</td>
+          <td>Plancha I-A (Torre antigua)</td>
           <td>□ Fusible abierto (sin retorno)</td>
           <td><code>0 V</code></td>
         </tr>
         <tr>
           <td><code>FASE II</code></td>
-          <td>Plancha II-A (Generador muelle)</td>
-          <td>□ Cortocircuito por salinidad</td>
+          <td>Plancha II-A (Enlace ribera)</td>
+          <td>□ Cortocircuito por humedad</td>
           <td><code>0 V</code></td>
         </tr>
         <tr>
@@ -1186,13 +1188,13 @@ IMPORTE Y FIRMA QUE EL TRAMO PREVIO.</pre>
   // Pág. 27 — Hoja 4D (Meta-puzle Manifiesto + Sello de Plancha IV)
   pages.push(`
   <section class="sheet" data-page="27" data-envelope="4">
-    ${sheetHeader('HOJA 4D', 4, 27, 'META-PUZLE FINAL · Carta Testamento del Último Meridiano')}
+    ${sheetHeader('HOJA 4D', 4, 27, 'META-PUZLE FINAL · Directiva de Cierre Praga Cero')}
     <div class="letter-box">
-      <div class="letter-meta">Cabo Valdeira · 14 de noviembre de 1989 · 04:10 h</div>
-      <p><strong>A quien haya llegado hasta el fondo de los cuatro sobres — Fer y Lucía:</strong></p>
-      <p>He visto desde la pasarela exterior cómo manipulaban la lente y he comprendido que si mañana sigo en Cabo Valdeira silenciarán también mi testimonio. Esta madrugada pongo rumbo en secreto hacia Vigo con los originales notariales, pero antes dejo bloqueado el archivo maestro bajo una contraseña que nadie pueda abrir usando un único sobre.</p>
-      <p>A lo largo de los cuatro sobres que habéis abierto se ocultan <strong>cuatro Sellos de Plancha</strong>, cada uno identificado por una <strong>forma geométrica distinta</strong>, un par de letras y un dígito de control (<code>XX-N</code>). Recuperad los cuatro sellos físicos de las hojas anteriores y seguid al pie de la letra la hoja de cierre <strong>4E</strong> junto con el <strong>Astrolabio del Sobre 2</strong>.</p>
-      <p class="letter-sign">— Mateo Rivas</p>
+      <div class="letter-meta">Agencia X · Estación PRG-89 · 18 de noviembre de 1989 · 04:10 h</div>
+      <p><strong>A los dos agentes de campo que reconstruyan este caso — Fer y Lucía:</strong></p>
+      <p>Cuando descubrí la traición en Torre de Petřín comprendí que el único modo de proteger las pruebas para quienes regreséis a Praga décadas después era fragmentar la clave de autorización en cuatro piezas físicas independientes.</p>
+      <p>A lo largo de los cuatro sobres que habéis abierto se ocultan <strong>cuatro Sellos de Plancha</strong>, cada uno identificado por una <strong>forma geométrica distinta</strong>, un par de letras y un dígito de control (<code>XX-N</code>). Recuperad los cuatro sellos de las hojas anteriores y seguid al pie de la letra la hoja de cierre <strong>4E</strong> junto con el <strong>Disco del Orloj del Sobre 2</strong>.</p>
+      <p class="letter-sign">— Agente Marek Novák, 1989</p>
     </div>
 
     <div class="panel-box">
@@ -1213,8 +1215,8 @@ IMPORTE Y FIRMA QUE EL TRAMO PREVIO.</pre>
   // Pág. 28 — Hoja 4E (Ficha de Cierre Meta-puzle)
   pages.push(`
   <section class="sheet" data-page="28" data-envelope="4">
-    ${sheetHeader('HOJA 4E', 4, 28, 'META-PUZLE FINAL · Ficha de Cierre "El Meridiano Borrado"')}
-    <p class="lead-note">Seguid estos cuatro pasos en orden estricto para deducir la contraseña maestra del caso.</p>
+    ${sheetHeader('HOJA 4E', 4, 28, 'META-PUZLE FINAL · Ficha de Cierre "Protocolo Praga Cero"')}
+    <p class="lead-note">Seguid estos cuatro pasos en orden estricto para liberar vuestra autorización de despliegue a Praga.</p>
 
     <div class="panel-box">
       <div class="panel-title">Paso 1 · Reordenar los 4 Sellos según su Símbolo Geométrico</div>
@@ -1242,14 +1244,14 @@ IMPORTE Y FIRMA QUE EL TRAMO PREVIO.</pre>
     </div>
 
     <div class="panel-box">
-      <div class="panel-title">Paso 2 · Calibrar el Astrolabio del Sobre 2</div>
-      <p class="small-note">Sumad los <strong>cuatro dígitos de control</strong> (<code>N₁ + N₂ + N₃ + N₄</code>). El resultado indica el <strong>número de sector (01–26)</strong> del Anillo Exterior del Astrolabio con el que debéis alinear exactamente la flecha <strong><code>▲ ÍNDICE</code></strong> del Disco Interior.</p>
+      <div class="panel-title">Paso 2 · Calibrar el Disco del Orloj del Sobre 2</div>
+      <p class="small-note">Sumad los <strong>cuatro dígitos de control</strong> (<code>N₁ + N₂ + N₃ + N₄</code>). El resultado indica el <strong>número de sector (01–26)</strong> del Anillo Exterior del Disco del Orloj con el que debéis alinear exactamente la flecha <strong><code>▲ ÍNDICE</code></strong> del Disco Interior.</p>
       <div class="work-row"><span>Suma total de los 4 dígitos (= Sector de calibración):</span><div class="blank-line"></div></div>
     </div>
 
     <div class="panel-box">
       <div class="panel-title">Paso 3 · Descifrar los 4 pares de letras en orden (△ → ◎ → □ → ◇)</div>
-      <p class="small-note">Con el Astrolabio calibrado en ese sector, leed las <strong>8 letras</strong> de los cuatro pares en orden (<code>Disco Interior → Anillo Exterior</code>) para formar una palabra de dos términos unidos (8 letras en total).</p>
+      <p class="small-note">Con el Disco del Orloj calibrado en ese sector, leed las <strong>8 letras</strong> de los cuatro pares en orden (<code>Disco Interior → Anillo Exterior</code>) para formar una palabra compuesta de ocho letras.</p>
       <table class="data-table">
         <tbody>
           <tr>
@@ -1266,7 +1268,7 @@ IMPORTE Y FIRMA QUE EL TRAMO PREVIO.</pre>
     </div>
 
     <div class="panel-box">
-      <div class="panel-title">Paso 4 · Clave Final (Bóveda Cero)</div>
+      <div class="panel-title">Paso 4 · Autorización Final (Bóveda Cero)</div>
       <p class="small-note">Unid la palabra descifrada con los 4 dígitos en ese mismo orden (<code>△ → ◎ → □ → ◇</code>) siguiendo el formato: <strong><code>PALABRA-DIGITOS</code></strong> (ejemplo: <code>RESPUESTA-1234</code>).</p>
     </div>
   </section>`);
@@ -1274,13 +1276,41 @@ IMPORTE Y FIRMA QUE EL TRAMO PREVIO.</pre>
   return pages.join('\n');
 }
 
-function buildPrintHtmlDocument() {
+function buildPrintHtmlDocument(assets) {
   return `<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <title>${escapeHtml(GAME_TITLE)} — Kit Imprimible</title>
   <style>
+    @font-face {
+      font-family: 'JetBrains Mono';
+      font-style: normal;
+      font-weight: 400;
+      src: url('data:font/woff2;base64,${assets.fontRegExtB64}') format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1EFF;
+    }
+    @font-face {
+      font-family: 'JetBrains Mono';
+      font-style: normal;
+      font-weight: 400;
+      src: url('data:font/woff2;base64,${assets.fontRegB64}') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'JetBrains Mono';
+      font-style: normal;
+      font-weight: 700;
+      src: url('data:font/woff2;base64,${assets.fontBoldExtB64}') format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1EFF;
+    }
+    @font-face {
+      font-family: 'JetBrains Mono';
+      font-style: normal;
+      font-weight: 700;
+      src: url('data:font/woff2;base64,${assets.fontBoldB64}') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
     @page {
       size: A4 portrait;
       margin: 12mm;
@@ -1294,10 +1324,10 @@ function buildPrintHtmlDocument() {
       margin: 0;
       padding: 0;
       background: #ffffff;
-      color: #0f172a;
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 9.8pt;
-      line-height: 1.42;
+      color: #111317;
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 8.4pt;
+      line-height: 1.44;
     }
     .sheet {
       width: 186mm;
@@ -1313,280 +1343,316 @@ function buildPrintHtmlDocument() {
       page-break-after: auto;
       break-after: auto;
     }
-    /* Portadas limpias de Sobre */
     .cover-sheet {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 8mm;
+      padding: 7mm;
     }
     .cover-frame {
+      position: relative;
       width: 100%;
-      height: 248mm;
-      border: 2.2pt solid #1e293b;
-      outline: 0.7pt solid #64748b;
+      height: 250mm;
+      border: 1.8pt solid #111317;
+      outline: 0.6pt solid #8a9296;
       outline-offset: -4mm;
-      padding: 20mm 16mm;
+      padding: 16mm 16mm;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: #fdfcf8;
+      background: #fcfbfa;
     }
+    .corner {
+      position: absolute;
+      width: 7mm;
+      height: 7mm;
+      border-color: #c81e2b;
+      border-style: solid;
+    }
+    .corner.tl { top: 2.2mm; left: 2.2mm; border-width: 1.6pt 0 0 1.6pt; }
+    .corner.tr { top: 2.2mm; right: 2.2mm; border-width: 1.6pt 1.6pt 0 0; }
+    .corner.bl { bottom: 2.2mm; left: 2.2mm; border-width: 0 0 1.6pt 1.6pt; }
+    .corner.br { bottom: 2.2mm; right: 2.2mm; border-width: 0 1.6pt 1.6pt 0; }
     .cover-top-tag {
-      font-family: 'Courier New', monospace;
-      font-size: 9.5pt;
-      letter-spacing: 1.4pt;
-      color: #475569;
-      margin-bottom: 18mm;
+      font-size: 8.2pt;
+      letter-spacing: 1.6pt;
+      color: #9a5b00;
+      font-weight: bold;
+      margin-bottom: 10mm;
+    }
+    .cover-logo {
+      width: 50mm;
+      height: auto;
+      margin-bottom: 9mm;
     }
     .cover-stamp-box {
-      border: 1.8pt solid #991b1b;
-      color: #991b1b;
-      font-family: 'Courier New', monospace;
-      font-size: 11pt;
+      border: 1.6pt solid #c81e2b;
+      color: #c81e2b;
+      font-size: 10pt;
       font-weight: bold;
       letter-spacing: 2pt;
-      padding: 2.5mm 7mm;
-      margin-bottom: 12mm;
+      padding: 2.2mm 7mm;
+      margin-bottom: 9mm;
       transform: rotate(-2deg);
+      background: #fff6f6;
+    }
+    .cover-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4mm;
+      margin-bottom: 5mm;
+    }
+    .cover-title-icon {
+      width: 10mm;
+      height: 10mm;
+      opacity: 0.72;
     }
     .cover-title {
-      font-family: 'Courier New', monospace;
-      font-size: 42pt;
-      letter-spacing: 3pt;
-      margin: 0 0 6mm;
-      color: #0f172a;
+      font-size: 38pt;
+      letter-spacing: 2.5pt;
+      margin: 0;
+      color: #111317;
     }
     .cover-recipient {
-      font-size: 18pt;
-      font-weight: bold;
-      letter-spacing: 1.5pt;
-      color: #1e3a8a;
-      margin-bottom: 10mm;
-    }
-    .cover-rule {
-      width: 90mm;
-      height: 1pt;
-      background: #334155;
-      margin-bottom: 10mm;
-    }
-    .cover-warning {
-      font-family: 'Courier New', monospace;
       font-size: 13pt;
       font-weight: bold;
+      letter-spacing: 1.2pt;
+      color: #c81e2b;
+      margin-bottom: 8mm;
+    }
+    .cover-rule {
+      width: 96mm;
+      border-top: 1pt dashed #8a9296;
+      margin-bottom: 8mm;
+    }
+    .cover-warning {
+      font-size: 11.5pt;
+      font-weight: bold;
       color: #991b1b;
-      border: 1.2pt dashed #991b1b;
-      padding: 4mm 8mm;
-      margin: 0 0 12mm;
+      border: 1.2pt dashed #c81e2b;
+      padding: 3.8mm 7mm;
+      margin: 0 0 9mm;
       background: #fff5f5;
+      letter-spacing: 0.6pt;
     }
     .cover-meta {
-      font-size: 11.5pt;
-      color: #1e293b;
+      font-size: 9.8pt;
+      color: #111317;
       margin: 0;
     }
     .cover-footer {
-      margin-top: 26mm;
-      font-family: 'Courier New', monospace;
-      font-size: 8.5pt;
-      color: #64748b;
+      margin-top: 18mm;
+      font-size: 7.8pt;
+      color: #5a626a;
+      line-height: 1.8;
+    }
+    .cover-sign {
+      margin-top: 2mm;
+      color: #9a5b00;
+      font-weight: bold;
+      letter-spacing: 1.2pt;
     }
 
-    /* Cabeceras de documento */
     .doc-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1.2pt solid #1e293b;
-      padding-bottom: 2mm;
-      margin-bottom: 3.5mm;
-      font-family: 'Courier New', monospace;
-      font-size: 7.8pt;
+      border-bottom: 1.4pt solid #111317;
+      padding-bottom: 1.8mm;
+      margin-bottom: 3.2mm;
+      font-size: 7.2pt;
     }
     .doc-header-left {
       display: flex;
       align-items: center;
-      gap: 3mm;
+      gap: 2.5mm;
+    }
+    .header-mini-logo {
+      height: 5.2mm;
+      width: auto;
+      display: block;
     }
     .badge-folio {
-      background: #0f172a;
+      background: #111317;
       color: #ffffff;
-      padding: 0.7mm 2.2mm;
+      padding: 0.6mm 2mm;
       font-weight: bold;
       letter-spacing: 0.5pt;
     }
     .doc-header-org {
-      color: #334155;
+      color: #5a626a;
       font-weight: bold;
     }
     .doc-header-right {
-      color: #475569;
+      color: #5a626a;
     }
     .doc-title {
-      font-size: 13.5pt;
-      margin: 0 0 3.5mm;
-      color: #0f172a;
-      border-left: 3pt solid #1e3a8a;
+      font-size: 11.2pt;
+      margin: 0 0 3.2mm;
+      color: #111317;
+      border-left: 3pt solid #c81e2b;
       padding-left: 3mm;
+      letter-spacing: 0.2pt;
     }
 
-    /* Bloques interiores */
     .membrete-box {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border: 1pt solid #334155;
-      background: #f8fafc;
-      padding: 3mm 4mm;
-      margin-bottom: 4mm;
-      font-size: 8.5pt;
+      border: 0.9pt solid #111317;
+      background: #faf9f6;
+      padding: 2.8mm 3.8mm;
+      margin-bottom: 3.6mm;
+      font-size: 7.8pt;
     }
     .station-stamp {
-      border: 1.5pt solid #991b1b;
-      padding: 1.5mm 4mm;
+      border: 1.4pt solid #c81e2b;
+      padding: 1.4mm 3.6mm;
       text-align: center;
       background: #ffffff;
     }
     .stamp-mini-title {
-      font-family: 'Courier New', monospace;
-      font-size: 6.5pt;
-      color: #991b1b;
+      font-size: 6pt;
+      color: #c81e2b;
       font-weight: bold;
     }
     .stamp-mini-code {
-      font-family: 'Courier New', monospace;
-      font-size: 14pt;
+      font-size: 13pt;
       font-weight: bold;
-      color: #991b1b;
+      color: #c81e2b;
       letter-spacing: 1pt;
     }
     .letter-box {
-      border: 0.8pt solid #94a3b8;
-      background: #fdfcf6;
-      padding: 4mm 5mm;
-      margin-bottom: 4mm;
+      border: 0.8pt solid #5a626a;
+      background: #fcfbfa;
+      padding: 3.4mm 4.4mm;
+      margin-bottom: 3.6mm;
+      font-size: 8.1pt;
     }
     .letter-meta {
-      font-family: 'Courier New', monospace;
-      font-size: 8pt;
-      color: #475569;
-      margin-bottom: 2.5mm;
-      border-bottom: 0.5pt dotted #cbd5e1;
-      padding-bottom: 1.5mm;
+      font-size: 7.3pt;
+      color: #9a5b00;
+      font-weight: bold;
+      margin-bottom: 2.2mm;
+      border-bottom: 0.6pt dashed #8a9296;
+      padding-bottom: 1.4mm;
+      text-transform: uppercase;
+      letter-spacing: 0.5pt;
     }
     .letter-box p {
-      margin: 0 0 2.5mm;
+      margin: 0 0 2.2mm;
     }
     .letter-sign {
       text-align: right;
-      font-style: italic;
+      font-weight: bold;
+      color: #9a5b00;
       margin-bottom: 0 !important;
     }
     .panel-box {
-      border: 0.8pt solid #475569;
+      border: 0.8pt solid #4b5563;
       background: #ffffff;
-      padding: 3.2mm 4.2mm;
-      margin-bottom: 3.8mm;
+      padding: 2.8mm 3.8mm;
+      margin-bottom: 3.4mm;
     }
     .compact-box {
-      padding: 2.5mm 3.5mm;
-      margin-bottom: 3mm;
+      padding: 2.2mm 3.2mm;
+      margin-bottom: 2.8mm;
     }
     .panel-title {
-      font-family: 'Courier New', monospace;
-      font-size: 8.8pt;
+      font-size: 8pt;
       font-weight: bold;
-      color: #1e3a8a;
-      margin-bottom: 2mm;
+      color: #c81e2b;
+      margin-bottom: 1.8mm;
       text-transform: uppercase;
+      letter-spacing: 0.5pt;
     }
     .lead-note {
-      margin: 0 0 3.5mm;
-      font-size: 9.6pt;
+      margin: 0 0 3mm;
+      font-size: 8.2pt;
     }
     .small-note {
-      margin: 0 0 2.2mm;
-      font-size: 8.8pt;
-      color: #1e293b;
+      margin: 0 0 2mm;
+      font-size: 7.8pt;
+      color: #1f2937;
     }
     .clean-list {
       margin: 1mm 0 1mm 5mm;
       padding: 0;
     }
     .clean-list li {
-      margin-bottom: 1.5mm;
-      font-size: 9pt;
+      margin-bottom: 1.4mm;
+      font-size: 7.9pt;
     }
     code {
-      font-family: 'Courier New', monospace;
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
       font-weight: bold;
-      background: #f1f5f9;
-      padding: 0.2mm 1.2mm;
-      border: 0.3pt solid #cbd5e1;
-      font-size: 8.8pt;
+      background: #f3f4f6;
+      padding: 0.2mm 1.1mm;
+      border: 0.3pt solid #9ca3af;
+      font-size: 7.9pt;
     }
     .data-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 3.8mm;
-      font-size: 8.6pt;
+      margin-bottom: 3.4mm;
+      font-size: 7.5pt;
     }
     .data-table.compact {
-      font-size: 8pt;
-      margin-bottom: 3mm;
+      font-size: 7.1pt;
+      margin-bottom: 2.8mm;
     }
     .data-table th, .data-table td {
-      border: 0.6pt solid #475569;
-      padding: 1.8mm 2.4mm;
+      border: 0.6pt solid #4b5563;
+      padding: 1.6mm 2.1mm;
       text-align: left;
       vertical-align: top;
     }
     .data-table thead th {
-      background: #e2e8f0;
-      font-family: 'Courier New', monospace;
-      font-size: 8pt;
-      color: #0f172a;
+      background: #eceef1;
+      font-size: 7.2pt;
+      color: #111317;
     }
     .row-highlight {
-      background: #f4f7fb;
+      background: #fff9ee;
       font-weight: normal;
     }
     .hand-note-box {
-      border: 1pt dashed #1e3a8a;
-      background: #f8fbff;
-      padding: 3.2mm 4.2mm;
-      margin-bottom: 3.8mm;
+      border: 1pt dashed #9a5b00;
+      background: #fffaf0;
+      padding: 2.8mm 3.8mm;
+      margin-bottom: 3.4mm;
     }
     .hand-note-title {
-      font-family: 'Courier New', monospace;
-      font-size: 8pt;
+      font-size: 7.4pt;
       font-weight: bold;
-      color: #1e3a8a;
-      margin-bottom: 1.2mm;
+      color: #9a5b00;
+      margin-bottom: 1.1mm;
+      text-transform: uppercase;
     }
     .handwritten {
       margin: 0;
       font-style: italic;
-      color: #1e293b;
-      font-size: 9.2pt;
+      color: #1f2937;
+      font-size: 8pt;
     }
     .coop-banner {
-      border: 1pt solid #0f766e;
-      background: #f0fdfa;
-      color: #134e4a;
-      padding: 2.2mm 3.5mm;
-      margin-bottom: 3.5mm;
-      font-family: 'Courier New', monospace;
-      font-size: 8.2pt;
+      border: 1pt solid #c81e2b;
+      border-left: 3pt solid #c81e2b;
+      background: #fff6f6;
+      color: #7a0f1a;
+      padding: 2mm 3.2mm;
+      margin-bottom: 3.2mm;
+      font-size: 7.4pt;
       font-weight: bold;
     }
     .svg-center-box {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 3mm 0;
+      margin: 2.5mm 0;
     }
     .sheet-bottom-seal {
       position: absolute;
@@ -1602,92 +1668,88 @@ function buildPrintHtmlDocument() {
       display: flex;
       justify-content: space-between;
       border-bottom: 0.4pt dotted #cbd5e1;
-      padding: 0.6mm 1.5mm;
-      font-family: 'Courier New', monospace;
-      font-size: 8.2pt;
+      padding: 0.5mm 1.5mm;
+      font-size: 7.5pt;
     }
     .morse-ch {
       font-weight: bold;
-      color: #0f172a;
+      color: #111317;
     }
     .morse-dots {
       letter-spacing: 0.8pt;
       font-weight: bold;
-      color: #1e3a8a;
+      color: #c81e2b;
     }
     .newspaper-box {
-      border: 1.2pt solid #1e293b;
-      background: #faf9f5;
-      padding: 3.2mm 4.5mm;
-      margin-bottom: 3.8mm;
+      border: 1.2pt solid #111317;
+      background: #faf9f6;
+      padding: 2.8mm 4mm;
+      margin-bottom: 3.4mm;
     }
     .news-head {
-      font-family: 'Courier New', monospace;
-      font-size: 8pt;
+      font-size: 7.3pt;
       font-weight: bold;
-      border-bottom: 0.8pt solid #1e293b;
+      color: #c81e2b;
+      border-bottom: 0.8pt dashed #4b5563;
       padding-bottom: 1mm;
-      margin-bottom: 2mm;
+      margin-bottom: 1.8mm;
     }
     .newspaper-box h3 {
-      margin: 0 0 2mm;
-      font-size: 11pt;
+      margin: 0 0 1.8mm;
+      font-size: 9.2pt;
     }
     .newspaper-box p {
       margin: 0;
-      font-size: 8.8pt;
+      font-size: 7.7pt;
     }
     .receipt-box {
-      border: 1pt dashed #7c2d12;
-      background: #fffaf5;
-      padding: 3.5mm 4.5mm;
-      margin-bottom: 3.8mm;
+      border: 1pt dashed #9a5b00;
+      background: #fffaf2;
+      padding: 3mm 4mm;
+      margin-bottom: 3.4mm;
     }
     .receipt-title {
-      font-family: 'Courier New', monospace;
-      font-size: 8.8pt;
+      font-size: 7.8pt;
       font-weight: bold;
-      color: #7c2d12;
-      margin-bottom: 2mm;
+      color: #9a5b00;
+      margin-bottom: 1.8mm;
     }
     .receipt-box p {
-      margin: 0 0 1.6mm;
-      font-size: 9pt;
+      margin: 0 0 1.4mm;
+      font-size: 7.9pt;
     }
     .reglamento-box {
-      border: 1pt solid #1e293b;
-      background: #fdfcf9;
-      padding: 4mm 5mm;
-      margin-bottom: 4mm;
+      border: 1pt solid #111317;
+      background: #fcfbfa;
+      padding: 3.6mm 4.6mm;
+      margin-bottom: 3.6mm;
     }
     .reglamento-head {
-      font-family: 'Courier New', monospace;
-      font-size: 8.5pt;
+      font-size: 7.8pt;
       font-weight: bold;
       text-align: center;
-      border-bottom: 0.8pt solid #334155;
-      padding-bottom: 2mm;
-      margin-bottom: 3mm;
+      color: #c81e2b;
+      border-bottom: 0.8pt dashed #4b5563;
+      padding-bottom: 1.8mm;
+      margin-bottom: 2.8mm;
     }
     .article-row {
-      margin-bottom: 3.2mm;
-      font-size: 9.4pt;
-      line-height: 1.5;
+      margin-bottom: 2.8mm;
+      font-size: 8.1pt;
+      line-height: 1.48;
     }
     .art-num {
-      font-family: 'Courier New', monospace;
       font-weight: bold;
-      color: #1e3a8a;
+      color: #c81e2b;
     }
     .word-mark {
-      font-family: 'Courier New', monospace;
-      font-size: 6.5pt;
-      color: #1d4ed8;
+      font-size: 6pt;
+      color: #9a5b00;
       margin-left: 0.3mm;
       font-weight: bold;
     }
     .contraluz-sheet .contraluz-header {
-      height: 35mm;
+      height: 36mm;
       overflow: hidden;
     }
     .optical-zone {
@@ -1698,54 +1760,53 @@ function buildPrintHtmlDocument() {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3.5mm;
-      margin-bottom: 3.8mm;
+      margin-bottom: 3.4mm;
     }
     .telex-box {
-      border: 0.8pt solid #334155;
-      background: #fcfaf2;
-      padding: 2.5mm 3mm;
+      border: 0.8pt solid #374151;
+      background: #fcfbfa;
+      padding: 2.4mm 3mm;
     }
     .telex-head {
-      font-family: 'Courier New', monospace;
-      font-size: 7.4pt;
+      font-size: 6.9pt;
       font-weight: bold;
-      color: #991b1b;
-      border-bottom: 0.5pt solid #94a3b8;
+      color: #c81e2b;
+      border-bottom: 0.5pt dashed #9ca3af;
       padding-bottom: 1mm;
-      margin-bottom: 1.5mm;
+      margin-bottom: 1.4mm;
     }
     .telex-box pre {
       margin: 0;
-      font-family: 'Courier New', monospace;
-      font-size: 7pt;
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 6.4pt;
       line-height: 1.35;
       white-space: pre-wrap;
     }
     .relay-diagram-box {
       display: flex;
       justify-content: center;
-      margin-top: 4mm;
+      margin-top: 3.5mm;
     }
     .work-grid {
       display: flex;
       flex-direction: column;
-      gap: 3mm;
+      gap: 2.8mm;
     }
     .work-row {
       display: flex;
       align-items: flex-end;
       gap: 3mm;
-      font-size: 8.8pt;
+      font-size: 7.9pt;
     }
     .blank-line {
       flex: 1;
-      border-bottom: 0.8pt dashed #475569;
+      border-bottom: 0.8pt dashed #4b5563;
       height: 6mm;
     }
   </style>
 </head>
 <body>
-${buildAllPagesHtml()}
+${buildAllPagesHtml(assets)}
 </body>
 </html>`;
 }
@@ -1783,7 +1844,7 @@ function buildGameDataJs() {
     return {
       queryHash: sha256Hex(queryNorm),
       unlockAfter: doc.unlockAfter,
-      autoDiscover: ['DESPACHO-042', 'BOYA-89-E', 'BITACORA-MR'].includes(doc.id),
+      autoDiscover: ['DESPACHO-042', 'BALIZA-89-E', 'BITACORA-MN'].includes(doc.id),
       codeB64: encodeB64(doc.id),
       titleB64: encodeB64(doc.title),
       classificationB64: encodeB64(doc.classification),
@@ -1834,7 +1895,7 @@ function buildGameDataJs() {
 function buildPrepGuideMd() {
   return `# Guía de Preparación (100% Sin Spoilers) — *${GAME_TITLE}*
 
-Esta guía explica cómo imprimir y preparar los cuatro sobres para **Fer y Lucía** sin revelar absolutamente nada del contenido ni de los enigmas.
+Esta guía explica cómo imprimir y preparar los cuatro sobres de **Agencia X** para **Fer y Lucía (Agentes F y L)** sin revelar absolutamente nada del contenido ni de los enigmas.
 
 ---
 
@@ -1843,7 +1904,7 @@ Esta guía explica cómo imprimir y preparar los cuatro sobres para **Fer y Luc�
 Imprimid el archivo [imprimir/KIT_ESCAPE_ROOM.pdf](./imprimir/KIT_ESCAPE_ROOM.pdf) siguiendo estas cuatro reglas estrictas:
 
 1. **Tamaño de papel:** A4 vertical (*Portrait*).
-2. **A una cara:** **NO imprimáis a doble cara**. Algunas hojas deben recortarse o superponerse frente a una luz durante la partida.
+2. **A una cara:** **NO imprimáis a doble cara**. Algunas hojas deben recortarse o superponerse frente a una luz durante la misión.
 3. **Escala real (100% / Tamaño real):** Desactivad cualquier opción tipo *"Ajustar a página"* o *"Reducir para ajustar"*. Las plantillas recortables y superposiciones dependen de una escala exacta \`1:1\`.
 4. **Color recomendado (100% compatible con Blanco y Negro):** El dosier está diseñado en color archivístico, pero todos los elementos críticos llevan formas, iconos o tramas distintas, así que es 100% jugable también si se imprime en blanco y negro o escala de grises.
 
@@ -1855,12 +1916,12 @@ El PDF tiene **28 páginas** en total. Cada sobre comienza con una **hoja de por
 
 | Sobre físico | Rango exacto de páginas | Cantidad de hojas | Cuándo se abre |
 | :--- | :--- | :--- | :--- |
-| **SOBRE 1** | **Páginas 1 a 6** | 6 hojas | Al iniciar la partida tras pulsar *Comenzar investigación* |
-| **SOBRE 2** | **Páginas 7 a 14** | 8 hojas | Solo cuando la consola web indique abrir el Sobre 2 |
-| **SOBRE 3** | **Páginas 15 a 22** | 8 hojas | Solo cuando la consola web indique abrir el Sobre 3 |
-| **SOBRE 4** | **Páginas 23 a 28** | 6 hojas | Solo cuando la consola web indique abrir el Sobre 4 |
+| **SOBRE 1** | **Páginas 1 a 6** | 6 hojas | Al iniciar la misión tras pulsar *Activar protocolo* |
+| **SOBRE 2** | **Páginas 7 a 14** | 8 hojas | Solo cuando el Canal Seguro indique abrir el Sobre 2 |
+| **SOBRE 3** | **Páginas 15 a 22** | 8 hojas | Solo cuando el Canal Seguro indique abrir el Sobre 3 |
+| **SOBRE 4** | **Páginas 23 a 28** | 6 hojas | Solo cuando el Canal Seguro indique abrir el Sobre 4 |
 
-> **Importante:** **NO recortéis ni dobléis nada antes de empezar a jugar.** Todas las piezas se preparan en vivo sobre la mesa cuando la historia lo requiere.
+> **Importante:** **NO recortéis ni dobléis nada antes de empezar a jugar.** Todas las piezas se preparan en vivo sobre la mesa cuando la misión lo requiere.
 
 ---
 
@@ -1869,7 +1930,7 @@ El PDF tiene **28 páginas** en total. Cada sobre comienza con una **hoja de por
 Antes de abrir el Sobre 1, dejad sobre la mesa:
 
 - **Unas tijeras** (útiles para las piezas recortables que irán apareciendo).
-- **Dos bolígrafos o lápices** (uno para Fer y otro para Lucía) y papel sucio opcional para tomar notas.
+- **Dos bolígrafos o lápices** (uno para cada agente) y papel auxiliar opcional para tomar notas.
 - **Celo / cinta adhesiva** (opcional, útil si queréis fijar alguna marca o pliegue con comodidad).
 - **Un teléfono móvil con linterna** (la función de linterna trasera será necesaria en uno de los tramos del juego).
 - **Ordenador, portátil o tablet con sonido activado** (y móvil adicional opcional si preferís consultar ambos desde la web).
@@ -1878,8 +1939,8 @@ Antes de abrir el Sobre 1, dejad sobre la mesa:
 
 function buildSolutionsMd() {
   const book = solveBookCipher(BOOK_CIPHER_ARTICLES, BOOK_CIPHER_COORDS);
-  const e6Decoded = astrolabeDecode('YHZNGAUZ', 'T');
-  const e12Decoded = astrolabeDecode('CWXEZJZQ', 'W');
+  const e6Decoded = astrolabeDecode('EFTMUQB', 'T');
+  const e12Decoded = astrolabeDecode('JMUNZHYZ', 'F');
   const relayValidStates = [];
   for (let mask = 0; mask < 64; mask++) {
     const bits = [0, 1, 2, 3, 4, 5].map((i) => (mask >> i) & 1);
@@ -1889,7 +1950,7 @@ function buildSolutionsMd() {
 
   return `# SOLUCIONES_NO_ABRIR.md — *${GAME_TITLE}*
 
-> **ADVERTENCIA:** Este archivo contiene todas las soluciones completas, deducciones paso a paso y desenlace del escape room. Está incluido en \`.gitignore\`.
+> **ADVERTENCIA:** Este archivo contiene todas las soluciones completas, deducciones paso a paso y desenlace de la misión. Está incluido en \`.gitignore\`.
 
 ---
 
@@ -1907,56 +1968,56 @@ ${PUZZLES.map((p) => {
 ## Desarrollo Detallado por Actos
 
 ### ACTO I — Sobre 1 (Págs. 1–6)
-1. **1.1 Credencial de Respaldo (\`CVL-318-T49\`):**
-   - Hoja 1A: Sigla de estación \`CVL\`. Única lente activa en Torre Principal = Serie \`318\` (204 en almacén, 112 desactivada, 409 sin instalar).
-   - Hoja 1B: Turno de madrugada (22:00–06:00) que cubre la anomalía de las 02:15 = \`T49\`.
-2. **1.2 El Acta Censurada [Rejilla de Cardano] (\`EXP-89-407\`):**
-   - Al recortar los 8 cuadros de Hoja 1D y alinear \`R1..R4\` sobre Hoja 1C aparecen por filas las celdas \`(0,2)=E\`, \`(1,9)=X\`, \`(2,4)=P\`, \`(4,1)=8\`, \`(5,7)=9\`, \`(6,10)=4\`, \`(7,3)=0\`, \`(8,8)=7\` → \`EXP-89-407\`.
-3. **1.3 Desvío en la Cúpula (\`14-0215\`):**
+1. **1.1 Credencial Estación PRG-89 (\`PRG-318-T49\`):**
+   - Hoja 1A: Sigla de estación \`PRG\`. Único enlace óptico activo en Torre de Petřín = Serie \`318\`.
+   - Hoja 1B: Turno de madrugada (22:00–06:00) que cubría las 02:15 = \`T49\`.
+2. **1.2 El Cable Censurado [Rejilla de Cardano] (\`EXP-89-407\`):**
+   - Al recortar los 8 cuadros de Hoja 1D y alinear \`R1..R4\` sobre Hoja 1C aparecen por filas \`E-X-P-8-9-4-0-7\` → \`EXP-89-407\`.
+3. **1.3 Desvío en Torre de Petřín (\`14-0215\`):**
    - Consultar \`EXP-89-407\` en el Terminal muestra \`02:15 MANUAL-OVERRIDE 298°\`.
    - Azimut oficial en Hoja 1E = \`284°\`. Desvío: \`298 - 284 = 14°\` (>10° crítico) a las \`02:15\` → \`14-0215\`.
-   - **Sello de Plancha I (Hoja 1E, pág. 6):** \`◎ PLANCHA I · MERIDIANO 04°W · COD. XE-7\`.
+   - **Sello de Plancha I (Hoja 1E, pág. 6):** \`◎ PLANCHA I · PRG-N · COD. UN-5\`.
 
 ### ACTO II — Sobre 2 (Págs. 7–14 · Ramas Paralelas #1)
-4. **2.A La Carta Plegada [Fold-In] (\`FOSA-42\`):**
-   - Al doblar Hoja 2B uniendo \`PLIEGUE A\` (\`x=56\`) con \`PLIEGUE B\` (\`x=120\`) se forman los 6 caracteres verticales \`F O S A 4 2\` → \`FOSA-42\`.
-   - Desbloquea \`DESPACHO-042\` con criptograma \`YHZNGAUZ\` y orden de alinear \`▲ ÍNDICE\` con la primera letra del Hilo B.
-   - **Sello de Plancha II (Hoja 2A, pág. 8):** \`◇ PLANCHA II · MERIDIANO 08°W · COD. ZQ-2\`.
-5. **2.B La Baliza Fantasma [Morse Web Audio] (\`TRAMPA\`):**
-   - Hoja 2C: Única boya en Cabo Valdeira + banda 400 kHz + CW Morse + activa tras 1988 = \`Boya E-4 (418.5 kHz)\`.
+4. **2.A El Plano Plegado del Moldava [Fold-In] (\`ARCO-42\`):**
+   - Al doblar Hoja 2B uniendo \`PLIEGUE A\` (\`x=56\`) con \`PLIEGUE B\` (\`x=120\`) se forman los 6 caracteres verticales \`A R C O 4 2\` → \`ARCO-42\`.
+   - Desbloquea \`DESPACHO-042\` con criptograma \`EFTMUQB\` y \`BALIZA-89-E\`.
+   - **Sello de Plancha II (Hoja 2A, pág. 8):** \`◇ PLANCHA II · PRG-E · COD. YZ-1\`.
+5. **2.B La Emisora de Petřín [Morse Web Audio] (\`TRAMPA\`):**
+   - Hoja 2C: Única baliza en Praga (Petřín) + banda 400 kHz + CW Morse + activa tras 1988 = \`Baliza E-4 (418.5 kHz)\`.
    - En \`418.5 kHz\` el receptor Web Audio emite \`${RADIO_SPEC.morse}\` → \`TRAMPA\`.
-6. **2.C El Astrolabio de Valdeira [Disco Cifrador] (\`RESIDUOS\`):**
+6. **2.C El Disco del Orloj [Disco Cifrador] (\`DEMINKA\`):**
    - Primera letra de \`TRAMPA\` = \`T\` (sector 20, índice 19).
-   - Con \`▲ ÍNDICE\` (\`V\` del alfabeto clave \`${ASTROLABE_INNER}\`) alineado con \`T\`, \`YHZNGAUZ\` (Interior → Exterior) da \`${e6Decoded}\`.
+   - Con \`▲ ÍNDICE\` (\`P\` del alfabeto clave \`${ASTROLABE_INNER}\`) alineado con \`T\`, \`EFTMUQB\` (Interior → Exterior) da \`${e6Decoded}\`.
 
 ### ACTO III — Sobre 3 (Págs. 15–22 · Ramas Paralelas #2)
-7. **3.A El Saboteador de la Cúpula [Lógica Documental] (\`Tomás Quiroga\`):**
+7. **3.A El Topo de Estación PRG-89 [Lógica Documental] (\`Pavel Horák\`):**
    - Terminal \`EXP-LLAVES-89\` confirma uso de \`LLAVE B-2\` a las \`02:09\` y \`02:47\`.
-   - Recibo #19 (Hoja 3A): Mateo Rivas entrega \`LLAVE B-2\` a \`Tomás Quiroga\` a las \`18:05\`.
-   - Hoja 3B: Mateo Rivas tiene coartada con Guardia Costera (02:05–02:30); Méndez-Vidal está en A Coruña (02:12); Seoane en sótano con testigo (02:05–02:40); Sampedro en Cee (21:40). Quiroga sin coartada + llamada a Naviera Atlántica a las 02:50 → \`Tomás Quiroga\`.
-8. **3.B El Reglamento Cifrado [Cifrado de Libro] (\`CISTERNA\`):**
-   - \`BITACORA-MR\` indica \`3·5 — 5·8 — 7·12 — 1·13 — 8·10 — 2·8 — 6·8 — 4·11\`.
+   - Recibo #19 (Hoja 3A): Marek Novák entrega \`LLAVE B-2\` a \`Pavel Horák\` a las \`18:05\`.
+   - Hoja 3B: Marek Novák tiene coartada junto al Reloj Astronómico; Kovář en Brno; Dvořák en Castillo; Veselá en Vinohrady. Horák sin coartada + llamada al buzón de Marea Roja a las 02:50 → \`Pavel Horák\`.
+8. **3.B El Manual de Campo Cifrado [Cifrado de Libro] (\`CISTERNA\`):**
+   - \`BITACORA-MN\` indica \`3·5 — 5·8 — 7·12 — 1·13 — 8·10 — 2·8 — 6·8 — 4·11\`.
    - Palabras extraídas de Hoja 3C: ${book.steps.map((s) => `(${s.artNum},${s.wordPos})=${s.word}→${s.letter}`).join(', ')} → \`${book.word}\`.
-9. **3.C Triangulación al Contraluz [Contraluz + Carta Náutica] (\`210-285-C4\`):**
+9. **3.C Triangulación sobre el Moldava [Contraluz + Mapa Táctico] (\`210-285-C4\`):**
    - Superponiendo Hojas 3D y 3E frente a la linterna se lee \`F: 210\` y \`B: 285\`.
-   - En la Carta Náutica Web (\`Faro Norte = 210°\`, \`Boya Este = 285°\`), los rayos se cruzan exactamente en el centro de \`C4\` → \`210-285-C4\`.
-   - **Sello de Plancha III (Hoja 3F, pág. 21):** \`△ PLANCHA III · MERIDIANO 12°W · COD. CW-5\`.
+   - En el Mapa Táctico Web (\`Foco de Petřín = 210°\`, \`Baliza Orloj = 285°\`), los haces se cruzan exactamente en el centro de \`C4\` → \`210-285-C4\`.
+   - **Sello de Plancha III (Hoja 3F, pág. 21):** \`△ PLANCHA III · PRG-S · COD. JM-0\`.
 
 ### ACTO IV — Sobre 4 (Págs. 23–28)
-10. **4.1 La Cuenta Fantasma (\`GIB-7742\`):**
-    - \`EXP-CONSORCIO-89\`: Póliza = \`40.000.000 PTA\`, presidente = \`Enrique Balboa (E.B.)\`.
-    - Télex Hoja 4A: 15% (\`6.000.000 PTA\`) en 2 tramos iguales de \`3.000.000 PTA\` (uno antes del 13/11 y otro después) firmados por \`E.B.\` → \`GIB-7742\`.
-11. **4.2 La Consola de Relés (\`100011-IV\`):**
+10. **4.1 La Cuenta de Marea Roja (\`VIE-7742\`):**
+    - \`EXP-MAREA-89\`: Fondo = \`40.000.000 CHF\`, enlace financiero = \`Emil Beneš (E.B.)\`.
+    - Télex Hoja 4A: 15% (\`6.000.000 CHF\`) en 2 tramos iguales de \`3.000.000 CHF\` (uno antes del 17/11 y otro después) firmados por \`E.B.\` → \`VIE-7742\`.
+11. **4.2 La Consola de Bóveda Cero (\`100011-IV\`):**
     - Hoja 4C: línea útil = \`FASE IV (12 V)\`.
-    - Hoja 4B: 3 activos, \`R1 ≠ R2\`, \`R3 = R4\`, suma = \`12\`. Solución única entre las 64 combinaciones: \`${relayValidStates.join(', ')}\` (\`R1=ON, R5=ON, R6=ON\`, \`1+5+6=12\`) + \`FASE IV\` → \`100011-IV\`.
+    - Hoja 4B: 3 activos, \`R1 ≠ R2\`, \`R3 = R4\`, suma = \`12\`. Solución única entre 64: \`${relayValidStates.join(', ')}\` (\`R1=ON, R5=ON, R6=ON\`) + \`FASE IV\` → \`100011-IV\`.
 
 ### META-PUZLE FINAL
-12. **El Meridiano Borrado (\`ESTAVIVO-5792\`):**
-    - **Sello de Plancha IV (Hoja 4D, pág. 27):** \`□ PLANCHA IV · MERIDIANO 16°W · COD. ZJ-9\`.
-    - Orden geométrico Hoja 4E (\`${META_ORDER_SHAPES.join(' → ')}\`): \`CW-5\`, \`XE-7\`, \`ZJ-9\`, \`ZQ-2\`.
-    - Suma de dígitos de control: \`5 + 7 + 9 + 2 = 23\` (Sector \`23\` = \`W\` en Anillo Exterior).
-    - Con \`▲ ÍNDICE\` en \`W\`, \`CWXEZJZQ\` (Interior → Exterior) descifra a \`${e12Decoded}\`.
-    - Añadiendo los 4 dígitos en ese orden (\`5792\`): **\`ESTAVIVO-5792\`**.
+12. **Protocolo Praga Cero (\`LUZVERDE-0501\`):**
+    - **Sello de Plancha IV (Hoja 4D, pág. 27):** \`□ PLANCHA IV · PRG-O · COD. ZH-0\`.
+    - Orden geométrico Hoja 4E (\`${META_ORDER_SHAPES.join(' → ')}\`): \`JM-0\`, \`UN-5\`, \`ZH-0\`, \`YZ-1\`.
+    - Suma de dígitos de control: \`0 + 5 + 0 + 1 = 6\` (Sector \`06\` = \`F\` en Anillo Exterior).
+    - Con \`▲ ÍNDICE\` en \`F\`, \`JMUNZHYZ\` (Interior → Exterior) descifra a \`${e12Decoded}\`.
+    - Añadiendo los 4 dígitos en ese orden (\`0501\`): **\`LUZVERDE-0501\`**.
 `;
 }
 
@@ -1969,7 +2030,23 @@ export async function runBuild() {
   await fs.mkdir(path.join(ROOT, 'imprimir'), { recursive: true });
   await fs.mkdir(path.join(ROOT, 'docs'), { recursive: true });
 
-  const printHtml = buildPrintHtmlDocument();
+  const logoBytes = await fs.readFile(path.join(ROOT, 'docs', 'assets', 'agencia-x-logo.png'));
+  const iconBytes = await fs.readFile(path.join(ROOT, 'docs', 'assets', 'agencia-x-icon.png'));
+  const fontReg = await fs.readFile(path.join(ROOT, 'docs', 'assets', 'fonts', 'JetBrainsMono-Regular.woff2'));
+  const fontRegExt = await fs.readFile(path.join(ROOT, 'docs', 'assets', 'fonts', 'JetBrainsMono-Regular-Ext.woff2'));
+  const fontBold = await fs.readFile(path.join(ROOT, 'docs', 'assets', 'fonts', 'JetBrainsMono-Bold.woff2'));
+  const fontBoldExt = await fs.readFile(path.join(ROOT, 'docs', 'assets', 'fonts', 'JetBrainsMono-Bold-Ext.woff2'));
+
+  const assets = {
+    logoDataUri: `data:image/png;base64,${logoBytes.toString('base64')}`,
+    iconDataUri: `data:image/png;base64,${iconBytes.toString('base64')}`,
+    fontRegB64: fontReg.toString('base64'),
+    fontRegExtB64: fontRegExt.toString('base64'),
+    fontBoldB64: fontBold.toString('base64'),
+    fontBoldExtB64: fontBoldExt.toString('base64'),
+  };
+
+  const printHtml = buildPrintHtmlDocument(assets);
   const printHtmlPath = path.join(ROOT, 'tmp', 'kit_print.html');
   await fs.writeFile(printHtmlPath, printHtml, 'utf8');
 
@@ -1996,7 +2073,6 @@ export async function runBuild() {
     const fileUrl = new URL(`file:///${printHtmlPath.replace(/\\/g, '/')}`).href;
     await page.goto(fileUrl, { waitUntil: 'networkidle' });
 
-    // Comprobar overflow DOM de cada una de las 28 páginas antes de compilar PDF
     const layoutReport = await page.evaluate(() => {
       const sheets = Array.from(document.querySelectorAll('.sheet'));
       return sheets.map((s) => ({
@@ -2024,7 +2100,6 @@ export async function runBuild() {
       printBackground: true,
     });
 
-    // Capturas PNG de páginas clave para inspección visual QA
     const qaPages = [1, 2, 4, 5, 6, 8, 9, 12, 13, 18, 19, 20, 24, 25, 27, 28];
     for (const pNum of qaPages) {
       const loc = page.locator(`.sheet[data-page="${pNum}"]`);

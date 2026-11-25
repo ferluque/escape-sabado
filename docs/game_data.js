@@ -1,17 +1,17 @@
 // Generado automáticamente por scripts/build_kit.mjs — NO editar manualmente
 export const GAME_DATA = {
   "meta": {
-    "title": "El Meridiano Borrado",
-    "subtitle": "Expediente Cabo Valdeira · Archivo Hidrográfico 1989",
-    "playersLabel": "Fer y Lucía",
+    "title": "Operación Praga Cero",
+    "subtitle": "Agencia X · Canal Seguro Nivel 5 · Protocolo Pre-Despliegue (Praga)",
+    "playersLabel": "Agentes F y L (Fer y Lucía)",
     "totalMinutes": 120,
     "intro": {
-      "heading": "Restauración de Respaldo · Cabo Valdeira (1989)",
-      "greeting": "Bienvenidos, Fer y Lucía.",
+      "heading": "Canal Seguro · Protocolo Pre-Despliegue Praga",
+      "greeting": "Agentes F y L (Fer y Lucía): conexión prioritaria verificada.",
       "paragraphs": [
-        "Son casi las diez de la noche del viernes cuando recogéis de la mesa la caja precintada sin remitente. Dentro aguardan cuatro sobres archivísticos numerados y una nota dirigida expresamente a vosotros dos: alguien ha reactivado tras treinta y tantos años la partición auxiliar del antiguo Observatorio Hidrográfico de Cabo Valdeira.",
-        "La noche del 13 de noviembre de 1989, durante la peor galerna en décadas en la Costa da Morte, el mercante MV Arrecife embarrancó frente a los bajos del cabo. La investigación oficial cerró el caso como un error de cálculo provocado por el temporal y dio por desaparecido en el mar al subdirector del observatorio, Mateo Rivas.",
-        "Esta consola dispone de un margen de seguridad de 120 minutos antes de que el ciclo magnético rote de nuevo. No abráis ningún sobre físico hasta que el sistema os lo indique y recordad que, en varios tramos, os convendrá repartiros los documentos sobre la mesa y cruzar lo que descubra cada uno."
+        "Tras cerrar con éxito vuestra misión de campo en Tarifa (Operación Espejismo) y localizar la pista de Marea Roja en Europa Central, Agencia X Central ha interceptado un último paquete físico sellado procedente del archivo de la antigua Estación PRG-89 de Praga, clausurada en noviembre de 1989.",
+        "Antes de que embarquéis rumbo a la República Checa el próximo 5 de enero, alguien dentro de la red intenta reactivar los viejos nodos ocultos bajo el Moldava. Vuestra misión de gabinete esta noche consiste en descifrar los cuatro sobres de inteligencia y purgar las credenciales históricas antes del despliegue.",
+        "Disponéis de 120 minutos en este canal seguro. No abráis ningún sobre físico hasta que el sistema os lo ordene, repartíos los documentos cuando la investigación abra dos hilos paralelos y recordad la directiva clásica de la casa: el paraguas sigue siendo obligatorio por órdenes de arriba."
       ]
     }
   },
@@ -21,39 +21,39 @@ export const GAME_DATA = {
       "act": 1,
       "branch": "main",
       "code": "1.1",
-      "title": "Credencial de Respaldo",
-      "promptB64": "Q29tYmluYSBsb3MgZG9jdW1lbnRvcyBkZWwgU29icmUgMSBwYXJhIHJlY29uc3RydWlyIGxhIGNyZWRlbmNpYWwgZGUgb3BlcmFkb3IgZGUgbGEgbm9jaGUgZGVsIDEzLzExLzE5ODkgKGZvcm1hdG8gU0lHTEEtU0VSSUUtVFVSTk8pLg==",
+      "title": "Credencial Estación PRG-89",
+      "promptB64": "Q29tYmluYWQgbG9zIGRvY3VtZW50b3MgZGVsIFNvYnJlIDEgcGFyYSByZWNvbnN0cnVpciBsYSBjcmVkZW5jaWFsIGRlbCBlbmxhY2UgZGUgUHJhZ2EgZGUgbGEgbm9jaGUgZGVsIDE3LzExLzE5ODkgKGZvcm1hdG8gU0lHTEEtU0VSSUUtVFVSTk8pLg==",
       "placeholder": "Ej. ABC-123-T00",
       "inputType": "text",
       "envelope": 1,
       "pagesHint": "Hojas 1A y 1B",
-      "answerHash": "71e35db6ca5be5801e0edf0af9de870f82e2b2afd2f2d71856751d5383e74135",
+      "answerHash": "46139eecdef2445317fa67947648bf30689070b3e41e46aef8a2354cad10c110",
       "hints": [
         {
           "level": 1,
           "label": "Orientación suave",
-          "b64": "UmV2aXNhZCBlbCBtZW1icmV0ZSBvZmljaWFsIGRlbCBvYnNlcnZhdG9yaW8gZW4gbGEgSG9qYSAxQSwgbGEgZmljaGEgZGUgbGVudGVzIMOzcHRpY2FzIHkgZWwgY3VhZHJhbnRlIGRlIHR1cm5vcyBkZSBsYSBIb2phIDFCLg=="
+          "b64": "UmV2aXNhZCBlbCBzZWxsbyBvZmljaWFsIGRlIGVzdGFjacOzbiBlbiBsYSBIb2phIDFBLCBsYSB0YWJsYSBkZSBlbmxhY2VzIMOzcHRpY29zIHkgZWwgY3VhZHJhbnRlIGRlIGd1YXJkaWFzIGRlIGxhIEhvamEgMUIu"
         },
         {
           "level": 2,
           "label": "Empujón mecánico",
-          "b64": "TGEgc2lnbGEgZGUgZXN0YWNpw7NuIGFwYXJlY2UgZW4gZWwgc2VsbG8gZGVsIG1lbWJyZXRlLiBRdWVkYW9zIHNvbG8gY29uIGxhIGxlbnRlIGluc3RhbGFkYSBlbiBsYSBUb3JyZSBQcmluY2lwYWwgKMOTcHRpY2EgTm9ydGUgYWN0aXZhKSB5IGNvbiBlbCB0dXJubyBxdWUgY3VicsOtYSBsYXMgMDI6MTUgZGUgbGEgbWFkcnVnYWRhLg=="
+          "b64": "TGEgc2lnbGEgZGUgZXN0YWNpw7NuIGFwYXJlY2UgZW4gZWwgbWVtYnJldGUuIFF1ZWRhb3Mgc29sbyBjb24gZWwgZW5sYWNlIMOzcHRpY28gYWN0aXZvIGVuIFRvcnJlIGRlIFBldMWZw61uIHkgY29uIGVsIHR1cm5vIHF1ZSBjdWJyw61hIGxhIGFub21hbMOtYSBkZSBsYXMgMDI6MTUu"
         },
         {
           "level": 3,
           "label": "Solución paso a paso",
-          "b64": "U2lnbGE6IENWTC4gTGVudGUgYWN0aXZhIGVuIFRvcnJlIFByaW5jaXBhbDogU2VyaWUgMzE4LiBUdXJubyBkZSBtYWRydWdhZGEgKDIyOjAw4oCTMDY6MDApOiBUNDkuIENsYXZlIGNvbXBsZXRhOiBDVkwtMzE4LVQ0OS4="
+          "b64": "U2lnbGE6IFBSRy4gRW5sYWNlIGFjdGl2byBlbiBUb3JyZSBkZSBQZXTFmcOtbjogU2VyaWUgMzE4LiBUdXJubyBkZSBtYWRydWdhZGEgKDIyOjAw4oCTMDY6MDApOiBUNDkuIENsYXZlIGNvbXBsZXRhOiBQUkctMzE4LVQ0OS4="
         }
       ],
-      "unlockMessageB64": "QWNjZXNvIGNvbmNlZGlkby4gRWwgVGVybWluYWwgZGUgQXJjaGl2byBEaWdpdGFsIHF1ZWRhIG9wZXJhdGl2byBwYXJhIGNvbnN1bHRhciBjw7NkaWdvcyBkZSBleHBlZGllbnRlLg=="
+      "unlockMessageB64": "QWNjZXNvIGRlIE5pdmVsIDUgY29uY2VkaWRvLiBFbCBUZXJtaW5hbCBTZWd1cm8gZGUgQWdlbmNpYSBYIHF1ZWRhIG9wZXJhdGl2byBwYXJhIGNvbnN1bHRhciBjw7NkaWdvcyBkZSBleHBlZGllbnRlLg=="
     },
     {
       "id": "e2",
       "act": 1,
       "branch": "main",
       "code": "1.2",
-      "title": "El Acta Censurada",
-      "promptB64": "UmVjb3J0YSBsYXMgOCB2ZW50YW5hcyBtYXJjYWRhcyBlbiBsYSBIb2phIDFEIHkgYWxpbmVhIGxhcyBtYXJjYXMgZGUgcmVnaXN0cm8gc29icmUgbGEgbWF0cml6IGRlIGxhIEhvamEgMUMgcGFyYSBleHRyYWVyIGxhIHJlZmVyZW5jaWEgZGVsIGV4cGVkaWVudGUgY2Vuc3VyYWRvLg==",
+      "title": "El Cable Censurado",
+      "promptB64": "UmVjb3J0YWQgbGFzIDggdmVudGFuYXMgbWFyY2FkYXMgZW4gbGEgSG9qYSAxRCB5IGFsaW5lYWQgbGFzIG1hcmNhcyBkZSByZWdpc3RybyBzb2JyZSBsYSBtYXRyaXogZGUgbGEgSG9qYSAxQyBwYXJhIGV4dHJhZXIgbGEgcmVmZXJlbmNpYSBkZWwgZXhwZWRpZW50ZSBjZW5zdXJhZG8u",
       "placeholder": "Ej. EXP-00-000",
       "inputType": "text",
       "envelope": 1,
@@ -73,28 +73,28 @@ export const GAME_DATA = {
         {
           "level": 3,
           "label": "Solución paso a paso",
-          "b64": "QWwgYWxpbmVhciBsYSByZWppbGxhIGRlIENhcmRhbm8gYXBhcmVjZW4gbGFzIGxldHJhcyB5IGTDrWdpdG9zIEUtWC1QLTgtOS00LTAtNzogbGEgcmVmZXJlbmNpYSBlcyBFWFAtODktNDA3LiBJbnRyb2R1Y2lkbGEgdGFtYmnDqW4gZW4gZWwgVGVybWluYWwgZGUgQXJjaGl2byBEaWdpdGFsLg=="
+          "b64": "QWwgYWxpbmVhciBsYSByZWppbGxhIGRlIENhcmRhbm8gYXBhcmVjZW4gbGFzIGxldHJhcyB5IGTDrWdpdG9zIEUtWC1QLTgtOS00LTAtNzogbGEgcmVmZXJlbmNpYSBlcyBFWFAtODktNDA3LiBJbnRyb2R1Y2lkbGEgdGFtYmnDqW4gZW4gZWwgVGVybWluYWwgU2VndXJvLg=="
         }
       ],
-      "unlockMessageB64": "UmVmZXJlbmNpYSB2YWxpZGFkYS4gUG9kw6lpcyBjb25zdWx0YXIgRVhQLTg5LTQwNyBlbiBlbCBUZXJtaW5hbCBkZSBBcmNoaXZvIERpZ2l0YWwgcGFyYSBsZWVyIGVsIHJlZ2lzdHJvIGRlbCBmb3TDs21ldHJvLg=="
+      "unlockMessageB64": "UmVmZXJlbmNpYSB2YWxpZGFkYS4gQ29uc3VsdGFkIEVYUC04OS00MDcgZW4gZWwgVGVybWluYWwgU2VndXJvIHBhcmEgaW5zcGVjY2lvbmFyIGxhIHRlbGVtZXRyw61hIGRlIGxhIHRvcnJlLg=="
     },
     {
       "id": "e3",
       "act": 1,
       "branch": "main",
       "code": "1.3",
-      "title": "Desvío en la Cúpula",
-      "promptB64": "Q3J1emEgbGEgZXNwZWNpZmljYWNpw7NuIG5vbWluYWwgZGUgbGEgQmFsaXphIE5vcnRlIChIb2phIDFFKSBjb24gbGEgdGVsZW1ldHLDrWEgZGUgRVhQLTg5LTQwNyBwYXJhIGRldGVybWluYXIgbGEgbWFnbml0dWQgZXhhY3RhIGRlbCBkZXN2w61vIGNyw610aWNvIHkgc3UgaG9yYSAoZm9ybWF0byBHUkFET1MtSEhNTSku",
+      "title": "Desvío en Torre de Petřín",
+      "promptB64": "Q3J1emFkIGxhIGNhbGlicmFjacOzbiBub21pbmFsIGRlIGxhIEhvamEgMUUgY29uIGxhIHRlbGVtZXRyw61hIGRlIEVYUC04OS00MDcgcGFyYSBoYWxsYXIgZWwgZGVzdsOtbyBjcsOtdGljbyB5IHN1IGhvcmEgZXhhY3RhIChmb3JtYXRvIEdSQURPUy1ISE1NKS4=",
       "placeholder": "Ej. 05-0130",
       "inputType": "text",
       "envelope": 1,
-      "pagesHint": "Hoja 1E + Terminal Digital",
+      "pagesHint": "Hoja 1E + Terminal Seguro",
       "answerHash": "3c05d816b6411e95595216c56d9b340773ced74b1ad2bc6bb0305bcb0435e785",
       "hints": [
         {
           "level": 1,
           "label": "Orientación suave",
-          "b64": "Q29uc3VsdGFkIEVYUC04OS00MDcgZW4gZWwgVGVybWluYWwgZGUgQXJjaGl2byBEaWdpdGFsIHkgY29tcGFyYWQgc3VzIGxlY3R1cmFzIGRlIGF6aW11dCBjb24gZWwgYXppbXV0IG9maWNpYWwgZGUgbGEgSG9qYSAxRS4="
+          "b64": "Q29uc3VsdGFkIEVYUC04OS00MDcgZW4gZWwgVGVybWluYWwgU2VndXJvIHkgY29tcGFyYWQgc3VzIGxlY3R1cmFzIGRlIGF6aW11dCBjb24gZWwgYXppbXV0IG5vbWluYWwgZGUgbGEgSG9qYSAxRS4="
         },
         {
           "level": 2,
@@ -107,20 +107,20 @@ export const GAME_DATA = {
           "b64": "QXppbXV0IG9maWNpYWw6IDI4NMKwLiBBIGxhcyAwMjoxNSAoTUFOVUFMLU9WRVJSSURFKSBtYXJjYSAyOTjCsC4gRGlmZXJlbmNpYTogMjk4IC0gMjg0ID0gMTTCsC4gQ8OzZGlnbzogMTQtMDIxNS4="
         }
       ],
-      "unlockMessageB64": "QWN0byBJIGNvbXBsZXRhZG8uIEFicmlkIGVsIFNPQlJFIDIgZsOtc2ljby4gUG9kw6lpcyBkaXZpZGlyb3MgZW50cmUgZWwgSGlsbyBBIChjYXJ0YSBwbGVnYWRhKSB5IGVsIEhpbG8gQiAocmFkaW9iYWxpemEpIGFudGVzIGRlIGNvbnZlcmdlci4="
+      "unlockMessageB64": "QWN0byBJIGNvbXBsZXRhZG8uIEFicmlkIGVsIFNPQlJFIDIgZsOtc2ljby4gUG9kw6lpcyBkaXZpZGlyb3MgZW50cmUgZWwgSGlsbyBBIChwbGFubyBwbGVnYWRvKSB5IGVsIEhpbG8gQiAocmFkaW9iYWxpemEpIGFudGVzIGRlIGNvbnZlcmdlci4="
     },
     {
       "id": "e4",
       "act": 2,
       "branch": "threadA",
       "code": "2.A",
-      "title": "La Carta Plegada (Hilo A)",
-      "promptB64": "UmVhbGl6YSBsb3MgZG9zIHBsaWVndWVzIG1hcmNhZG9zIChQbGllZ3VlIEEgeSBQbGllZ3VlIEIpIGVuIGVsIHBsYW5vIGJhdGltw6l0cmljbyBkZSBsYSBIb2phIDJCIGhhc3RhIHVuaXIgYW1ib3MgYm9yZGVzIHBhcmEgcmV2ZWxhciBlbCBwdW50byBkZWwgaHVuZGltaWVudG8u",
-      "placeholder": "Ej. SECTOR-00",
+      "title": "El Plano Plegado del Moldava (Hilo A)",
+      "promptB64": "UmVhbGl6YWQgbG9zIGRvcyBwbGllZ3VlcyBtYXJjYWRvcyAoUGxpZWd1ZSBBIHkgUGxpZWd1ZSBCKSBlbiBlbCBwbGFubyBkZWwgTW9sZGF2YSAoSG9qYSAyQikgaGFzdGEgdW5pciBhbWJvcyBib3JkZXMgeSByZXZlbGFyIGVsIHB1bnRvIGV4YWN0byBkZSBmdWdhLg==",
+      "placeholder": "Ej. ZONA-00",
       "inputType": "text",
       "envelope": 2,
       "pagesHint": "Hojas 2A y 2B",
-      "answerHash": "9476e91e703e4570b640ef625eb39e84cb58805f3e2cbe532d5d72bbbcbd7410",
+      "answerHash": "aa52b231a1e51c04375dac5c6dc8c52f6d21bdb623c378141b49125176649262",
       "hints": [
         {
           "level": 1,
@@ -135,18 +135,18 @@ export const GAME_DATA = {
         {
           "level": 3,
           "label": "Solución paso a paso",
-          "b64": "QWwganVudGFyIFBMSUVHVUUgQSB5IFBMSUVHVUUgQiwgbG9zIHRyYXpvcyBjYW11ZmxhZG9zIGVuY2FqYW4gdmVydGljYWxtZW50ZSBmb3JtYW5kbyBsYSBwYWxhYnJhIEZPU0EgNDIgKEZPU0EtNDIpLg=="
+          "b64": "QWwganVudGFyIFBMSUVHVUUgQSB5IFBMSUVHVUUgQiwgbG9zIHRyYXpvcyBjYW11ZmxhZG9zIGVuY2FqYW4gdmVydGljYWxtZW50ZSBmb3JtYW5kbyBlbCBjw7NkaWdvIEFSQ08gNDIgKEFSQ08tNDIpLg=="
         }
       ],
-      "unlockMessageB64": "RGVzcGFjaG8gY2lmcmFkbyBERVNQQUNITy0wNDIgZGVzYmxvcXVlYWRvIGVuIGVsIFRlcm1pbmFsIGRlIEFyY2hpdm8gRGlnaXRhbCAoeSBmaWNoYSBCT1lBLTg5LUUgZGlzcG9uaWJsZSku"
+      "unlockMessageB64": "RGVzcGFjaG8gY2lmcmFkbyBERVNQQUNITy0wNDIgZGVzYmxvcXVlYWRvIGVuIGVsIFRlcm1pbmFsIFNlZ3VybyAoeSBmaWNoYSBCQUxJWkEtODktRSBkaXNwb25pYmxlKS4="
     },
     {
       "id": "e5",
       "act": 2,
       "branch": "threadB",
       "code": "2.B",
-      "title": "La Baliza Fantasma (Hilo B)",
-      "promptB64": "RmlsdHJhIGxhIHRhYmxhIGRlIGJveWFzIGRlIGxhIEhvamEgMkMsIHNpbnRvbml6YSBsYSBmcmVjdWVuY2lhIGV4YWN0YSBlbiBlbCBSZWNlcHRvciBkZSBSYWRpb2JhbGl6YSB5IGRlY29kaWZpY2EgbGEgdHJhbnNtaXNpw7NuIGVuIE1vcnNlLg==",
+      "title": "La Emisora de Petřín (Hilo B)",
+      "promptB64": "RmlsdHJhZCBsYSB0YWJsYSBkZSBiYWxpemFzIGRlIGxhIEhvamEgMkMsIHNpbnRvbml6YWQgbGEgZnJlY3VlbmNpYSBleGFjdGEgZW4gZWwgUmVjZXB0b3IgZGUgUmFkaW9iYWxpemEgeSBkZWNvZGlmaWNhZCBsYSB0cmFuc21pc2nDs24gZW4gTW9yc2Uu",
       "placeholder": "Palabra recibida",
       "inputType": "text",
       "envelope": 2,
@@ -156,12 +156,12 @@ export const GAME_DATA = {
         {
           "level": 1,
           "label": "Orientación suave",
-          "b64": "QXBsaWNhZCBsb3MgZmlsdHJvcyBkZSBsYSBIb2phIDJDIHBhcmEgZGVzY2FydGFyIGxhcyBib3lhcyBxdWUgbm8gY29ycmVzcG9uZGFuIGFsIHNlY3RvciBDYWJvIFZhbGRlaXJhLCBtb2R1bGFjacOzbiBDVyBNb3JzZSB5IGVzdGFkbyBhY3Rpdm8gdHJhcyAxOTg4Lg=="
+          "b64": "QXBsaWNhZCBsb3MgZmlsdHJvcyBkZSBsYSBIb2phIDJDIHBhcmEgZGVzY2FydGFyIGxhcyBiYWxpemFzIHF1ZSBubyBjb3JyZXNwb25kYW4gYWwgc2VjdG9yIFByYWdhIChQZXTFmcOtbiksIGJhbmRhIDQwMCBrSHosIG1vZHVsYWNpw7NuIENXIE1vcnNlIHkgZXN0YWRvIGFjdGl2byB0cmFzIDE5ODgu"
         },
         {
           "level": 2,
           "label": "Empujón mecánico",
-          "b64": "TGEgw7puaWNhIGJveWEgcXVlIGN1bXBsZSB0b2RhcyBsYXMgY29uZGljaW9uZXMgZXMgbGEgQm95YSBFLTQgZW4gNDE4LjUga0h6LiBTaW50b25pemFkIDQxOC41IGtIeiBlbiBlbCBSZWNlcHRvciBkZSBSYWRpb2JhbGl6YSB5IHVzYWQgbGEgdGFibGEgTW9yc2Uu"
+          "b64": "TGEgw7puaWNhIGJhbGl6YSBxdWUgY3VtcGxlIGxhcyBjdWF0cm8gY29uZGljaW9uZXMgZXMgQmFsaXphIEUtNCBlbiA0MTguNSBrSHouIFNpbnRvbml6YWQgNDE4LjUga0h6IGVuIGVsIFJlY2VwdG9yIGRlIFJhZGlvYmFsaXphIHkgdXNhZCBsYSB0YWJsYSBNb3JzZS4="
         },
         {
           "level": 3,
@@ -169,20 +169,20 @@ export const GAME_DATA = {
           "b64": "TGEgc2VjdWVuY2lhIGVtaXRpZGEgZW4gNDE4LjUga0h6IGVzIC0gLi0uIC4tIC0tIC4tLS4gLi0gcXVlIGNvcnJlc3BvbmRlIGxldHJhIGEgbGV0cmEgYSBUUkFNUEEu"
         }
       ],
-      "unlockMessageB64": "VHJhbnNtaXNpw7NuIGRlY29kaWZpY2FkYS4gQ3J1emFkIGVzdGUgZGF0byBjb24gREVTUEFDSE8tMDQyIHVzYW5kbyBlbCBBc3Ryb2xhYmlvIHJlY29ydGFibGUu"
+      "unlockMessageB64": "U2XDsWFsIGRlY29kaWZpY2FkYS4gQ3J1emFkIGVzdGUgZGF0byBjb24gREVTUEFDSE8tMDQyIHVzYW5kbyBlbCBEaXNjbyBBc3Ryb27Ds21pY28gZGVsIE9ybG9qIHJlY29ydGFibGUu"
     },
     {
       "id": "e6",
       "act": 2,
       "branch": "converge",
       "code": "2.C",
-      "title": "El Astrolabio de Valdeira (Convergencia A+B)",
-      "promptB64": "UmVjb3J0YSBlbCBEaXNjbyBJbnRlcmlvciAoSG9qYSAyRiksIGNvbMOzY2FsbyBzb2JyZSBlbCBBbmlsbG8gRXh0ZXJpb3IgKEhvamEgMkUpIHNpZ3VpZW5kbyBsYSBpbnN0cnVjY2nDs24gZGUgREVTUEFDSE8tMDQyIHkgZGVzY2lmcmEgZWwgY29udGVuaWRvIHJlYWwgZGUgbGEgY2FyZ2Eu",
-      "placeholder": "Palabra descifrada",
+      "title": "El Disco del Orloj (Convergencia A+B)",
+      "promptB64": "UmVjb3J0YWQgZWwgRGlzY28gSW50ZXJpb3IgKEhvamEgMkYpLCBjb2xvY2FkbG8gc29icmUgZWwgQW5pbGxvIEV4dGVyaW9yIGRlbCBPcmxvaiAoSG9qYSAyRSkgc2lndWllbmRvIGxhIG5vdGEgZGUgREVTUEFDSE8tMDQyIHkgZGVzY2lmcmFkIGVsIG5vbWJyZSBjbGF2ZSBkZWwgZWRpZmljaW8gcXVlIGhveSBzaXJ2ZSBkZSBjb2JlcnR1cmEgZW4gUHJhZ2Eu",
+      "placeholder": "Nombre clave (7 letras)",
       "inputType": "text",
       "envelope": 2,
-      "pagesHint": "Hojas 2D–2G + Terminal Digital",
-      "answerHash": "cf5b18b9fb0f4c207bf5d99389e12a6c1376071d188a12d548e993cf34b044d2",
+      "pagesHint": "Hojas 2D–2G + Terminal Seguro",
+      "answerHash": "fc89e06f7498f0ed01566ca5f470cd79356787d5f592675b0a81ffdef0b7b632",
       "hints": [
         {
           "level": 1,
@@ -192,33 +192,33 @@ export const GAME_DATA = {
         {
           "level": 2,
           "label": "Empujón mecánico",
-          "b64": "TGEgcGFsYWJyYSBkZSBsYSBiYWxpemEgZXMgVFJBTVBBLCBjdXlhIHByaW1lcmEgbGV0cmEgZXMgVC4gQWxpbmVhZCBsYSBmbGVjaGEg4payIMONTkRJQ0UgZGVsIGRpc2NvIGludGVyaW9yIGNvbiBsYSBsZXRyYSBUIGRlbCBhbmlsbG8gZXh0ZXJpb3IgeSBsZWVkIFlIWk5HQVVaIGRlIGRlbnRybyBoYWNpYSBmdWVyYS4="
+          "b64": "TGEgcGFsYWJyYSBkZSBsYSBiYWxpemEgZXMgVFJBTVBBLCBjdXlhIHByaW1lcmEgbGV0cmEgZXMgVC4gQWxpbmVhZCBsYSBmbGVjaGEg4payIMONTkRJQ0UgZGVsIGRpc2NvIGludGVyaW9yIGNvbiBsYSBsZXRyYSBUIGRlbCBhbmlsbG8gZXh0ZXJpb3IgeSBsZWVkIEVGVE1VUUIgZGUgZGVudHJvIGhhY2lhIGZ1ZXJhLg=="
         },
         {
           "level": 3,
           "label": "Solución paso a paso",
-          "b64": "Q29uIOKWsiDDjU5ESUNFIGVuIFQgKHNlY3RvciAyMCksIFnihpJSLCBI4oaSRSwgWuKGklMsIE7ihpJJLCBH4oaSRCwgQeKGklUsIFXihpJPLCBa4oaSUy4gTGEgY2FyZ2Egb2N1bHRhIGVyYSBSRVNJRFVPUy4="
+          "b64": "Q29uIOKWsiDDjU5ESUNFIGVuIFQgKHNlY3RvciAyMCksIEXihpJELCBG4oaSRSwgVOKGkk0sIE3ihpJJLCBV4oaSTiwgUeKGkkssIELihpJBLiBMYSBwYWxhYnJhIGRlc2NpZnJhZGEgZXMgREVNSU5LQS4="
         }
       ],
-      "unlockMessageB64": "QWN0byBJSSBjb21wbGV0YWRvLiBBYnJpZCBlbCBTT0JSRSAzIGbDrXNpY28uIFZvbHbDqWlzIGEgdHJhYmFqYXIgZW4gcGFyYWxlbG86IEhpbG8gQSAoaW52ZXN0aWdhY2nDs24gZG9jdW1lbnRhbCkgZSBIaWxvIEIgKMOzcHRpY2EgeSBjYXJ0YSBuw6F1dGljYSku"
+      "unlockMessageB64": "QWN0byBJSSBjb21wbGV0YWRvLiBBYnJpZCBlbCBTT0JSRSAzIGbDrXNpY28uIFZvbHbDqWlzIGEgdHJhYmFqYXIgZW4gcGFyYWxlbG86IEhpbG8gQSAoaW52ZXN0aWdhY2nDs24gZG9jdW1lbnRhbCkgZSBIaWxvIEIgKMOzcHRpY2EgeSBtYXBhIHTDoWN0aWNvIGRlIFByYWdhKS4="
     },
     {
       "id": "e7",
       "act": 3,
       "branch": "threadA",
       "code": "3.A",
-      "title": "El Saboteador de la Cúpula (Hilo A)",
-      "promptB64": "Q3J1emEgbGFzIGNvYXJ0YWRhcywgcmVnaXN0cm9zIGRlIGNlbnRyYWxpdGEgeSBlbCByZWNpYm8gZGUgbGxhdmVzIChIb2phcyAzQeKAkzNCKSBqdW50byBjb24gRVhQLUxMQVZFUy04OSBlbiBlbCBUZXJtaW5hbCBwYXJhIGlkZW50aWZpY2FyIGFsIGF1dG9yIG1hdGVyaWFsIGRlbCBkZXN2w61vLg==",
+      "title": "El Topo de Estación PRG-89 (Hilo A)",
+      "promptB64": "Q3J1emFkIGxhcyBjb2FydGFkYXMsIHJlZ2lzdHJvcyBkZSBjZW50cmFsaXRhIHkgZWwgcmVjaWJvIGRlIGxsYXZlcyAoSG9qYXMgM0HigJMzQikganVudG8gY29uIGxhIGF1ZGl0b3LDrWEgZGVsIFRlcm1pbmFsIFNlZ3VybyBwYXJhIGlkZW50aWZpY2FyIGFsIGFnZW50ZSBkb2JsZSBkZSBsYSB0b3JyZS4=",
       "placeholder": "Nombre y apellido",
       "inputType": "text",
       "envelope": 3,
-      "pagesHint": "Hojas 3A, 3B + Terminal Digital",
-      "answerHash": "9d6eb335aecf4f4ff354195a3c7bd36be683d6c09f630eb905c0d1209f818111",
+      "pagesHint": "Hojas 3A, 3B + Terminal Seguro",
+      "answerHash": "1e7eeda4d43dd8229b67826f792b4c079ee899be636bef1a9e21f1c5518a2123",
       "hints": [
         {
           "level": 1,
           "label": "Orientación suave",
-          "b64": "Q29uc3VsdGFkIEVYUC1MTEFWRVMtODkgZW4gZWwgVGVybWluYWwgcGFyYSBhdmVyaWd1YXIgcXXDqSBsbGF2ZSBleGFjdGEgYWJyacOzIHkgY2VycsOzIGxhIEPDunB1bGEgZGVsIFNlcnZvIGVudHJlIGxhcyAwMjowOSB5IGxhcyAwMjo0Ny4="
+          "b64": "Q29uc3VsdGFkIEVYUC1MTEFWRVMtODkgZW4gZWwgVGVybWluYWwgU2VndXJvIHBhcmEgYXZlcmlndWFyIHF1w6kgbGxhdmUgZXhhY3RhIGFicmnDsyB5IGNlcnLDsyBsYSBTYWxhIMOTcHRpY2EgZW50cmUgbGFzIDAyOjA5IHkgbGFzIDAyOjQ3Lg=="
         },
         {
           "level": 2,
@@ -228,28 +228,28 @@ export const GAME_DATA = {
         {
           "level": 3,
           "label": "Solución paso a paso",
-          "b64": "TWF0ZW8gUml2YXMgZW50cmVnw7MgbGEgbGxhdmUgQi0yIGEgVG9tw6FzIFF1aXJvZ2EgYSBsYXMgMTg6MDUgeSB0aWVuZSBjb2FydGFkYSBjb24gbGEgR3VhcmRpYSBDb3N0ZXJhLiBRdWlyb2dhIGNhcmVjZSBkZSBjb2FydGFkYSB5IGxsYW3DsyBhIGxhIG5hdmllcmEgYSBsYXMgMDI6NTA6IFRvbcOhcyBRdWlyb2dhLg=="
+          "b64": "TWFyZWsgTm92w6FrIGVudHJlZ8OzIGxhIGxsYXZlIEItMiBhIFBhdmVsIEhvcsOhayBhIGxhcyAxODowNSB5IHRpZW5lIGNvYXJ0YWRhIGp1bnRvIGFsIFJlbG9qIEFzdHJvbsOzbWljby4gSG9yw6FrIGNhcmVjZSBkZSBjb2FydGFkYSB5IGxsYW3DsyBhbCBidXrDs24gZGUgTWFyZWEgUm9qYSBhIGxhcyAwMjo1MDogUGF2ZWwgSG9yw6FrLg=="
         }
       ],
-      "unlockMessageB64": "QXV0b3IgaWRlbnRpZmljYWRvLiBTZSBoYSBkZXNibG9xdWVhZG8gQklUQUNPUkEtTVIgZW4gZWwgVGVybWluYWwgZGUgQXJjaGl2byBEaWdpdGFsLg=="
+      "unlockMessageB64": "VG9wbyBpZGVudGlmaWNhZG8uIFNlIGhhIGRlc2Jsb3F1ZWFkbyBCSVRBQ09SQS1NTiBlbiBlbCBUZXJtaW5hbCBTZWd1cm8u"
     },
     {
       "id": "e8",
       "act": 3,
       "branch": "threadA",
       "code": "3.B",
-      "title": "El Reglamento Cifrado (Hilo A)",
-      "promptB64": "QXBsaWNhIGxhcyBjb29yZGVuYWRhcyByZWN1cGVyYWRhcyBlbiBCSVRBQ09SQS1NUiBzb2JyZSBlbCBleHRyYWN0byBkZWwgUmVnbGFtZW50byBUw6ljbmljbyBkZSAxOTc5IChIb2phIDNDKSBwYXJhIGF2ZXJpZ3VhciBkw7NuZGUgb2N1bHTDsyBNYXRlbyBsYXMgcGxhbmNoYXMgb3JpZ2luYWxlcy4=",
+      "title": "El Manual de Campo Cifrado (Hilo A)",
+      "promptB64": "QXBsaWNhZCBsYXMgY29vcmRlbmFkYXMgcmVjdXBlcmFkYXMgZW4gQklUQUNPUkEtTU4gc29icmUgZWwgZXh0cmFjdG8gZGVsIE1hbnVhbCBkZSBPcGVyYWNpb25lcyBkZSAxOTc5IChIb2phIDNDKSBwYXJhIGRlc2N1YnJpciBkw7NuZGUgb2N1bHTDsyBNYXJlayBOb3bDoWsgbGFzIG1hdHJpY2VzIG9yaWdpbmFsZXMu",
       "placeholder": "Palabra de 8 letras",
       "inputType": "text",
       "envelope": 3,
-      "pagesHint": "Hoja 3C + Terminal Digital",
+      "pagesHint": "Hoja 3C + Terminal Seguro",
       "answerHash": "0cb83f114c4ae2002375131e4971d549482bd3dc9344218e4eac8b314dfa8083",
       "hints": [
         {
           "level": 1,
           "label": "Orientación suave",
-          "b64": "Q29uc3VsdGFkIEJJVEFDT1JBLU1SIGVuIGVsIFRlcm1pbmFsIHBhcmEgb2J0ZW5lciBsYXMgOCBjb29yZGVuYWRhcyAoQXJ0w61jdWxvIMK3IFBhbGFicmEpIHkgYnVzY2FkbGFzIGVuIGxhIEhvamEgM0Mu"
+          "b64": "Q29uc3VsdGFkIEJJVEFDT1JBLU1OIGVuIGVsIFRlcm1pbmFsIFNlZ3VybyBwYXJhIG9idGVuZXIgbGFzIDggY29vcmRlbmFkYXMgKEFydMOtY3VsbyDCtyBQYWxhYnJhKSB5IGJ1c2NhZGxhcyBlbiBsYSBIb2phIDNDLg=="
         },
         {
           "level": 2,
@@ -262,19 +262,19 @@ export const GAME_DATA = {
           "b64": "M8K3NSBjb21lbnphcsOhIChDKSwgNcK3OCBpbnNwZWNjaW9uYXJzZSAoSSksIDfCtzEyIHNvYnJlIChTKSwgMcK3MTMgdMOpY25pY28gKFQpLCA4wrcxMCBleGlnZSAoRSksIDLCtzggcmVwZXRpcsOhIChSKSwgNsK3OCBudW5jYSAoTiksIDTCtzExIGF1dMOzZ3JhZmEgKEEpIC0+IENJU1RFUk5BLg=="
         }
       ],
-      "unlockMessageB64": "VWJpY2FjacOzbiBsb2NhbGl6YWRhLiBTaSB0YW1iacOpbiBoYWLDqWlzIGNvbXBsZXRhZG8gZWwgSGlsbyBCICgzLkMgLyBUcmlhbmd1bGFjacOzbiksIHBhc2Fyw6lpcyBhdXRvbcOhdGljYW1lbnRlIGFsIFNvYnJlIDQu"
+      "unlockMessageB64": "RXNjb25kaXRlIGxvY2FsaXphZG8uIFNpIHRhbWJpw6luIGhhYsOpaXMgY29tcGxldGFkbyBlbCBIaWxvIEIgKDMuQyAvIFRyaWFuZ3VsYWNpw7NuKSwgcGFzYXLDqWlzIGF1dG9tw6F0aWNhbWVudGUgYWwgU29icmUgNC4="
     },
     {
       "id": "e9",
       "act": 3,
       "branch": "threadB",
       "code": "3.C",
-      "title": "Triangulación al Contraluz (Hilo B)",
-      "promptB64": "U3VwZXJww7NuIGxhcyBMw6FtaW5hcyDDk3B0aWNhcyBBIHkgQiAoSG9qYXMgM0QgeSAzRSkgYWwgdHJhc2x1eiBjb24gbGEgbGludGVybmEgZGVsIG3Ds3ZpbCBwYXJhIG9idGVuZXIgbG9zIGRvcyBydW1ib3MgKEYgeSBCKSwgdHLDoXphSW9zIGVuIGxhIENhcnRhIE7DoXV0aWNhIGludGVyYWN0aXZhIHkgZmlqYSBlbCBjdWFkcmFudGUgZXhhY3RvIChmb3JtYXRvIFJVTUJPX0YtUlVNQk9fQi1DVUFEUkFOVEUpLg==",
+      "title": "Triangulación sobre el Moldava (Hilo B)",
+      "promptB64": "U3VwZXJwb25lZCBsYXMgTMOhbWluYXMgw5NwdGljYXMgQSB5IEIgKEhvamFzIDNEIHkgM0UpIGFsIHRyYXNsdXogY29uIGxhIGxpbnRlcm5hIGRlbCBtw7N2aWwgcGFyYSBvYnRlbmVyIGxvcyBkb3MgcnVtYm9zIChGIHkgQiksIHRyYXphZGxvcyBlbiBlbCBNYXBhIFTDoWN0aWNvIGRlIFByYWdhIHkgZmlqYWQgZWwgY3VhZHJhbnRlIGV4YWN0byAoZm9ybWF0byBSVU1CT19GLVJVTUJPX0ItQ1VBRFJBTlRFKS4=",
       "placeholder": "Ej. 180-270-B3",
       "inputType": "nautical",
       "envelope": 3,
-      "pagesHint": "Hojas 3D, 3E, 3F, 3G + Carta Náutica Web",
+      "pagesHint": "Hojas 3D, 3E, 3F, 3G + Mapa Táctico Web",
       "answerHash": "828e5b13ae11782073721bfefcf73fe62692384c84e3d752be72402906d14e59",
       "hints": [
         {
@@ -285,54 +285,54 @@ export const GAME_DATA = {
         {
           "level": 2,
           "label": "Empujón mecánico",
-          "b64": "QWwgdHJhc2x1eiBzZSBsZWVuIGRvcyBjaWZyYXMgZGUgdHJlcyBkw61naXRvczogZWwgcnVtYm8gRiAoRmFybyBOb3J0ZSkgeSBlbCBydW1ibyBCIChCb3lhIEVzdGUpLiBBanVzdGFkIGFtYm9zIGRpYWxlcyBlbiBsYSBDYXJ0YSBOw6F1dGljYSBJbnRlcmFjdGl2YS4="
+          "b64": "QWwgdHJhc2x1eiBzZSBsZWVuIGRvcyBjaWZyYXMgZGUgdHJlcyBkw61naXRvczogZWwgcnVtYm8gRiAoRm9jbyBkZSBQZXTFmcOtbikgeSBlbCBydW1ibyBCIChCYWxpemEgT3Jsb2opLiBBanVzdGFkIGFtYm9zIGRpYWxlcyBlbiBlbCBNYXBhIFTDoWN0aWNvIEludGVyYWN0aXZvLg=="
         },
         {
           "level": 3,
           "label": "Solución paso a paso",
-          "b64": "TGEgZmlsYSBzdXBlcmlvciBmb3JtYSBGID0gMjEwwrAgeSBsYSBpbmZlcmlvciBCID0gMjg1wrAuIFN1cyByYXlvcyBkZSBkZW1vcmEgc2UgY3J1emFuIGV4YWN0YW1lbnRlIGVuIGVsIGN1YWRyYW50ZSBDNDogMjEwLTI4NS1DNC4="
+          "b64": "TGEgZmlsYSBzdXBlcmlvciBmb3JtYSBGID0gMjEwwrAgeSBsYSBpbmZlcmlvciBCID0gMjg1wrAuIFN1cyBoYWNlcyBzZSBjcnV6YW4gZXhhY3RhbWVudGUgZW4gZWwgY3VhZHJhbnRlIEM0IChJc2xhIEthbXBhKTogMjEwLTI4NS1DNC4="
         }
       ],
-      "unlockMessageB64": "Q3VhZHJhbnRlIGRlIGxhIGNpc3Rlcm5hIGZpamFkbyBlbiBsYSBDYXJ0YSBOw6F1dGljYS4gQ29tcGxldGFkIGFtYm9zIGhpbG9zIGRlbCBBY3RvIElJSSBwYXJhIGFicmlyIGVsIFNvYnJlIDQu"
+      "unlockMessageB64": "Q3VhZHJhbnRlIGRlbCBkZXDDs3NpdG8gc3VidGVycsOhbmVvIGZpamFkbyBzb2JyZSBlbCBNb2xkYXZhLiBDb21wbGV0YWQgYW1ib3MgaGlsb3MgZGVsIEFjdG8gSUlJIHBhcmEgYWJyaXIgZWwgU29icmUgNC4="
     },
     {
       "id": "e10",
       "act": 4,
       "branch": "main",
       "code": "4.1",
-      "title": "La Cuenta Fantasma",
-      "promptB64": "Q3J1emEgbG9zIHTDqWxleCB5IGVsIGV4dHJhY3RvIGRlIG1vdmltaWVudG9zIGJhbmNhcmlvcyAoSG9qYSA0QSkgY29uIGVsIGV4cGVkaWVudGUgRVhQLUNPTlNPUkNJTy04OSBlbiBlbCBUZXJtaW5hbCBwYXJhIGxvY2FsaXphciBsYSBjdWVudGEgZGVsIHNvYm9ybm8u",
+      "title": "La Cuenta de Marea Roja",
+      "promptB64": "Q3J1emFkIGxvcyB0w6lsZXggeSBlbCBleHRyYWN0byBkZSB0cmFuc2ZlcmVuY2lhcyAoSG9qYSA0QSkgY29uIGVsIGV4cGVkaWVudGUgZmluYW5jaWVybyBkZWwgVGVybWluYWwgU2VndXJvIHBhcmEgbG9jYWxpemFyIGxhIGN1ZW50YSBxdWUgcmVhY3RpdsOzIGxhIGPDqWx1bGEu",
       "placeholder": "Ej. ABC-0000",
       "inputType": "text",
       "envelope": 4,
-      "pagesHint": "Hoja 4A + Terminal Digital",
-      "answerHash": "f352c0031596752df9a652ce48fd709d9083474ad11d79fec4fb8d492925c01d",
+      "pagesHint": "Hoja 4A + Terminal Seguro",
+      "answerHash": "e07d37283ad0e7456cf1304052fcf24f78239d699e47599f9ae832638113f049",
       "hints": [
         {
           "level": 1,
           "label": "Orientación suave",
-          "b64": "Q29uc3VsdGFkIEVYUC1DT05TT1JDSU8tODkgZW4gZWwgVGVybWluYWwgcGFyYSBjb25vY2VyIGVsIGltcG9ydGUgdG90YWwgZGUgbGEgcMOzbGl6YSB5IGxhcyBpbmljaWFsZXMgZGVsIHByZXNpZGVudGUgRW5yaXF1ZSBCYWxib2Eu"
+          "b64": "Q29uc3VsdGFkIEVYUC1NQVJFQS04OSBlbiBlbCBUZXJtaW5hbCBTZWd1cm8gcGFyYSBjb25vY2VyIGVsIGZvbmRvIHRvdGFsIG1vdmlsaXphZG8geSBsYXMgaW5pY2lhbGVzIGRlbCBlbmxhY2UgZmluYW5jaWVybyBFbWlsIEJlbmXFoS4="
         },
         {
           "level": 2,
           "label": "Empujón mecánico",
-          "b64": "RWwgMTUlIGRlIDQwLjAwMC4wMDAgUFRBIHNvbiA2LjAwMC4wMDAgUFRBIGRpdmlkaWRvcyBlbiBkb3MgdHJhbW9zIGlndWFsZXMgZGUgMy4wMDAuMDAwIFBUQSAodW5vIHByZXZpbyBhbCAxMy8xMSB5IG90cm8gcG9zdGVyaW9yKSBiYWpvIGxhIGZpcm1hIEUuQi4="
+          "b64": "RWwgMTUlIGRlIDQwLjAwMC4wMDAgQ0hGIHNvbiA2LjAwMC4wMDAgQ0hGIGRpdmlkaWRvcyBlbiBkb3MgdHJhbW9zIGlndWFsZXMgZGUgMy4wMDAuMDAwIENIRiAodW5vIHByZXZpbyBhbCAxNy8xMSB5IG90cm8gcG9zdGVyaW9yKSBiYWpvIGxhIGZpcm1hIEUuQi4="
         },
         {
           "level": 3,
           "label": "Solución paso a paso",
-          "b64": "WlVSLTQ0MTAgc3VtYSA1TTsgTFVYLTUxOTAgZXMgdW4gc29sbyBwYWdvOyBQQU4tODgyMSBsbGV2YSBmaXJtYSBBLkwuOyBBTkQtMzA5NSB0aWVuZSBhbWJhcyBmZWNoYXMgdHJhcyBlbCAxMy8xMS4gTGEgY3VlbnRhIGNvcnJlY3RhIGVzIEdJQi03NzQyLg=="
+          "b64": "WlVSLTQ0MTAgc3VtYSA1TTsgTFVYLTUxOTAgZXMgdW4gc29sbyBwYWdvOyBQQU4tODgyMSBsbGV2YSBmaXJtYSBBLkwuOyBBTkQtMzA5NSB0aWVuZSBhbWJhcyBmZWNoYXMgdHJhcyBlbCAxNy8xMS4gTGEgY3VlbnRhIGNvcnJlY3RhIGVzIFZJRS03NzQyLg=="
         }
       ],
-      "unlockMessageB64": "UHJ1ZWJhIGZpbmFuY2llcmEgYXNlZ3VyYWRhLiBTZSBoYSBkZXNibG9xdWVhZG8gbGEgQ29uc29sYSBkZSBSZWzDqXMgZGUgQsOzdmVkYSBDZXJvLg=="
+      "unlockMessageB64": "UmFzdHJvIGZpbmFuY2llcm8gYmxvcXVlYWRvLiBTZSBoYSBkZXNibG9xdWVhZG8gbGEgQ29uc29sYSBkZSBSZWzDqXMgZGUgQsOzdmVkYSBDZXJvLg=="
     },
     {
       "id": "e11",
       "act": 4,
       "branch": "main",
       "code": "4.2",
-      "title": "La Consola de Relés",
-      "promptB64": "UmVzdWVsdmUgbGFzIDQgcmVnbGFzIGVsw6ljdHJpY2FzIGRlIGVuY2xhdmFtaWVudG8gKEhvamFzIDRCIHkgNEMpIHkgY29uZmlndXJhIGxvcyA2IHJlbMOpcyBSMeKAk1I2IG3DoXMgZWwgc2VsZWN0b3IgZGUgRkFTRSBlbiBsYSBDb25zb2xhIEludGVyYWN0aXZhLg==",
+      "title": "La Consola de Bóveda Cero",
+      "promptB64": "UmVzb2x2ZWQgbGFzIDQgcmVnbGFzIGVsw6ljdHJpY2FzIGRlIGVuY2xhdmFtaWVudG8gKEhvamFzIDRCIHkgNEMpIHkgY29uZmlndXJhZCBsb3MgNiByZWzDqXMgUjHigJNSNiBtw6FzIGVsIHNlbGVjdG9yIGRlIEZBU0UgZW4gbGEgQ29uc29sYSBJbnRlcmFjdGl2YS4=",
       "placeholder": "Configura los interruptores",
       "inputType": "relays",
       "envelope": 4,
@@ -355,20 +355,20 @@ export const GAME_DATA = {
           "b64": "Q29uIFIzPU9GRiB5IFI0PU9GRiwgaGFuIGRlIGFjdGl2YXJzZSBSNSB5IFI2ICg1KzY9MTEpIG3DoXMgUjEgKDEpIHBhcmEgc3VtYXIgMTIgKHlhIHF1ZSBSMeKJoFIyKS4gQ29tYmluYWNpw7NuOiBSMSwgUjUgeSBSNiBhY3Rpdm9zICsgRkFTRSBJViAoMTAwMDExLUlWKS4="
         }
       ],
-      "unlockMessageB64": "QsOzdmVkYSBDZXJvIGVuZXJnaXphZGEuIEhhIGxsZWdhZG8gZWwgbW9tZW50byBkZWwgTWV0YS1QdXpsZSBGaW5hbDogcmV1bmlkIGVsZW1lbnRvcyBkZSBsb3MgY3VhdHJvIHNvYnJlcyBmw61zaWNvcy4="
+      "unlockMessageB64": "QsOzdmVkYSBDZXJvIGVuZXJnaXphZGEuIMOabHRpbW8gcHJvdG9jb2xvIGFjdGl2bzogcmV1bmlkIGVsZW1lbnRvcyBkZSBsb3MgY3VhdHJvIHNvYnJlcyBmw61zaWNvcyBwYXJhIGxpYmVyYXIgbGEgYXV0b3JpemFjacOzbiBmaW5hbCBkZSBQcmFnYS4="
     },
     {
       "id": "e12",
       "act": 5,
       "branch": "meta",
       "code": "META",
-      "title": "El Meridiano Borrado",
-      "promptB64": "UmXDum5lIGxvcyBjdWF0cm8gU2VsbG9zIGRlIFBsYW5jaGEgZGlzcGVyc29zIGVudHJlIGxvcyBTb2JyZXMgMSwgMiwgMyB5IDQgKEhvamFzIDFFLCAyQSwgM0YgeSA0RCksIHNpZ3VlIGVsIHByb3RvY29sbyBkZSBjaWVycmUgZGUgbGFzIEhvamFzIDRE4oCTNEUganVudG8gY29uIGVsIEFzdHJvbGFiaW8gZGVsIFNvYnJlIDIgZSBpbnRyb2R1Y2UgbGEgY2xhdmUgZGVmaW5pdGl2YSAoZm9ybWF0byBQQUxBQlJBLURJR0lUT1MpLg==",
+      "title": "Protocolo Praga Cero",
+      "promptB64": "UmV1bmlkIGxvcyBjdWF0cm8gU2VsbG9zIGRlIFBsYW5jaGEgZGlzcGVyc29zIGVudHJlIGxvcyBTb2JyZXMgMSwgMiwgMyB5IDQgKEhvamFzIDFFLCAyQSwgM0YgeSA0RCksIHNlZ3VpZCBlbCBwcm90b2NvbG8gZGUgY2llcnJlIGRlIGxhcyBIb2phcyA0ROKAkzRFIGp1bnRvIGNvbiBlbCBEaXNjbyBkZWwgT3Jsb2ogZGVsIFNvYnJlIDIgZSBpbnRyb2R1Y2lkIGxhIGF1dG9yaXphY2nDs24gZGVmaW5pdGl2YSAoZm9ybWF0byBQQUxBQlJBLURJR0lUT1MpLg==",
       "placeholder": "Ej. PALABRA-0000",
       "inputType": "text",
       "envelope": 4,
-      "pagesHint": "Sellos en págs. 6, 8, 21 y 27 + Astrolabio (Sobre 2) + Hojas 4D–4E",
-      "answerHash": "aff3239d0db26e7af0cb598cbfb5e7be33ca1056a0a2cbc09746ed557e1bf89e",
+      "pagesHint": "Sellos en págs. 6, 8, 21 y 27 + Disco Orloj (Sobre 2) + Hojas 4D–4E",
+      "answerHash": "3dc4e696726529facb6146079a97a79272c484a948b3f9c66844d12ed2c84a7e",
       "hints": [
         {
           "level": 1,
@@ -378,15 +378,15 @@ export const GAME_DATA = {
         {
           "level": 2,
           "label": "Empujón mecánico",
-          "b64": "U3VtYWQgbG9zIDQgZMOtZ2l0b3MgZGUgY29udHJvbCAoNSArIDcgKyA5ICsgMiA9IDIzKSBwYXJhIGFsaW5lYXIgbGEgZmxlY2hhIOKWsiDDjU5ESUNFIGRlbCBBc3Ryb2xhYmlvIGNvbiBlbCBzZWN0b3IgMjMgKGxldHJhIFcpLiBEZXNwdcOpcyBvcmRlbmFkIGxvcyBjdWF0cm8gcGFyZXMgc2Vnw7puIGxhIHNlY3VlbmNpYSDilrMg4oaSIOKXjiDihpIg4pahIOKGkiDil4cgeSBsZWVkIGRlIERpc2NvIEludGVyaW9yIGEgQW5pbGxvIEV4dGVyaW9yLg=="
+          "b64": "U3VtYWQgbG9zIDQgZMOtZ2l0b3MgZGUgY29udHJvbCAoMCArIDUgKyAwICsgMSA9IDYpIHBhcmEgYWxpbmVhciBsYSBmbGVjaGEg4payIMONTkRJQ0UgZGVsIERpc2NvIGRlbCBPcmxvaiBjb24gZWwgc2VjdG9yIDA2IChsZXRyYSBGKS4gRGVzcHXDqXMgb3JkZW5hZCBsb3MgY3VhdHJvIHBhcmVzIHNlZ8O6biBsYSBzZWN1ZW5jaWEg4pazIOKGkiDil44g4oaSIOKWoSDihpIg4peHIHkgbGVlZCBkZSBEaXNjbyBJbnRlcmlvciBhIEFuaWxsbyBFeHRlcmlvci4="
         },
         {
           "level": 3,
           "label": "Solución paso a paso",
-          "b64": "T3JkZW4g4paz4oaS4peO4oaS4pah4oaS4peHOiBDVy01LCBYRS03LCBaSi05LCBaUS0yLiBDb24g4payIGVuIHNlY3RvciAyMyAoVyksIENXIFhFIFpKIFpRIGRlc2NpZnJhIGEgRVNUQVZJVk8uIEHDsWFkaWVuZG8gbG9zIDQgZMOtZ2l0b3MgZW4gZWwgbWlzbW8gb3JkZW46IEVTVEFWSVZPLTU3OTIu"
+          "b64": "T3JkZW4g4paz4oaS4peO4oaS4pah4oaS4peHOiBKTS0wLCBVTi01LCBaSC0wLCBZWi0xLiBDb24g4payIGVuIHNlY3RvciAwNiAoRiksIEpNIFVOIFpIIFlaIGRlc2NpZnJhIGEgTFVaVkVSREUuIEHDsWFkaWVuZG8gbG9zIDQgZMOtZ2l0b3MgZW4gZWwgbWlzbW8gb3JkZW46IExVWlZFUkRFLTA1MDEu"
         }
       ],
-      "unlockMessageB64": "UmVzcGFsZG8gbWFlc3RybyBsaWJlcmFkby4gRXhwZWRpZW50ZSBDYWJvIFZhbGRlaXJhIGFiaWVydG8gYW50ZSBsYXMgYXV0b3JpZGFkZXMu"
+      "unlockMessageB64": "QXV0b3JpemFjacOzbiBQcmFnYSBDZXJvIHZhbGlkYWRhLiBEZXNwbGllZ3VlIGRlIGVuZXJvIGRlc2Jsb3F1ZWFkbyBwYXJhIEFnZW50ZXMgRiB5IEwu"
     }
   ],
   "archiveDocs": [
@@ -395,32 +395,32 @@ export const GAME_DATA = {
       "unlockAfter": "e1",
       "autoDiscover": false,
       "codeB64": "RVhQLTg5LTQwNw==",
-      "titleB64": "UmVnaXN0cm8gQXV0b23DoXRpY28gZGVsIEZvdMOzbWV0cm8geSBTZXJ2by1Nb3RvciDCtyBUb3JyZSBOb3J0ZQ==",
-      "classificationB64": "UkVTRVJWQURPIC8vIDEz4oCTMTQgTk9WIDE5ODk=",
-      "summaryB64": "VGVsZW1ldHLDrWEgZGUgYXppbXV0IGRlIGxhIExlbnRlIEZyZXNuZWwgU2VyaWUgMzE4IGR1cmFudGUgbGEgbm9jaGUgZGVsIHRlbXBvcmFsLg==",
+      "titleB64": "UmVnaXN0cm8gQXV0b23DoXRpY28gZGVsIFJlcGV0aWRvciDDk3B0aWNvIMK3IFRvcnJlIGRlIFBldMWZw61u",
+      "classificationB64": "TklWRUwgNSAvLyBFU1RBQ0nDk04gUFJHLTg5IMK3IDE34oCTMTggTk9WIDE5ODk=",
+      "summaryB64": "VGVsZW1ldHLDrWEgZGUgYXppbXV0IGRlbCBFbmxhY2Ugw5NwdGljbyBTZXJpZSAzMTggbGEgbm9jaGUgZW4gcXVlIGNhecOzIGxhIGPDqWx1bGEgZGUgTWFyZWEgUm9qYSBlbiBQcmFnYS4=",
       "bodyB64": null,
-      "rowsB64": "W1siMDE6MzAiLCJBVVRPLUxPQ0siLCIyODTCsCIsIkxlY3R1cmEgbm9taW5hbCBkZSBzZXJ2aWNpbyAodmllbnRvIE5XIDM2IGt0KS4iXSxbIjAxOjQ1IiwiQVVUTy1MT0NLIiwiMjg1wrAiLCJSw6FmYWdhIE5XIDQyIGt0ICgrMcKwIGRlbnRybyBkZSBtYXJnZW4gb3BlcmF0aXZvKS4iXSxbIjAyOjAwIiwiQVVUTy1MT0NLIiwiMjg2wrAiLCJSw6FmYWdhIE5XIDU0IGt0ICgrMsKwIGRlbnRybyBkZSBtYXJnZW4gb3BlcmF0aXZvKS4iXSxbIjAyOjE1IiwiTUFOVUFMLU9WRVJSSURFIiwiMjk4wrAiLCJEZXNjb25leGnDs24gZGUgZW1icmFndWUgc2Vydm8uIEFsYXJtYSB1bWJyYWwgKD4xMMKwKSBzaWxlbmNpYWRhIGVuIGNvbnNvbGEuIl0sWyIwMjozMCIsIk1BTlVBTC1MT0NLIiwiMjk4wrAiLCJIYXogcmV0ZW5pZG8gbWFudWFsbWVudGUgaGFjaWEgbG9zIGJham9zIGV4dGVyaW9yZXM7IE1WIEFycmVjaWZlIHZpcmEgYSBiYWJvci4iXSxbIjAyOjQ1IiwiUkVTVE9SRS1BVVRPIiwiMjg0wrAiLCJSZXBvc2ljacOzbiBkZSBsYSBjb3JvbmEgZGUgZ2lyby4gw5psdGltYSBzZcOxYWwgZGUgc29jb3JybyBkZWwgbWVyY2FudGUgYSBsYXMgMDI6MzguIl1d"
+      "rowsB64": "W1siMDE6MzAiLCJBVVRPLUxPQ0siLCIyODTCsCIsIkxlY3R1cmEgbm9taW5hbCBkZSBzZXJ2aWNpbyAoZW5sYWNlIGVzdGFibGUgc29icmUgZWwgTW9sZGF2YSkuIl0sWyIwMTo0NSIsIkFVVE8tTE9DSyIsIjI4NcKwIiwiUsOhZmFnYSB0w6lybWljYSAoKzHCsCBkZW50cm8gZGUgbWFyZ2VuIG9wZXJhdGl2bykuIl0sWyIwMjowMCIsIkFVVE8tTE9DSyIsIjI4NsKwIiwiT3NjaWxhY2nDs24gZGUgdG9ycmUgKCsywrAgZGVudHJvIGRlIG1hcmdlbiBvcGVyYXRpdm8pLiJdLFsiMDI6MTUiLCJNQU5VQUwtT1ZFUlJJREUiLCIyOTjCsCIsIkRlc2NvbmV4acOzbiBtYW51YWwgZGUgc2Vydm8uIEFsYXJtYSB1bWJyYWwgKD4xMMKwKSBzaWxlbmNpYWRhIGVuIGNvbnNvbGEuIl0sWyIwMjozMCIsIk1BTlVBTC1MT0NLIiwiMjk4wrAiLCJIYXogYmxvcXVlYWRvIGludGVuY2lvbmFkYW1lbnRlIGhhY2lhIHNlY3RvciBjaWVnbzsgcMOpcmRpZGEgZGVsIGNvbnZveSBhbGlhZG8uIl0sWyIwMjo0NSIsIlJFU1RPUkUtQVVUTyIsIjI4NMKwIiwiUmVwb3NpY2nDs24gZGUgbGEgY29yb25hIMOzcHRpY2EgdHJhcyBldmFjdWFjacOzbiBkZSBNYXJlYSBSb2phLiJdXQ=="
     },
     {
       "queryHash": "1abf367b632fd5f5073f1c7d2b9228cc10e7fdd1fe8c8325a4421bbf11a4e305",
       "unlockAfter": "e4",
       "autoDiscover": true,
       "codeB64": "REVTUEFDSE8tMDQy",
-      "titleB64": "RGVzcGFjaG8gSGlkcm9ncsOhZmljbyBDaWZyYWRvIMK3IEZvc2EgNDI=",
-      "classificationB64": "Q0lGUkFETyBDT04gQVNUUk9MQUJJTyAvLyBWQUxERUlSQS04OQ==",
-      "summaryB64": "RGVzcGFjaG8gcmVjdXBlcmFkbyBkZWwgcmVzcGFsZG8gbWFnbsOpdGljbyBkZSBNYXRlbyBSaXZhcyBzb2JyZSBlbCBjYXJnYW1lbnRvIHJlYWwgZGVsIE1WIEFycmVjaWZlLg==",
-      "bodyB64": "Q1JZUFRPR1JBTUEgUkVDVVBFUkFETzogWUhaTkdBVVoKCk5PVEEgREUgQ0FMSUJSQUNJw5NOIERFIE1BVEVPIFJJVkFTOgoiQWxpbWVudGEgZWwgQXN0cm9sYWJpbyBjb24gbGEgdHJhbnNtaXNpw7NuIGRlIGxhIHJhZGlvYmFsaXphIGF1eGlsaWFyIChIaWxvIEIpOiBhbGluZWEgbGEgZmxlY2hhIOKWsiDDjU5ESUNFIGRlbCBkaXNjbyBpbnRlcmlvciBjb24gbGEgUFJJTUVSQSBMRVRSQSBkZSBlc2EgcGFsYWJyYSBlbiBlbCBhbmlsbG8gZXh0ZXJpb3IsIHkgdHJhZHVjZSBkZSBEaXNjbyBJbnRlcmlvciBhIEFuaWxsbyBFeHRlcmlvci4i",
+      "titleB64": "RGVzcGFjaG8gQ2lmcmFkbyBkZSBFc3RhY2nDs24gwrcgUGlzbyBGcmFuY28gSGlzdMOzcmljbw==",
+      "classificationB64": "Q0lGUkFETyBESVNDTyBPUkxPSiAvLyBQUkFHQS04OQ==",
+      "summaryB64": "RGVzcGFjaG8gcmVjdXBlcmFkbyBkZWwgcmVzcGFsZG8gbWFnbsOpdGljbyBkZSBNYXJlayBOb3bDoWsgc29icmUgZWwgcmVmdWdpbyBlbGVnaWRvIHBvciBNYXJlYSBSb2phIGVuIGxhIFByYWdhIGFjdHVhbC4=",
+      "bodyB64": "Q1JZUFRPR1JBTUEgUkVDVVBFUkFETzogRUZUTVVRQgoKTk9UQSBERSBDQUxJQlJBQ0nDk04gREUgTUFSRUsgTk9Ww4FLOgoiQ2FsaWJyYSBlbCBEaXNjbyBkZWwgT3Jsb2ogY29uIGxhIHRyYW5zbWlzacOzbiBkZSBsYSBlbWlzb3JhIGF1eGlsaWFyIChIaWxvIEIpOiBhbGluZWEgbGEgZmxlY2hhIOKWsiDDjU5ESUNFIGRlbCBkaXNjbyBpbnRlcmlvciBjb24gbGEgUFJJTUVSQSBMRVRSQSBkZSBlc2EgcGFsYWJyYSBlbiBlbCBhbmlsbG8gZXh0ZXJpb3IsIHkgdHJhZHVjZSBkZSBEaXNjbyBJbnRlcmlvciBhIEFuaWxsbyBFeHRlcmlvci4i",
       "rowsB64": null
     },
     {
-      "queryHash": "8f7ec987779cc56198e2105e54b9cbef864458ee16811ad983f52046d62eecbf",
+      "queryHash": "58d12ca5503dc388713bcc10443b03f5dd408648cb65e86d098dc23010d96edb",
       "unlockAfter": "e4",
       "autoDiscover": true,
-      "codeB64": "Qk9ZQS04OS1F",
-      "titleB64": "RmljaGEgVMOpY25pY2EgZGUgQmFsaXphIEF1eGlsaWFyIEUtNCAoU2VjdG9yIENhYm8gVmFsZGVpcmEp",
+      "codeB64": "QkFMSVpBLTg5LUU=",
+      "titleB64": "RmljaGEgVMOpY25pY2EgZGUgQmFsaXphIEF1eGlsaWFyIEUtNCAoVG9ycmUgZGUgUGV0xZnDrW4gwrcgUHJhZ2Ep",
       "classificationB64": "TUFOVEVOSU1JRU5UTyBSQURJT0VMw4lDVFJJQ08gLy8gQUNUSVZP",
-      "summaryB64": "QmFsaXphIGluc3RhbGFkYSBjbGFuZGVzdGluYW1lbnRlIHBvciBNLiBSaXZhcyBlbiBhYnJpbCBkZSAxOTg5IHNvYnJlIGVzY29sbG8gZXh0ZXJpb3Iu",
-      "bodyB64": "UE9SVEFET1JBOiA0MTguNSBrSHogwrcgTU9EVUxBQ0nDk046IENXIE1vcnNlIDY4MCBIeiDCtyBSQU5HTzogQ2FibyBWYWxkZWlyYS4KT0JTRVJWQUNJw5NOOiBMYXMgYmFuZGFzIGFkeWFjZW50ZXMgcHJlc2VudGFuIGVzdMOhdGljYSBhdG1vc2bDqXJpY2Egc2V2ZXJhLiBTaW50b25pemEgY29uIHByZWNpc2nDs24gZXhhY3RhbWVudGUgZW4gNDE4LjUga0h6IGRlbnRybyBkZWwgUmVjZXB0b3IgZGUgUmFkaW9iYWxpemEgcGFyYSBmaWphciBsYSBzZcOxYWwu",
+      "summaryB64": "QmFsaXphIGluc3RhbGFkYSBlbiBzZWNyZXRvIHBvciBlbCBhZ2VudGUgTWFyZWsgTm92w6FrIGVuIDE5ODkgZGVudHJvIGRlbCByZXBldGlkb3Igc3VyIGRlIFBldMWZw61uLg==",
+      "bodyB64": "UE9SVEFET1JBOiA0MTguNSBrSHogwrcgTU9EVUxBQ0nDk046IENXIE1vcnNlIDY4MCBIeiDCtyBTRUNUT1I6IFByYWdhIChQZXTFmcOtbikuCk9CU0VSVkFDScOTTjogTGFzIGZyZWN1ZW5jaWFzIGFkeWFjZW50ZXMgZW1pdGVuIGVzdMOhdGljYSBhdG1vc2bDqXJpY2Egc2V2ZXJhLiBTaW50b25pemFkIGNvbiBwcmVjaXNpw7NuIGV4YWN0YW1lbnRlIGVuIDQxOC41IGtIeiBlbiBlbCBSZWNlcHRvciBkZSBSYWRpb2JhbGl6YS4=",
       "rowsB64": null
     },
     {
@@ -428,32 +428,32 @@ export const GAME_DATA = {
       "unlockAfter": "e6",
       "autoDiscover": false,
       "codeB64": "RVhQLUxMQVZFUy04OQ==",
-      "titleB64": "QXVkaXRvcsOtYSBFbGVjdHLDs25pY2EgZGUgQ2VycmFkdXJhcyBkZSBTZWd1cmlkYWQgwrcgVG9ycmUgUHJpbmNpcGFs",
-      "classificationB64": "Q09OVFJPTCBERSBBQ0NFU09TIC8vIDEz4oCTMTQgTk9WIDE5ODk=",
-      "summaryB64": "UmVnaXN0cm8gbWFnbsOpdGljbyBkZSBhcGVydHVyYSBkZSBsYSBwdWVydGEgYmxpbmRhZGEgcXVlIGRhIGFjY2VzbyBhbCBTZXJ2byBkZSBDw7pwdWxhLg==",
+      "titleB64": "QXVkaXRvcsOtYSBFbGVjdHLDs25pY2EgZGUgQ2VycmFkdXJhcyDCtyBFc3RhY2nDs24gUFJHLTg5",
+      "classificationB64": "Q09OVFJPTCBERSBBQ0NFU09TIC8vIDE34oCTMTggTk9WIDE5ODk=",
+      "summaryB64": "UmVnaXN0cm8gbWFnbsOpdGljbyBkZSBhcGVydHVyYSBkZSBsYSBwdWVydGEgYmxpbmRhZGEgcXVlIGRhIGFjY2VzbyBhbCBSZXBldGlkb3Igw5NwdGljbyBkZSBQZXTFmcOtbi4=",
       "bodyB64": null,
-      "rowsB64": "W1siMTg6MDIiLCJMTEFWRSBCLTEiLCJBcmNoaXZvIFTDqWNuaWNvIChQbGFudGEgMSkiLCJTYWxpZGEgcmVnaXN0cmFkYSBkZSBBLiBNw6luZGV6LVZpZGFsLiJdLFsiMjE6MzgiLCJMTEFWRSBBLTQiLCJBcmNoaXZvIENhcnRvZ3LDoWZpY28iLCJDaWVycmUgZGUgdHVybm8gZGUgRS4gU2FtcGVkcm8uIl0sWyIwMjowNCIsIkxMQVZFIEMtMSIsIlNhbGEgZGUgTW90b3JlcyAoU8OzdGFubykiLCJFbnRyYWRhIGRlIFIuIFNlb2FuZSB5IGFwcmVuZGl6IHBhcmEgcHVyZ2FyIGdlbmVyYWRvci4iXSxbIjAyOjA5IiwiTExBVkUgQi0yIiwiQ8O6cHVsYSBkZWwgU2Vydm8gKFRvcnJlKSIsIkFwZXJ0dXJhIGludGVyaW9yIGR1cmFudGUgZWwgdGVtcG9yYWwuIl0sWyIwMjo0NyIsIkxMQVZFIEItMiIsIkPDunB1bGEgZGVsIFNlcnZvIChUb3JyZSkiLCJDaWVycmUgZXh0ZXJpb3IgaW5tZWRpYXRhbWVudGUgdHJhcyByZXBvbmVyIGVsIGF6aW11dC4iXV0="
+      "rowsB64": "W1siMTg6MDIiLCJMTEFWRSBCLTEiLCJEZXNwYWNobyBDZW50cmFsIiwiU2FsaWRhIHJlZ2lzdHJhZGEgZGUgRHIuIFZpa3RvciBLb3bDocWZLiJdLFsiMjE6MzgiLCJMTEFWRSBBLTQiLCJBcmNoaXZvIGRlIE1pY3JvZmlsbXMiLCJDaWVycmUgZGUgdHVybm8gZGUgS2zDoXJhIFZlc2Vsw6EuIl0sWyIwMjowNCIsIkxMQVZFIEMtMSIsIlPDs3Rhbm8gZGVsIENhc3RpbGxvIiwiRW50cmFkYSBkZSBKYW4gRHZvxZnDoWsgeSBhcHJlbmRpeiBwYXJhIHB1cmdhciBnZW5lcmFkb3IuIl0sWyIwMjowOSIsIkxMQVZFIEItMiIsIlNhbGEgw5NwdGljYSAoVG9ycmUpIiwiQXBlcnR1cmEgaW50ZXJpb3IgZHVyYW50ZSBlbCBhcGFnw7NuIGRlbCBzZWN0b3IuIl0sWyIwMjo0NyIsIkxMQVZFIEItMiIsIlNhbGEgw5NwdGljYSAoVG9ycmUpIiwiQ2llcnJlIGV4dGVyaW9yIGlubWVkaWF0YW1lbnRlIHRyYXMgcmVwb25lciBlbCBhemltdXQuIl1d"
     },
     {
-      "queryHash": "deae23f7af4729328ff8cf8fa6c7374ce862e1dab4420b2cee625e2d06de587f",
+      "queryHash": "5b6f63c14d91f4eaeced5668d7d6ba1f3afb22cedc02cd120adf6d17ca8c1488",
       "unlockAfter": "e7",
       "autoDiscover": true,
-      "codeB64": "QklUQUNPUkEtTVI=",
-      "titleB64": "w5psdGltYSBFbnRyYWRhIGVuIEJpdMOhY29yYSBQcml2YWRhIMK3IE1hdGVvIFJpdmFz",
-      "classificationB64": "U0VMTE8gUEVSU09OQUwgTS5SLiAvLyBSRUNVUEVSQURP",
-      "summaryB64": "QW5vdGFjacOzbiBkZSBlbWVyZ2VuY2lhIGdyYWJhZGEgcG9yIE1hdGVvIFJpdmFzIGFudGVzIGRlIG9jdWx0YXJzZSBsYSBub2NoZSBkZWwgMTQgZGUgbm92aWVtYnJlLg==",
-      "bodyB64": "U0VDVUVOQ0lBIERFIFVCSUNBQ0nDk04gRsONU0lDQSAoUmVnbGFtZW50byBUw6ljbmljbyBkZSAxOTc5KToKM8K3NSDigJQgNcK3OCDigJQgN8K3MTIg4oCUIDHCtzEzIOKAlCA4wrcxMCDigJQgMsK3OCDigJQgNsK3OCDigJQgNMK3MTEKCkNMQVZFIERFIExFQ1RVUkE6IFByaW1lcmEgbGV0cmEgZGUgY2FkYSBwYWxhYnJhIChBcnTDrWN1bG8gwrcgUGFsYWJyYSkgZW4gbGEgSG9qYSAzQy4=",
+      "codeB64": "QklUQUNPUkEtTU4=",
+      "titleB64": "w5psdGltYSBFbnRyYWRhIGVuIEJpdMOhY29yYSBQcml2YWRhIMK3IEFnZW50ZSBNYXJlayBOb3bDoWs=",
+      "classificationB64": "U0VMTE8gUEVSU09OQUwgTS5OLiAvLyBSRUNVUEVSQURP",
+      "summaryB64": "QW5vdGFjacOzbiBkZSBlbWVyZ2VuY2lhIGRlamFkYSBwb3IgTm92w6FrIGVuIDE5ODkgYW50ZXMgZGUgYm9ycmFyIHN1IHJhc3RybyBlbiBQcmFnYS4=",
+      "bodyB64": "U0VDVUVOQ0lBIERFIFVCSUNBQ0nDk04gRsONU0lDQSAoTWFudWFsIGRlIE9wZXJhY2lvbmVzIGRlIDE5NzkpOgozwrc1IOKAlCA1wrc4IOKAlCA3wrcxMiDigJQgMcK3MTMg4oCUIDjCtzEwIOKAlCAywrc4IOKAlCA2wrc4IOKAlCA0wrcxMQoKQ0xBVkUgREUgTEVDVFVSQTogUHJpbWVyYSBsZXRyYSBkZSBjYWRhIHBhbGFicmEgKEFydMOtY3VsbyDCtyBQYWxhYnJhKSBlbiBsYSBIb2phIDNDLg==",
       "rowsB64": null
     },
     {
-      "queryHash": "4f117dca9678967c685bf136df5c93abc1d5e6b36a13252137b0014ecc7caafb",
+      "queryHash": "0be7e9b33a5706d0fc9012fd369a28c6f55588e192f8f57b2ee7ae3d08026967",
       "unlockAfter": "e9",
       "autoDiscover": false,
-      "codeB64": "RVhQLUNPTlNPUkNJTy04OQ==",
-      "titleB64": "RXhwZWRpZW50ZSBNZXJjYW50aWwgQ29uc29yY2lvIFZhbGRlaXJhIMK3IFDDs2xpemEgTVYgQXJyZWNpZmU=",
-      "classificationB64": "RVhQRURJRU5URSBORUdSTyAvLyBDT05GSURFTkNJQUw=",
-      "summaryB64": "UmVzdW1lbiBmaW5hbmNpZXJvIGRlIGxhIHDDs2xpemEgbWFyw610aW1hIHN1c2NyaXRhIHBvciBDb25zb3JjaW8gVmFsZGVpcmEgUy5BLiBjb24gTGxveWRzICYgQXRsw6FudGljYS4=",
-      "bodyB64": "QlVRVUUgQVNFR1VSQURPOiBNViBBcnJlY2lmZSAoQ2FyZ2EgZGVjbGFyYWRhOiBNYXF1aW5hcmlhIEFncsOtY29sYSkuCklOREVNTklaQUNJw5NOIFRPVEFMIENPQlJBREEgUE9SIFNJTklFU1RSTzogNDAuMDAwLjAwMCBQVEEuClBSRVNJREVOQ0lBIFkgRklSTUEgQVVUT1JJWkFEQSBERUwgQ09OU09SQ0lPOiBFbnJpcXVlIEJhbGJvYSAoSW5pY2lhbGVzIEUuQi4pLgpWSUNFUFJFU0lERU5DSUEgQURNSU5JU1RSQVRJVkE6IEFsZm9uc28gTGVtYSAoSW5pY2lhbGVzIEEuTC4pLgpDT01JU0nDk04gUEFDVEFEQSBFTiBUw4lMRVggSU5URVJWRU5JRE9TOiAxNSUgZGVsIHRvdGFsIGRlIGxhIHDDs2xpemEgZW4gZG9zIHRyYW1vcyBpZ3VhbGVzICh1bm8gYW50ZXMgZGVsIDEzLzExIHkgb3RybyBkZXNwdcOpcyku",
+      "codeB64": "RVhQLU1BUkVBLTg5",
+      "titleB64": "RXhwZWRpZW50ZSBGaW5hbmNpZXJvIMK3IEPDqWx1bGEgTWFyZWEgUm9qYSAoUHJhZ2EgMTk4OSk=",
+      "classificationB64": "RE9TU0lFUiBORUdSTyAvLyBDT05GSURFTkNJQUw=",
+      "summaryB64": "UmVnaXN0cm8gZGUgcGFnb3MgaW50ZXJjZXB0YWRvcyB0cmFzIGxhIGRlc2FydGljdWxhY2nDs24gaW5jb21wbGV0YSBkZSBsYSBjw6lsdWxhIGVuIG5vdmllbWJyZSBkZSAxOTg5Lg==",
+      "bodyB64": "Rk9ORE8gUkVTRVJWQURPIFRPVEFMIE1PVklMSVpBRE8gUE9SIE1BUkVBIFJPSkE6IDQwLjAwMC4wMDAgQ0hGLgpFTkxBQ0UgRklOQU5DSUVSTyBZIEZJUk1BIEFVVE9SSVpBREE6IEVtaWwgQmVuZcWhIChJbmljaWFsZXMgRS5CLikuCkRJUkVDQ0nDk04gQURKVU5UQTogQW50b27DrW4gTHVrw6HFoSAoSW5pY2lhbGVzIEEuTC4pLgpDT01JU0nDk04gUEFDVEFEQSBFTiBUw4lMRVggSU5URVJWRU5JRE9TOiAxNSUgZGVsIGZvbmRvIHRvdGFsIGVuIGRvcyB0cmFtb3MgaWd1YWxlcyAodW5vIGFudGVzIGRlbCAxNy8xMSB5IG90cm8gZGVzcHXDqXMpLg==",
       "rowsB64": null
     }
   ],
@@ -487,15 +487,15 @@ export const GAME_DATA = {
       "6"
     ],
     "faro": {
-      "name": "Faro Norte",
+      "name": "Foco de Petřín",
       "x": 300,
       "y": 94.12
     },
     "boya": {
-      "name": "Boya Este",
+      "name": "Baliza Orloj",
       "x": 383.87,
       "y": 296.59
     }
   },
-  "epilogueB64": "eyJoZWFkaW5nIjoiRVhQRURJRU5URSBERVNDTEFTSUZJQ0FETyDCtyBDQVNPIENBQk8gVkFMREVJUkEgUkVTVUVMVE8iLCJsZWFkIjoiRW5ob3JhYnVlbmEsIEZlciB5IEx1Y8OtYS4gSGFiw6lpcyByZWNvbnN0cnVpZG8gdG9kYSBsYSB2ZXJkYWQgb2N1bHRhIGJham8gZWwgbWVyaWRpYW5vIGRlIDE5ODkuIiwicGFyYWdyYXBocyI6WyJBbCBpbnRyb2R1Y2lyIGxhIGNsYXZlIEVTVEFWSVZPLTU3OTIsIGxhIGLDs3ZlZGEgZGlnaXRhbCBsaWJlcmEgbGFzIGFjdGFzIG9yaWdpbmFsZXMgbWljcm9maWxtYWRhcywgbG9zIGFsYmFyYW5lcyByZWFsZXMgZGUgY2FyZ2EgeSBsYSBncmFiYWNpw7NuIMOtbnRlZ3JhIGRlIE1hdGVvIFJpdmFzLiBUcmVpbnRhIHkgc2VpcyBiaWRvbmVzIGRlIHJlc2lkdW9zIG9yZ2Fub2Nsb3JhZG9zIGRlbCBDb25zb3JjaW8gVmFsZGVpcmEgdmlhamFiYW4gb2N1bHRvcyBjb21vIG1hcXVpbmFyaWEgYWdyw61jb2xhIGVuIGxhcyBib2RlZ2FzIGRlbCBNViBBcnJlY2lmZTsgc3UgcHJlc2lkZW50ZSwgRW5yaXF1ZSBCYWxib2EsIGNvbXByw7MgbWVkaWFudGUgbGEgY3VlbnRhIEdJQi03NzQyIGVsIHNpbGVuY2lvIHkgbGEgbWFubyBlamVjdXRvcmEgZGVsIGluZ2VuaWVybyBub2N0dXJubyBUb23DoXMgUXVpcm9nYSwgcXVpZW4gZGVzdmnDsyBsYSBsZW50ZSBub3J0ZSArMTTCsCBhIGxhcyAwMjoxNSBwYXJhIGFycm9qYXIgZWwgYnVxdWUgY29udHJhIGxhIEZvc2EgNDIuIiwiTWF0ZW8gUml2YXMgbm8gcGVyZWNpw7MgYXF1ZWxsYSBub2NoZS4gQWwgZGVzY3VicmlyIGxhIG1hbmlvYnJhIGVuIGxhIGPDunB1bGEsIHB1c28gYSBzYWx2byBsYXMgcGxhbmNoYXMgY2FydG9ncsOhZmljYXMgb3JpZ2luYWxlcyBkZW50cm8gZGUgbGEgY2lzdGVybmEgc2VsbGFkYSBlbiBlbCBjdWFkcmFudGUgQzQsIGFjdGl2w7MgbGEgYmFsaXphIGNsYW5kZXN0aW5hIGVuIDQxOC41IGtIeiB5IGRlasOzIGVzdGUgY2lyY3VpdG8gZGUgcHJ1ZWJhcyBwYXJhIHF1ZSBkb3MgaW52ZXN0aWdhZG9yZXMgY29uIHBhY2llbmNpYSwgdGlqZXJhcywgbHV6IHkgbcOpdG9kbyByZXVuaWVyYW4gbGFzIGN1YXRybyBwbGFuY2hhcyBkaXNwZXJzYXMuIiwiRW4gbGEgw7psdGltYSBsw61uZWEgZGVsIHJlZ2lzdHJvLCBmZWNoYWRhIGFwZW5hcyBkb3MgbWVzZXMgYXRyw6FzIGRlc2RlIHVuIGFwYXJ0YWRvIHBvc3RhbCBkZSBWaWdvLCBhcGFyZWNlIHVuYSDDum5pY2Egbm90YSBzaW4gZmlybWE6IFwiR3JhY2lhcyBwb3Igbm8gcmVuZGlyb3MgYSBvc2N1cmFzLCBGZXIgeSBMdWPDrWEuIEVsIGx1bmVzIGRlY2xhcmFyw6kgYW50ZSBlbCBqdXpnYWRvIGNvbiBsYXMgY29waWFzIG9yaWdpbmFsZXMuIOKAlCBNLlIuXCIiXX0="
+  "epilogueB64": "eyJoZWFkaW5nIjoiQUdFTkNJQSBYIENFTlRSQUwgwrcgREVTUExJRUdVRSBBIFBSQUdBIEFVVE9SSVpBRE8iLCJsZWFkIjoiRXhjZWxlbnRlIHRyYWJham8gZGUgY2FtcG8gZW4gbWVzYSwgQWdlbnRlcyBGIHkgTC4gT3BlcmFjacOzbiBQcmFnYSBDZXJvIGNvbXBsZXRhZGEgY29uIMOpeGl0by4iLCJwYXJhZ3JhcGhzIjpbIkFsIHZhbGlkYXIgTFVaVkVSREUtMDUwMSwgbGEgQsOzdmVkYSBDZXJvIHNlbGxhIGRlZmluaXRpdmFtZW50ZSBsYSBjdWVudGEgVklFLTc3NDIgZGUgRW1pbCBCZW5lxaEsIGNvbmZpcm1hIGxhIHRyYWljacOzbiBkZWwgdG9wbyBQYXZlbCBIb3LDoWsgZW4gVG9ycmUgZGUgUGV0xZnDrW4gKCsxNMKwIGEgbGFzIDAyOjE1KSB5IHJlY3VwZXJhIGxhcyBtYXRyaWNlcyBvcmlnaW5hbGVzIGVzY29uZGlkYXMgcG9yIE1hcmVrIE5vdsOhayBkZW50cm8gZGUgbGEgY2lzdGVybmEgc3VidGVycsOhbmVhIGJham8gSXNsYSBLYW1wYSAoY3VhZHJhbnRlIEM0KS4iLCJDb24gZWwgbm9kbyBoaXN0w7NyaWNvIG5ldXRyYWxpemFkbywgdnVlc3RyYSBjb2JlcnR1cmEgdHVyw61zdGljYSBxdWVkYSBjb21wbGV0YW1lbnRlIGxpbXBpYSBwYXJhIGVsIGRlc3BsYXphbWllbnRvIG9maWNpYWwgZGVsIDA1LzAxLzIwMjcgYWwgMDkvMDEvMjAyNyAodnVlbG9zIEZSOTc0NSAvIEZSOTc0NiBNw6FsYWdh4oCTUHJhZ2EpIHkgdnVlc3RyYSBiYXNlIG9wZXJhdGl2YSBlbiBlbCBEZW1pbmthIFBhbGFjZSAoxaBrcsOpdG92YSA2KSwgZG9uZGUgeWEgdHJhYmFqYXJvbiBudWVzdHJvcyBhZ2VudGVzIGVuIDE5ODkuIiwiw5psdGltbyBhbmV4byBkZSBBZ2VuY2lhIFggQ2VudHJhbCBhbnRlcyBkZSBoYWNlciBsYXMgbWFsZXRhczogYWRlbcOhcyBkZWwgUHVlbnRlIGRlIENhcmxvcywgZWwgUmVsb2ogQXN0cm9uw7NtaWNvLCBlbCBDYXN0aWxsbyB5IEpvc2Vmb3YsIHRlbsOpaXMgYXV0b3JpemFjacOzbiBkZSBOaXZlbCA1IHBhcmEgaW5maWx0cmFjacOzbiBpbnRlbnNpdmEgZW4gY2VydmVjZXLDrWFzIHRyYWRpY2lvbmFsZXMgY2hlY2FzLiBObyBvbHZpZMOpaXMgZWwgcGFyYWd1YXMuIOKAlCBEaXJlY2Npw7NuIENlbnRyYWwsIEFnZW5jaWEgWC4iXX0="
 };

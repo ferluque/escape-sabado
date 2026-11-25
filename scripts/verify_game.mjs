@@ -21,7 +21,6 @@ import {
   META_ORDER_SHAPES,
   MORSE_TABLE,
   NAUTICAL_CHART_SPEC,
-  PLATE_SEALS,
   PUZZLES,
   SEVEN_SEG_MAP,
   astrolabeDecode,
@@ -59,6 +58,7 @@ function startStaticDocsServer(docsDir) {
     '.json': 'application/json; charset=utf-8',
     '.svg': 'image/svg+xml',
     '.png': 'image/png',
+    '.woff2': 'font/woff2',
   };
   const server = http.createServer(async (req, res) => {
     try {
@@ -96,10 +96,10 @@ async function verifyLogicAndCryptography(kitHtml) {
   console.log('1/4 Auditando lógica y criptografía...');
 
   // 1.1 E1: Credencial desde Hoja 1A y Hoja 1B en el HTML real
-  assert.ok(kitHtml.includes('<div class="stamp-mini-code">CVL</div>'), 'Hoja 1A debe mostrar sigla CVL');
-  assert.ok(kitHtml.includes('<td><code>318</code></td>\n          <td>Torre Principal · Cúpula Norte</td>\n          <td>■ ACTIVA en servicio nocturno</td>'), 'Hoja 1A debe marcar Serie 318 activa');
-  assert.ok(kitHtml.includes('<td><code>T49</code></td>\n          <td>22:00 – 06:00</td>\n          <td>Tomás Quiroga</td>'), 'Hoja 1B debe marcar turno T49');
-  assert.equal(normalizeAnswer('CVL-318-T49'), normalizeAnswer(PUZZLES[0].answer));
+  assert.ok(kitHtml.includes('<div class="stamp-mini-code">PRG</div>'), 'Hoja 1A debe mostrar sigla PRG');
+  assert.ok(kitHtml.includes('<td><code>318</code></td>\n          <td>Torre de Petřín · Cúpula Norte</td>\n          <td>■ ACTIVO en enlace nocturno</td>'), 'Hoja 1A debe marcar Serie 318 activa');
+  assert.ok(kitHtml.includes('<td><code>T49</code></td>\n          <td>22:00 – 06:00</td>\n          <td>Pavel Horák</td>'), 'Hoja 1B debe marcar turno T49');
+  assert.equal(normalizeAnswer('PRG-318-T49'), normalizeAnswer(PUZZLES[0].answer));
 
   // 1.2 E3: Cruce de Hoja 1E (284°) con EXP-89-407 decodificado de game_data.js
   assert.ok(kitHtml.includes('<strong>284°</strong>'), 'Hoja 1E debe fijar azimut 284°');
@@ -115,40 +115,39 @@ async function verifyLogicAndCryptography(kitHtml) {
   const hhmm = anomalies[0][0].replace(':', '');
   assert.equal(`${devDeg}-${hhmm}`, '14-0215');
 
-  // 1.3 E5: Boya única en Hoja 2C + Morse decodificado desde game_data.js
+  // 1.3 E5: Baliza única en Hoja 2C + Morse decodificado desde game_data.js
   const matchingBuoys = BUOY_ROWS.filter(
     (b) =>
-      b.sector === 'Cabo Valdeira' &&
+      b.sector === 'Praga (Petřín)' &&
       b.freq.startsWith('4') &&
       b.mod === 'CW Morse' &&
       b.status.includes('Activa')
   );
-  assert.equal(matchingBuoys.length, 1, 'Debe existir exactamente una boya válida');
+  assert.equal(matchingBuoys.length, 1, 'Debe existir exactamente una baliza válida');
   assert.equal(matchingBuoys[0].freq, `${GAME_DATA.radio.targetFreqKHz.toFixed(1)} kHz`);
   const morseFromWeb = decodeB64Utf8(GAME_DATA.radio.morseB64);
   assert.equal(decodeMorse(morseFromWeb), 'TRAMPA');
-  // Verificar que todos los caracteres de TRAMPA están en la tabla impresa en kit_print.html
   for (const ch of 'TRAMPA') {
     assert.ok(kitHtml.includes(`<span class="morse-ch">${ch}</span>`), `Tabla Morse debe incluir ${ch}`);
   }
 
-  // 1.4 E6: Astrolabio con criptograma de DESPACHO-042 + primera letra de E5 ('T')
+  // 1.4 E6: Disco del Orloj con criptograma de DESPACHO-042 + primera letra de E5 ('T')
   const doc042 = GAME_DATA.archiveDocs.find((d) => d.queryHash === sha256Hex('despacho042'));
   assert.ok(doc042, 'DESPACHO-042 debe existir en GAME_DATA');
   const body042 = decodeB64Utf8(doc042.bodyB64);
   const matchCipher = body042.match(/CRYPTOGRAMA RECUPERADO:\s*([A-Z]+)/);
   assert.ok(matchCipher, 'DESPACHO-042 debe contener criptograma');
-  assert.equal(astrolabeDecode(matchCipher[1], 'TRAMPA'[0]), 'RESIDUOS');
+  assert.equal(astrolabeDecode(matchCipher[1], 'TRAMPA'[0]), 'DEMINKA');
 
   // 1.5 E7: Auditoría EXP-LLAVES-89 confirma LLAVE B-2 y cruce en Hoja 3A/3B
   const docKeys = GAME_DATA.archiveDocs.find((d) => d.queryHash === sha256Hex('expllaves89'));
   const rowsKeys = JSON.parse(decodeB64Utf8(docKeys.rowsB64));
-  const cupolaUses = rowsKeys.filter((r) => r[2].includes('Cúpula del Servo'));
+  const cupolaUses = rowsKeys.filter((r) => r[2].includes('Sala Óptica'));
   assert.equal(cupolaUses.length, 2);
   assert.ok(cupolaUses.every((r) => r[1] === 'LLAVE B-2'));
-  assert.ok(kitHtml.includes('<strong>Tomás Quiroga</strong>'), 'Recibo #19 debe señalar a Tomás Quiroga');
+  assert.ok(kitHtml.includes('<strong>Pavel Horák</strong>'), 'Recibo #19 debe señalar a Pavel Horák');
 
-  // 1.6 E8: Cifrado de libro parseado directamente desde los <div class="article-row"> del HTML impreso!
+  // 1.6 E8: Cifrado de libro parseado directamente desde los <div class="article-row"> del HTML impreso
   const articleRegex = /<span class="art-num">Art\.\s*(\d+)\.<\/span>\s*<span class="art-body">([\s\S]*?)<\/span><\/div>/g;
   const parsedArticles = new Map();
   let m;
@@ -159,10 +158,11 @@ async function verifyLogicAndCryptography(kitHtml) {
   }
   assert.equal(parsedArticles.size, 8, 'Hoja 3C debe contener exactamente 8 artículos');
 
-  const docBitacora = GAME_DATA.archiveDocs.find((d) => d.queryHash === sha256Hex('bitacoramr'));
+  const docBitacora = GAME_DATA.archiveDocs.find((d) => d.queryHash === sha256Hex('bitacoramn'));
+  assert.ok(docBitacora, 'BITACORA-MN debe existir en GAME_DATA');
   const bodyBitacora = decodeB64Utf8(docBitacora.bodyB64);
   const coordMatches = [...bodyBitacora.matchAll(/(\d+)·(\d+)/g)].map((x) => [Number(x[1]), Number(x[2])]);
-  assert.equal(coordMatches.length, 8, 'BITACORA-MR debe contener 8 coordenadas');
+  assert.equal(coordMatches.length, 8, 'BITACORA-MN debe contener 8 coordenadas');
   const bookWord = coordMatches
     .map(([a, w]) => {
       const word = parsedArticles.get(a)?.[w - 1];
@@ -172,7 +172,7 @@ async function verifyLogicAndCryptography(kitHtml) {
     .join('');
   assert.equal(bookWord, 'CISTERNA');
 
-  // 1.7 E9: Triangulación geométrica de Carta Náutica en GAME_DATA
+  // 1.7 E9: Triangulación geométrica de Mapa Táctico en GAME_DATA
   const { faro, boya, originX, originY, cellSize, cols, rows } = GAME_DATA.nautical;
   const fRad = (210 * Math.PI) / 180;
   const bRad = (285 * Math.PI) / 180;
@@ -187,20 +187,21 @@ async function verifyLogicAndCryptography(kitHtml) {
   assert.equal(`${cols[cIdx]}${rows[rIdx]}`, 'C4');
   assert.ok(Math.hypot(ix - NAUTICAL_CHART_SPEC.targetCenter.x, iy - NAUTICAL_CHART_SPEC.targetCenter.y) < 0.05);
 
-  // 1.8 E10: Consorcio + cuentas bancarias
-  const docCons = GAME_DATA.archiveDocs.find((d) => d.queryHash === sha256Hex('expconsorcio89'));
+  // 1.8 E10: Marea Roja + cuentas bancarias
+  const docCons = GAME_DATA.archiveDocs.find((d) => d.queryHash === sha256Hex('expmarea89'));
+  assert.ok(docCons, 'EXP-MAREA-89 debe existir en GAME_DATA');
   const bodyCons = decodeB64Utf8(docCons.bodyB64);
-  assert.ok(bodyCons.includes('40.000.000 PTA') && bodyCons.includes('E.B.'));
+  assert.ok(bodyCons.includes('40.000.000 CHF') && bodyCons.includes('E.B.'));
   const validBanks = BANK_ACCOUNTS.filter(
     (b) =>
       b.firma === 'E.B.' &&
-      b.tramo1.startsWith('3.000.000 PTA') &&
-      b.tramo2.startsWith('3.000.000 PTA') &&
-      Number(b.tramo1.match(/\((\d{2})\/11\)/)[1]) < 13 &&
-      Number(b.tramo2.match(/\((\d{2})\/11\)/)[1]) > 13
+      b.tramo1.startsWith('3.000.000 CHF') &&
+      b.tramo2.startsWith('3.000.000 CHF') &&
+      Number(b.tramo1.match(/\((\d{2})\/11\)/)[1]) < 17 &&
+      Number(b.tramo2.match(/\((\d{2})\/11\)/)[1]) > 17
   );
   assert.equal(validBanks.length, 1);
-  assert.equal(validBanks[0].id, 'GIB-7742');
+  assert.equal(validBanks[0].id, 'VIE-7742');
 
   // 1.9 E11: Consola de Relés única entre las 64 combinaciones
   const validRelays = [];
@@ -223,12 +224,12 @@ async function verifyLogicAndCryptography(kitHtml) {
     return found;
   });
   const digitSum = orderedSeals.reduce((acc, s) => acc + Number(s.code.split('-')[1]), 0);
-  assert.equal(digitSum, 23);
+  assert.equal(digitSum, 6);
   const sectorLetter = ASTROLABE_OUTER[digitSum - 1];
-  assert.equal(sectorLetter, 'W');
+  assert.equal(sectorLetter, 'F');
   const cipher8 = orderedSeals.map((s) => s.code.split('-')[0]).join('');
   const digits4 = orderedSeals.map((s) => s.code.split('-')[1]).join('');
-  assert.equal(`${astrolabeDecode(cipher8, sectorLetter)}-${digits4}`, 'ESTAVIVO-5792');
+  assert.equal(`${astrolabeDecode(cipher8, sectorLetter)}-${digits4}`, 'LUZVERDE-0501');
 }
 
 // ============================================================================
@@ -236,10 +237,9 @@ async function verifyLogicAndCryptography(kitHtml) {
 // ============================================================================
 
 async function verifyGeometryAndSvg(pagePrint) {
-  console.log('2/4 Auditando geometría SVG de Cardano, Fold-In, Astrolabio y Contraluz...');
+  console.log('2/4 Auditando geometría SVG de Cardano, Fold-In, Disco Orloj y Contraluz...');
 
   const geo = await pagePrint.evaluate(() => {
-    // A. Cardano
     const baseSvg = document.getElementById('cardano-base-svg');
     const maskSvg = document.getElementById('cardano-mask-svg');
     const baseRegs = Array.from(baseSvg.querySelectorAll('.reg-mark')).map((g) => ({
@@ -266,7 +266,6 @@ async function verifyGeometryAndSvg(pagePrint) {
       h: Number(r.getAttribute('height')),
     }));
 
-    // B. Fold-in
     const foldSvg = document.getElementById('fold-in-svg');
     const foldAX = Number(foldSvg.querySelector('[data-fold-line="A"]').getAttribute('x1'));
     const foldBX = Number(foldSvg.querySelector('[data-fold-line="B"]').getAttribute('x1'));
@@ -280,14 +279,12 @@ async function verifyGeometryAndSvg(pagePrint) {
         .map((pt) => pt.split(',').map(Number)),
     }));
 
-    // C. Astrolabio
     const outerSvg = document.getElementById('astrolabe-outer-svg');
     const innerSvg = document.getElementById('astrolabe-inner-svg');
     const outerChars = Array.from(outerSvg.querySelectorAll('text[data-outer-char]')).map((t) => t.getAttribute('data-outer-char')).join('');
     const innerChars = Array.from(innerSvg.querySelectorAll('text[data-inner-char]')).map((t) => t.getAttribute('data-inner-char')).join('');
     const cutRadius = Number(innerSvg.querySelector('[data-cut-circle="true"]').getAttribute('data-radius'));
 
-    // D. Contraluz (SVG + posición real relativa a su .sheet)
     const clA = document.getElementById('contraluz-a-svg');
     const clB = document.getElementById('contraluz-b-svg');
     const sheetA = clA.closest('.sheet').getBoundingClientRect();
@@ -312,16 +309,8 @@ async function verifyGeometryAndSvg(pagePrint) {
         baseCells,
         cutouts,
       },
-      fold: {
-        foldAX,
-        foldBX,
-        foldPolys,
-      },
-      astrolabe: {
-        outerChars,
-        innerChars,
-        cutRadius,
-      },
+      fold: { foldAX, foldBX, foldPolys },
+      astrolabe: { outerChars, innerChars, cutRadius },
       contraluz: {
         vbA: clA.getAttribute('viewBox'),
         vbB: clB.getAttribute('viewBox'),
@@ -352,7 +341,7 @@ async function verifyGeometryAndSvg(pagePrint) {
     .join('');
   assert.equal(revealed, 'EXP89407');
 
-  // Validar Fold-In
+  // Validar Fold-In (ARCO 42)
   const shift = geo.fold.foldBX - geo.fold.foldAX;
   assert.equal(shift, 64);
   for (const g of FOLD_SPEC.glyphs) {
@@ -366,7 +355,6 @@ async function verifyGeometryAndSvg(pagePrint) {
       .map(([x, y]) => [x - shift, y])
       .filter(([x]) => Math.abs(x - geo.fold.foldAX) < 0.01);
 
-    // Todo punto en el eje de unión de la izquierda debe coincidir con un punto en y de la derecha (<0.01mm)
     for (const [, ly] of leftPts) {
       assert.ok(
         rightPts.some(([, ry]) => Math.abs(ly - ry) < 0.01),
@@ -375,7 +363,7 @@ async function verifyGeometryAndSvg(pagePrint) {
     }
   }
 
-  // Validar Astrolabio
+  // Validar Disco del Orloj
   assert.equal(geo.astrolabe.outerChars, ASTROLABE_OUTER);
   assert.equal(geo.astrolabe.innerChars, ASTROLABE_INNER);
   assert.equal(new Set(geo.astrolabe.innerChars).size, 26);
@@ -410,20 +398,19 @@ async function verifyGeometryAndSvg(pagePrint) {
 async function verifyHashesZeroSpoilersAndBW() {
   console.log('3/4 Auditando hashes SHA-256, cero spoilers en /docs y compatibilidad B/N...');
 
-  // Comparar pure-JS sha256 + normalización de docs/app.js con Node crypto
   const variantInputs = {
-    e1: ['CVL-318-T49', 'cvl 318 t49', ' CVL318T49 '],
+    e1: ['PRG-318-T49', 'prg 318 t49', ' PRG318T49 '],
     e2: ['EXP-89-407', 'exp 89 407'],
     e3: ['14-0215', '14 0215'],
-    e4: ['FOSA-42', 'fosa 42'],
+    e4: ['ARCO-42', 'arco 42'],
     e5: ['TRAMPA', 'trámpa'],
-    e6: ['RESIDUOS', 'residuos'],
-    e7: ['Tomás Quiroga', 'tomas quIroga', 'TOMASQUIROGA'],
+    e6: ['DEMINKA', 'deminka'],
+    e7: ['Pavel Horák', 'pavel horak', 'PAVELHORAK'],
     e8: ['CISTERNA', 'cisterna'],
     e9: ['210-285-C4', '210 285 c4'],
-    e10: ['GIB-7742', 'gib 7742'],
+    e10: ['VIE-7742', 'vie 7742'],
     e11: ['100011-IV', '100011 iv'],
-    e12: ['ESTAVIVO-5792', 'estavivo 5792'],
+    e12: ['LUZVERDE-0501', 'luzverde 0501'],
   };
 
   for (const p of PUZZLES) {
@@ -439,29 +426,28 @@ async function verifyHashesZeroSpoilersAndBW() {
     }
   }
 
-  // Verificar cero respuestas/spoilers literales en /docs/*
   const docsFiles = ['index.html', 'styles.css', 'app.js', 'game_data.js'];
   const forbiddenLiterals = [
-    'CVL-318-T49',
-    'cvl318t49',
+    'PRG-318-T49',
+    'prg318t49',
     'EXP-89-407',
     '14-0215',
-    'FOSA-42',
+    'ARCO-42',
     'TRAMPA',
-    'RESIDUOS',
-    'Tomás Quiroga',
-    'tomasquiroga',
+    'DEMINKA',
+    'Pavel Horák',
+    'pavelhorak',
     'CISTERNA',
     '210-285-C4',
-    'GIB-7742',
+    'VIE-7742',
     '100011-IV',
-    'ESTAVIVO-5792',
-    'estavivo5792',
-    'YHZNGAUZ',
+    'LUZVERDE-0501',
+    'luzverde0501',
+    'EFTMUQB',
     'DESPACHO-042',
     'EXP-LLAVES-89',
-    'BITACORA-MR',
-    'EXP-CONSORCIO-89',
+    'BITACORA-MN',
+    'EXP-MAREA-89',
   ];
   for (const fname of docsFiles) {
     const txt = await fs.readFile(path.join(ROOT, 'docs', fname), 'utf8');
@@ -473,12 +459,14 @@ async function verifyHashesZeroSpoilersAndBW() {
     }
   }
 
-  // Verificar .gitignore protege SOLUCIONES_NO_ABRIR.md
   const gitignore = await fs.readFile(path.join(ROOT, '.gitignore'), 'utf8');
   assert.ok(gitignore.includes('SOLUCIONES_NO_ABRIR.md'), '.gitignore debe incluir SOLUCIONES_NO_ABRIR.md');
   await fs.access(path.join(ROOT, 'docs', '.nojekyll'));
+  await fs.access(path.join(ROOT, 'docs', 'assets', 'agencia-x-logo.png'));
+  await fs.access(path.join(ROOT, 'docs', 'assets', 'agencia-x-icon.png'));
+  await fs.access(path.join(ROOT, 'docs', 'assets', 'fonts', 'JetBrainsMono-Regular.woff2'));
+  await fs.access(path.join(ROOT, 'docs', 'assets', 'fonts', 'JetBrainsMono-Bold.woff2'));
 
-  // Verificar GUIA_PREPARACION_SIN_SPOILERS.md libre de respuestas
   const guide = await fs.readFile(path.join(ROOT, 'GUIA_PREPARACION_SIN_SPOILERS.md'), 'utf8');
   for (const lit of forbiddenLiterals) {
     assert.ok(!guide.includes(lit), `Guía sin spoilers no puede contener "${lit}"`);
@@ -488,7 +476,6 @@ async function verifyHashesZeroSpoilersAndBW() {
   assert.ok(guide.includes('Páginas 15 a 22'));
   assert.ok(guide.includes('Páginas 23 a 28'));
 
-  // Verificar compatibilidad B/N-safe en los elementos clave
   assert.ok(!JSON.stringify(PUZZLES).includes('el botón rojo'), 'No depender solo de color');
 }
 
@@ -499,7 +486,6 @@ async function verifyHashesZeroSpoilersAndBW() {
 async function verifyPdfAndE2E(browser) {
   console.log('4/4 Auditando PDF con pdf-lib y ejecutando recorrido completo E2E en Chrome...');
 
-  // 4.1 PDF con pdf-lib
   const pdfPath = path.join(ROOT, 'imprimir', 'KIT_ESCAPE_ROOM.pdf');
   const pdfBytes = await fs.readFile(pdfPath);
   assert.ok(pdfBytes.length > 100_000, 'El PDF debe superar 100 KB');
@@ -511,7 +497,6 @@ async function verifyPdfAndE2E(browser) {
     assert.ok(Math.abs(sz.height - 841.89) < 4, `Página ${i + 1} alto A4 esperado (~842pt), got ${sz.height}`);
   }
 
-  // 4.2 Servidor estático sobre /docs y recorrido E2E completo
   const { server, baseUrl } = await startStaticDocsServer(path.join(ROOT, 'docs'));
   try {
     const context = await browser.newContext({ viewport: { width: 1280, height: 860 } });
@@ -527,18 +512,18 @@ async function verifyPdfAndE2E(browser) {
     await page.goto(baseUrl, { waitUntil: 'networkidle' });
     await page.screenshot({ path: path.join(ROOT, 'tmp', 'qa', 'web_intro.png') });
 
-    // Comenzar investigación
+    // Activar protocolo
     await page.click('#btn-start');
     await page.waitForSelector('#workspace-screen:not([hidden])');
     assert.ok((await page.textContent('#envelope-tag')).includes('SOBRE 1'));
 
-    // Probar Pausar y Reanudar el temporizador
+    // Pausar y reanudar reloj
     await page.click('#btn-pause');
     assert.equal(await page.textContent('#timer-mode-label'), 'Pausado');
     await page.click('#btn-pause');
     assert.equal(await page.textContent('#timer-mode-label'), 'Restante');
 
-    // Probar rechazo de clave errónea
+    // Rechazo de clave falsa
     const e1Card = page.locator('.puzzle-card[data-puzzle-id="e1"]');
     await e1Card.locator('input').fill('CLAVE-FALSA-000');
     await e1Card.locator('button[type="submit"]').click();
@@ -553,8 +538,7 @@ async function verifyPdfAndE2E(browser) {
     };
 
     // Acto I
-    await solveInCard('e1', 'CVL-318-T49');
-    // Consultar EXP-89-407 en el Terminal Digital
+    await solveInCard('e1', 'PRG-318-T49');
     await page.click('#tab-archive');
     await page.fill('#archive-input', 'EXP-89-407');
     await page.click('#archive-form button[type="submit"]');
@@ -566,7 +550,7 @@ async function verifyPdfAndE2E(browser) {
     await solveInCard('e3', '14-0215');
     assert.ok((await page.textContent('#envelope-tag')).includes('SOBRE 2'));
 
-    // Acto II: Probar Receptor Web Audio en 418.5 kHz
+    // Acto II: Receptor Web Audio en 418.5 kHz
     await page.click('#tab-radio');
     await page.fill('#radio-slider', '418.5');
     await page.dispatchEvent('#radio-slider', 'input');
@@ -576,17 +560,15 @@ async function verifyPdfAndE2E(browser) {
     await page.click('#radio-stop-btn');
     await page.click('[data-tab="cases"]');
 
-    // Hilos paralelos A y B en Acto II
-    await solveInCard('e4', 'FOSA-42');
-    // Confirmar que e6 sigue bloqueado antes de e5
+    await solveInCard('e4', 'ARCO-42');
     const e6LockedBefore = await page.locator('.puzzle-card[data-puzzle-id="e6"].locked').count();
     assert.equal(e6LockedBefore, 1, 'e6 debe permanecer bloqueado hasta resolver tanto Hilo A como Hilo B');
     await solveInCard('e5', 'TRAMPA');
-    await solveInCard('e6', 'RESIDUOS');
+    await solveInCard('e6', 'DEMINKA');
     assert.ok((await page.textContent('#envelope-tag')).includes('SOBRE 3'));
 
-    // Acto III: Hilo A (e7 -> BITACORA-MR -> e8) + Hilo B (Carta Náutica interactiva -> e9)
-    await solveInCard('e7', 'Tomás Quiroga');
+    // Acto III: Hilo A + Hilo B (Mapa Táctico Praga)
+    await solveInCard('e7', 'Pavel Horák');
     await solveInCard('e8', 'CISTERNA');
 
     await page.click('#tab-nautical');
@@ -601,12 +583,12 @@ async function verifyPdfAndE2E(browser) {
     await page.waitForSelector('.puzzle-card[data-puzzle-id="e9"].solved');
     assert.ok((await page.textContent('#envelope-tag')).includes('SOBRE 4'));
 
-    // Probar persistencia en localStorage tras recarga de página
+    // Persistencia localStorage
     await page.reload({ waitUntil: 'networkidle' });
     assert.equal(await page.textContent('#progress-counter'), '9 / 12');
 
-    // Acto IV: e10 + Consola de Relés interactiva (e11)
-    await solveInCard('e10', 'GIB-7742');
+    // Acto IV
+    await solveInCard('e10', 'VIE-7742');
     await page.click('#tab-relays');
     await page.click('.relay-switch[data-relay-idx="0"]'); // R1 ON
     await page.click('.relay-switch[data-relay-idx="4"]'); // R5 ON
@@ -618,7 +600,7 @@ async function verifyPdfAndE2E(browser) {
     await page.click('[data-tab="cases"]');
     await page.waitForSelector('.puzzle-card[data-puzzle-id="e11"].solved');
 
-    // Probar las 3 pistas en e12 (incluyendo diálogo Nivel 3)
+    // 3 niveles de pistas + Meta-Puzle Final
     const e12Card = page.locator('.puzzle-card[data-puzzle-id="e12"]');
     const hintBtns = e12Card.locator('.hints-buttons button');
     await hintBtns.nth(0).click();
@@ -627,15 +609,14 @@ async function verifyPdfAndE2E(browser) {
     await page.click('#confirm-accept');
     assert.equal(await e12Card.locator('.hint-box').count(), 3);
 
-    // Resolver Meta-Puzle Final (transiciona directo a #epilogue-screen)
-    await e12Card.locator('input').fill('ESTAVIVO-5792');
+    await e12Card.locator('input').fill('LUZVERDE-0501');
     await e12Card.locator('button[type="submit"]').click();
     await page.waitForSelector('#epilogue-screen:not([hidden])');
     assert.equal(await page.textContent('#final-solved'), '12 / 12');
     assert.equal(await page.textContent('#final-hints'), '3');
     await page.screenshot({ path: path.join(ROOT, 'tmp', 'qa', 'web_epilogue.png') });
 
-    // Comprobar vista móvil 390x844 sin desbordamiento horizontal
+    // Vista móvil 390x844 sin overflow horizontal
     await page.setViewportSize({ width: 390, height: 844 });
     await page.click('#btn-reset-end');
     await page.click('#confirm-accept');
@@ -656,10 +637,6 @@ async function verifyPdfAndE2E(browser) {
     server.close();
   }
 }
-
-// ============================================================================
-// MAIN
-// ============================================================================
 
 async function main() {
   const printHtmlPath = path.join(ROOT, 'tmp', 'kit_print.html');

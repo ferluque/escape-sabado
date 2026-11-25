@@ -3,53 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>El Meridiano Borrado · Consola Cabo Valdeira (1989)</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1218'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23d8a354' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%235cc4b3'/%3E%3C/svg%3E" />
+  <title>AGENCIA X · CANAL SEGURO · OPERACIÓN PRAGA CERO</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23050607'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23ff2b3d' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23ffb020'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="flash" id="flash" aria-hidden="true"></div>
+
   <div class="app-shell">
     <!-- BARRA SUPERIOR DE ESTADO -->
     <header class="topbar" id="topbar" hidden>
       <div class="topbar-brand">
+        <img class="topbar-logo" src="./assets/agencia-x-logo.png" alt="Agencia X" />
         <span class="beacon-dot" aria-hidden="true"></span>
         <div>
-          <div class="brand-title" id="top-title">El Meridiano Borrado</div>
-          <div class="brand-sub" id="top-status">Sesión: Fer y Lucía · Sobre 1 activo</div>
+          <div class="brand-title" id="top-title">OPERACIÓN PRAGA CERO</div>
+          <div class="brand-sub" id="top-status">CANAL SEGURO · NIVEL 5 · AGENTES F Y L</div>
         </div>
       </div>
 
       <div class="topbar-controls">
         <div class="stat-pill">
-          <span class="stat-label">Progreso</span>
+          <span class="stat-label">PROGRESO</span>
           <strong id="progress-counter">0 / 12</strong>
         </div>
         <div class="stat-pill timer-pill" id="timer-box">
           <span class="stat-label" id="timer-mode-label">Restante</span>
-          <strong id="timer-display" class="mono">120:00</strong>
+          <strong id="timer-display">120:00</strong>
         </div>
         <button type="button" class="btn btn-ghost" id="btn-pause" title="Pausar o reanudar temporizador">Pausar</button>
-        <button type="button" class="btn btn-ghost" id="btn-journal" title="Ver diario de descubrimientos">Diario</button>
+        <button type="button" class="btn btn-ghost" id="btn-journal" title="Ver diario de misión">Diario</button>
       </div>
     </header>
 
-    <!-- PANTALLA DE BIENVENIDA -->
-    <main id="intro-screen" class="intro-view">
-      <article class="dossier-card">
-        <div class="dossier-eyebrow">PARTICIÓN AUXILIAR REACTIVADA · ARCHIVO CABO VALDEIRA</div>
-        <h1 id="intro-title">El Meridiano Borrado</h1>
+    <!-- PANTALLA DE BIENVENIDA ESTILO AGENCIA X -->
+    <main id="intro-screen" class="stage intro-view">
+      <div class="eyebrow">AGENCIA X <span>·</span> CANAL SEGURO <span>·</span> NIVEL 5</div>
+      <img class="logo" src="./assets/agencia-x-logo.png" alt="Agencia X" />
+
+      <div class="emblem" aria-hidden="true">
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="ring r3"></div>
+        <svg viewBox="0 0 72 72">
+          <circle cx="36" cy="36" r="10" fill="none" stroke="#ff2b3d" stroke-width="1.5"/>
+          <circle cx="36" cy="36" r="3" fill="#ffb020"/>
+          <line x1="36" y1="6" x2="36" y2="20" stroke="#ff2b3d" stroke-width="1"/>
+          <line x1="36" y1="52" x2="36" y2="66" stroke="#ff2b3d" stroke-width="1"/>
+          <line x1="6" y1="36" x2="20" y2="36" stroke="#ff2b3d" stroke-width="1"/>
+          <line x1="52" y1="36" x2="66" y2="36" stroke="#ff2b3d" stroke-width="1"/>
+        </svg>
+      </div>
+
+      <div class="title-row">
+        <img class="title-icon" src="./assets/agencia-x-icon.png" alt="" />
+        <h1 class="glitch" id="intro-title">OPERACIÓN PRAGA CERO</h1>
+        <img class="title-icon" src="./assets/agencia-x-icon.png" alt="" />
+      </div>
+      <div class="status-line">ESTADO: ESPERANDO ACTIVACIÓN DE CAMPO<span class="cursor">_</span></div>
+
+      <article class="decrypt-box">
         <p class="intro-greeting" id="intro-greeting"></p>
         <div id="intro-paragraphs" class="intro-copy"></div>
-
         <div class="intro-checklist">
-          <div class="check-item"><strong>Antes de pulsar comenzar:</strong> Tened sobre la mesa el <strong>Sobre 1 cerrado</strong>, tijeras, bolígrafos, linterna del móvil y volumen encendido.</div>
-          <div class="check-item"><strong>Regla de sobres:</strong> No abráis los Sobres 2, 3 ni 4 hasta que esta consola os muestre el aviso correspondiente.</div>
-        </div>
-
-        <div class="intro-actions">
-          <button type="button" class="btn btn-primary btn-lg" id="btn-start">Comenzar investigación</button>
+          <div class="check-item"><strong>EQUIPO EN MESA:</strong> Sobre 1 cerrado, tijeras, bolígrafos, linterna del móvil y volumen encendido.</div>
+          <div class="check-item"><strong>PROTOCOLO DE SOBRES:</strong> No abráis los Sobres 2, 3 ni 4 hasta recibir orden expresa del Canal Seguro.</div>
         </div>
       </article>
+
+      <div class="intro-actions">
+        <button type="button" class="btn btn-primary btn-lg" id="btn-start">▶ Activar protocolo</button>
+      </div>
+
+      <div class="foot"><span class="dot"></span>Transmisión cifrada · <span class="sign">-- AGENCIA X CENTRAL --</span></div>
     </main>
 
     <!-- ESPACIO DE TRABAJO PRINCIPAL -->
@@ -64,16 +91,16 @@
       </div>
 
       <!-- PESTAÑAS DIEGÉTICAS -->
-      <nav class="console-tabs" aria-label="Módulos de la consola">
-        <button type="button" class="tab-btn active" data-tab="cases">Expediente y Retos</button>
+      <nav class="console-tabs" aria-label="Módulos del Canal Seguro">
+        <button type="button" class="tab-btn active" data-tab="cases">Misión y Retos</button>
         <button type="button" class="tab-btn" data-tab="archive" id="tab-archive" disabled>
-          Terminal de Archivo <span class="tab-lock" id="lock-archive">Bloqueado</span>
+          Terminal Seguro <span class="tab-lock" id="lock-archive">Bloqueado</span>
         </button>
         <button type="button" class="tab-btn" data-tab="radio" id="tab-radio" disabled>
           Receptor Radiobaliza <span class="tab-lock" id="lock-radio">Sobre 2</span>
         </button>
         <button type="button" class="tab-btn" data-tab="nautical" id="tab-nautical" disabled>
-          Carta Náutica <span class="tab-lock" id="lock-nautical">Sobre 3</span>
+          Mapa Táctico Praga <span class="tab-lock" id="lock-nautical">Sobre 3</span>
         </button>
         <button type="button" class="tab-btn" data-tab="relays" id="tab-relays" disabled>
           Consola de Relés <span class="tab-lock" id="lock-relays">Sobre 4</span>
@@ -90,8 +117,9 @@
       <div class="tab-panel" id="panel-archive" hidden>
         <div class="module-card">
           <div class="module-head">
-            <h2>Terminal de Archivo Digital · Cabo Valdeira</h2>
-            <p>Introducid la referencia exacta de cualquier expediente o registro descubierto en el papel o desbloqueado durante la partida.</p>
+            <div class="test-label">Canal Seguro · Base de Datos PRG-89</div>
+            <h2>Terminal de Inteligencia</h2>
+            <p>Introducid la referencia exacta de cualquier expediente o registro descubierto en los documentos físicos o desbloqueado durante la misión.</p>
           </div>
           <form id="archive-form" class="archive-search">
             <label for="archive-input" class="sr-only">Referencia de expediente</label>
@@ -108,15 +136,16 @@
       <div class="tab-panel" id="panel-radio" hidden>
         <div class="module-card">
           <div class="module-head">
-            <h2>Receptor de Radiobaliza Costera · Banda 400 kHz</h2>
-            <p>Ajustad la frecuencia de la baliza filtrada en la Hoja 2C. El sistema sintetiza en tiempo real la portadora CW Morse o la estática atmosférica.</p>
+            <div class="test-label">Intercepción Radioeléctrica · Banda 400 kHz</div>
+            <h2>Receptor de Radiobaliza</h2>
+            <p>Ajustad la frecuencia filtrada en la Hoja 2C. El sistema sintetiza en tiempo real la portadora CW Morse o la estática atmosférica.</p>
           </div>
 
           <div class="radio-deck">
             <div class="radio-readout-row">
               <div class="freq-display">
                 <span class="freq-label">FRECUENCIA SINTONIZADA</span>
-                <strong id="radio-freq-val" class="mono">400.0 kHz</strong>
+                <strong id="radio-freq-val">400.0 kHz</strong>
                 <span id="radio-carrier-badge" class="carrier-badge">ESTÁTICA ATMOSFÉRICA</span>
               </div>
               <div class="signal-visuals">
@@ -144,53 +173,54 @@
             </div>
 
             <div class="morse-live-note">
-              <span>Consejo de escucha: Cuando sintonicéis la frecuencia exacta, oiréis un tono limpio de 680 Hz repetido tras una pausa larga y podréis observar cada punto y raya en la lámpara y el osciloscopio.</span>
+              <span>Cuando sintonicéis la frecuencia exacta, oiréis un tono limpio de 680 Hz repetido tras una pausa larga acompañado por la lámpara y el osciloscopio.</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- PANEL 4: CARTA NÁUTICA INTERACTIVA -->
+      <!-- PANEL 4: MAPA TÁCTICO DE PRAGA -->
       <div class="tab-panel" id="panel-nautical" hidden>
         <div class="module-card">
           <div class="module-head">
-            <h2>Carta Náutica Interactiva · Triangulación de Demoras</h2>
-            <p>Ajustad las demoras magnéticas obtenidas al trasluz para el <strong>Faro Norte (F)</strong> y la <strong>Boya Este (B)</strong>, observad su intersección y haced clic en el cuadrante exacto (<code>A1–F6</code>).</p>
+            <div class="test-label">Localización Táctica · Sector Moldava</div>
+            <h2>Mapa Táctico de Praga</h2>
+            <p>Ajustad los rumbos magnéticos revelados al trasluz para el <strong>Foco de Petřín (F)</strong> y la <strong>Baliza Orloj (B)</strong>, observad su intersección y haced clic en el cuadrante exacto (<code>A1–F6</code>).</p>
           </div>
 
           <div class="nautical-layout">
             <div class="nautical-svg-wrap">
-              <svg id="nautical-svg" viewBox="0 0 480 420" role="img" aria-label="Carta náutica interactiva A1 a F6"></svg>
+              <svg id="nautical-svg" viewBox="0 0 480 420" role="img" aria-label="Mapa táctico de Praga A1 a F6"></svg>
             </div>
 
             <div class="nautical-controls">
               <div class="dial-box">
-                <label for="faro-bearing">Demora Faro Norte (F): <strong id="faro-bearing-val" class="mono">180°</strong></label>
+                <label for="faro-bearing">Rumbo Foco de Petřín (F): <strong id="faro-bearing-val">180°</strong></label>
                 <div class="dial-inputs">
                   <input type="range" id="faro-bearing" min="0" max="359" value="180" />
-                  <input type="number" id="faro-bearing-num" min="0" max="359" value="180" class="num-input mono" />
+                  <input type="number" id="faro-bearing-num" min="0" max="359" value="180" class="num-input" />
                 </div>
               </div>
 
               <div class="dial-box">
-                <label for="boya-bearing">Demora Boya Este (B): <strong id="boya-bearing-val" class="mono">270°</strong></label>
+                <label for="boya-bearing">Rumbo Baliza Orloj (B): <strong id="boya-bearing-val">270°</strong></label>
                 <div class="dial-inputs">
                   <input type="range" id="boya-bearing" min="0" max="359" value="270" />
-                  <input type="number" id="boya-bearing-num" min="0" max="359" value="270" class="num-input mono" />
+                  <input type="number" id="boya-bearing-num" min="0" max="359" value="270" class="num-input" />
                 </div>
               </div>
 
               <div class="selected-cell-box">
-                <span>Cuadrante seleccionado en carta:</span>
-                <strong id="nautical-selected-cell" class="mono">Ninguno (clic en cuadrícula)</strong>
+                <span>Cuadrante seleccionado:</span>
+                <strong id="nautical-selected-cell">Ninguno (clic en cuadrícula)</strong>
               </div>
 
               <div class="selected-cell-box">
                 <span>Código compuesto:</span>
-                <strong id="nautical-preview-code" class="mono">180-270-?</strong>
+                <strong id="nautical-preview-code">180-270-?</strong>
               </div>
 
-              <button type="button" class="btn btn-primary" id="btn-submit-nautical">Fijar triangulación en Reto 3.C</button>
+              <button type="button" class="btn btn-primary" id="btn-submit-nautical">Fijar triangulación (3.C)</button>
               <div id="nautical-feedback" class="feedback-line" aria-live="polite"></div>
             </div>
           </div>
@@ -201,8 +231,9 @@
       <div class="tab-panel" id="panel-relays" hidden>
         <div class="module-card">
           <div class="module-head">
-            <h2>Consola de Enclavamiento · Relés R1–R6 y Selector de Fase</h2>
-            <p>Configurad los seis interruptores y la fase según las condiciones eléctricas de las Hojas 4B y 4C antes de energizar Bóveda Cero.</p>
+            <div class="test-label">Enclavamiento Eléctrico · Bóveda Cero</div>
+            <h2>Consola de Relés R1–R6</h2>
+            <p>Configurad los seis interruptores y el selector de fase según las condiciones de las Hojas 4B y 4C antes de energizar Bóveda Cero.</p>
           </div>
 
           <div class="relays-rack">
@@ -219,13 +250,13 @@
             </div>
 
             <div class="voltmeter-bar">
-              <div>Relés activos: <strong id="relay-active-count" class="mono">0</strong></div>
-              <div>Suma de índices activos: <strong id="relay-index-sum" class="mono">0 V</strong></div>
-              <div>Combinación actual: <strong id="relay-preview-code" class="mono">000000-I</strong></div>
+              <div>Relés activos: <strong id="relay-active-count">0</strong></div>
+              <div>Suma de índices: <strong id="relay-index-sum">0 V</strong></div>
+              <div>Combinación actual: <strong id="relay-preview-code">000000-I</strong></div>
             </div>
 
             <div class="relay-actions">
-              <button type="button" class="btn btn-primary" id="btn-submit-relays">Energizar Bóveda Cero (Reto 4.2)</button>
+              <button type="button" class="btn btn-primary" id="btn-submit-relays">Energizar Bóveda Cero (4.2)</button>
               <div id="relays-feedback" class="feedback-line" aria-live="polite"></div>
             </div>
           </div>
@@ -233,46 +264,78 @@
       </div>
     </section>
 
-    <!-- PANTALLA FINAL (EPÍLOGO) -->
-    <section id="epilogue-screen" class="epilogue-view" hidden>
-      <article class="dossier-card epilogue-card">
-        <div class="dossier-eyebrow" id="epilogue-eyebrow">EXPEDIENTE DESCLASIFICADO</div>
-        <h1 id="epilogue-heading">Caso Cerrado</h1>
-        <p class="epilogue-lead" id="epilogue-lead"></p>
+    <!-- PANTALLA FINAL (EPÍLOGO) ESTILO FASE-FINAL DE AGENCIA X -->
+    <section id="epilogue-screen" class="stage epilogue-view" hidden>
+      <div class="eyebrow" id="epilogue-eyebrow">AGENCIA X <span>·</span> ÓRDENES DE DESPLIEGUE</div>
+      <img class="logo" src="./assets/agencia-x-logo.png" alt="Agencia X" />
 
-        <div class="epilogue-stats">
-          <div class="e-stat">
-            <span>Tiempo total</span>
-            <strong id="final-time" class="mono">00:00</strong>
-          </div>
-          <div class="e-stat">
-            <span>Pistas usadas</span>
-            <strong id="final-hints" class="mono">0</strong>
-          </div>
-          <div class="e-stat">
-            <span>Enigmas resueltos</span>
-            <strong id="final-solved" class="mono">12 / 12</strong>
-          </div>
+      <div class="title-row">
+        <img class="title-icon" src="./assets/agencia-x-icon.png" alt="" />
+        <h1 class="glitch" id="epilogue-heading">OPERACIÓN PRAGA CERO</h1>
+        <img class="title-icon" src="./assets/agencia-x-icon.png" alt="" />
+      </div>
+      <div class="subtitle" id="epilogue-lead"></div>
+
+      <div class="epilogue-stats">
+        <div class="e-stat">
+          <span>Tiempo total</span>
+          <strong id="final-time">00:00</strong>
         </div>
+        <div class="e-stat">
+          <span>Pistas usadas</span>
+          <strong id="final-hints">0</strong>
+        </div>
+        <div class="e-stat">
+          <span>Enigmas resueltos</span>
+          <strong id="final-solved">12 / 12</strong>
+        </div>
+      </div>
 
+      <article class="decrypt-box epilogue-copy-box">
         <div id="epilogue-paragraphs" class="intro-copy"></div>
-
-        <div class="epilogue-footer">
-          <button type="button" class="btn btn-ghost btn-sm" id="btn-view-journal-end">Revisar diario del caso</button>
-          <button type="button" class="btn btn-danger-outline btn-sm" id="btn-reset-end">Reiniciar partida</button>
-        </div>
       </article>
+
+      <!-- TARJETA DE VUELO ESTILO AGENCIA X / FASE-FINAL -->
+      <div class="ticket" aria-label="Orden de desplazamiento a Praga">
+        <div class="ticket-head">
+          <div class="ticket-tag">Vuelo de despliegue autorizado</div>
+          <div class="ticket-flightno">FR9745 · PRAGA</div>
+        </div>
+        <div class="ticket-route">
+          <div class="ticket-city">
+            <div class="ticket-code">AGP</div>
+            <div class="ticket-cityname">Málaga</div>
+          </div>
+          <div class="ticket-plane"><div class="line"></div><div class="icon">✈</div><div class="line"></div></div>
+          <div class="ticket-city">
+            <div class="ticket-code">PRG</div>
+            <div class="ticket-cityname">Praga</div>
+          </div>
+        </div>
+        <div class="ticket-details">
+          <div>SALIDA<b>05/01/2027</b></div>
+          <div>REGRESO<b>09/01/2027</b></div>
+          <div>ESTADO<b>LUZ VERDE</b></div>
+        </div>
+      </div>
+
+      <div class="epilogue-footer">
+        <button type="button" class="btn btn-ghost btn-sm" id="btn-view-journal-end">Revisar diario de misión</button>
+        <button type="button" class="btn btn-danger-outline btn-sm" id="btn-reset-end">Reiniciar misión</button>
+      </div>
+
+      <div class="foot">Fin de la transmisión.<br><span class="sign">-- AGENCIA X CENTRAL --</span></div>
     </section>
 
     <!-- MODAL DE DIARIO Y REINICIO DISCRETO -->
     <dialog id="journal-modal" class="console-modal">
       <div class="modal-head">
-        <h3>Diario de Descubrimientos · Fer y Lucía</h3>
+        <h3>Diario de Misión · Agentes F y L</h3>
         <button type="button" class="btn btn-ghost btn-sm" id="btn-close-journal">Cerrar</button>
       </div>
       <div id="journal-entries" class="journal-list"></div>
       <div class="modal-foot">
-        <button type="button" class="btn btn-danger-outline btn-sm" id="btn-reset-game">Reiniciar partida completa</button>
+        <button type="button" class="btn btn-danger-outline btn-sm" id="btn-reset-game">Reiniciar misión completa</button>
       </div>
     </dialog>
 
