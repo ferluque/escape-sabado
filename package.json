@@ -1,0 +1,14 @@
+{
+  "name": "el-meridiano-borrado",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build_kit.mjs",
+    "verify": "node scripts/verify_game.mjs"
+  },
+  "devDependencies": {
+    "pdf-lib": "^1.17.1",
+    "playwright-core": "^1.52.0"
+  }
+}
